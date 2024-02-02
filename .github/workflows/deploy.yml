@@ -14,7 +14,7 @@ jobs:
         with:
           node-version: "20"
       - name: Install pnpm
-        run: npm install -g pnpm@7.5.0
+        run: npm install -g pnpm
       - name: Install Dependencies
         run: pnpm install
       - name: Build
