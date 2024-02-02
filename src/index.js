@@ -16,17 +16,6 @@ const runSDK = ({
   defaultListeners(vapi, button, color, assistant);
 
   document.body.appendChild(button);
-
-  window.vapiSDK.on = vapi.on;
-  window.vapiSDK.on("message", (message) => {
-    console.log("inside message", message);
-  });
-
-  vapi.on("message", (message) => {
-    console.log("inside message", message);
-  });
-
-  return vapi;
 };
 
 window.vapiSDK = {
