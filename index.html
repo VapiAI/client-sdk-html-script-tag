@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Vite App</title>
   </head>
-  <body bgcolor="gray">
+  <body>
     <div id="app">Hi there</div>
     <script>
       const assistant = {
@@ -19,7 +19,7 @@
           provider: "11labs",
           voiceId: "paula",
         },
-        firstMessage: "Hi, I am Vapi how can I assist you today?"
+        firstMessage: "Hi, I am Vapi how can I assist you today?",
       };
 
       (function (d, t) {
@@ -35,7 +35,7 @@
           window.vapiSDK.run({
             apiKey: "",
             assistant: assistant,
-            position: "bottom-right",
+            position: "bottom",
             color: `rgb(93, 254, 202)`,
           });
         };
