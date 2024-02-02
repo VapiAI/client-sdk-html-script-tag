@@ -1,7 +1,57 @@
+const insertStyleSheet = () => {
+  const styleSheet = document.createElement("style");
+  styleSheet.innerText = `
+    @keyframes bounce {
+      30% {
+        transform: translateY(0%);
+      }
+      40% {
+        transform: translateY(-5%);
+      }
+      50% {
+        transform: translateY(-10%);
+      }
+      60% {
+        transform: translateY(-5%);
+      }
+      70% {
+        transform: translateY(0%);
+      }
+    }
+
+    .vapi-btn {
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      color: white;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s ease-in-out;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: absolute;
+      animation: bounce 2s ease-in-out infinite;
+    }
+    .vapi-btn:hover {
+      animation: none;
+      transform: translateY(-5px);
+    }
+
+    .vapi-btn-is-active,
+    .vapi-btn-is-loading,
+    .vapi-btn-is-speaking {
+      animation: none;
+    }
+  `;
+  document.head.appendChild(styleSheet);
+};
+
 const createButtonElement = (
   { position = "bottom", color = `rgb(93, 254, 202)` },
   id = "vapi-support-btn"
 ) => {
+  insertStyleSheet();
   var positionConfig = (offset = "20px") => ({
     "bottom-right": `bottom: ${offset};right: ${offset};`,
     "bottom-left": `bottom: ${offset};left: ${offset};`,
