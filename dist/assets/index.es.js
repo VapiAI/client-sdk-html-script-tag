@@ -5499,7 +5499,9 @@ const eh = ({
   offset: o = "40px"
 }) => {
   const s = new Kd(e), c = Zd({ position: r, color: n, offset: o });
-  Xd(s, c, n, t), document.body.appendChild(c), window.vapiSDK.on = s.on;
+  Xd(s, c, n, t), document.body.appendChild(c), window.vapiSDK.on = s.on, window.vapiSDK.on("message", (u) => {
+    console.log("inside message", u);
+  });
 };
 window.vapiSDK = {
   run: eh

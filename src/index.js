@@ -8,7 +8,7 @@ const runSDK = ({
   assistant = defaultAssistant(),
   position = "bottom",
   color = `rgb(93, 254, 202)`,
-  offset = "40px"
+  offset = "40px",
 }) => {
   const vapi = new Vapi(apiKey);
   const button = createButtonElement({ position, color, offset });
@@ -18,6 +18,9 @@ const runSDK = ({
   document.body.appendChild(button);
 
   window.vapiSDK.on = vapi.on;
+  window.vapiSDK.on("message", (message) => {
+    console.log("inside message", message);
+  });
 };
 
 window.vapiSDK = {
