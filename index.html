@@ -12,7 +12,7 @@
       (function (d, t) {
         var g = document.createElement(t),
           s = d.getElementsByTagName(t)[0];
-        g.src = "./src/index.js";
+        g.src = "./dist/index.umd.js";
         g.type = "module";
         g.defer = true;
         g.async = true;
@@ -20,7 +20,7 @@
 
         g.onload = function () {
           window.vapiSDK.run({
-            apiKey: "8715a061-bf71-48ac-a4b6-52a95a15a6b8",
+            apiKey: "",
           });
           console.log("hello world script loaded");
         };
