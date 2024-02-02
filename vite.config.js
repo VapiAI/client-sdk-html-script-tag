@@ -5,10 +5,8 @@ export default defineConfig({
     lib: {
       entry: "src/index.js",
       name: "index",
-      fileName: (format) => `index.${format}.js`,
-    },
-    rollupOptions: {
-      // If there are no external dependencies, you can remove this section
+      fileName: (format) =>
+        format === "umd" ? `index.js` : `index.${format}.js`,
     },
   },
 });
