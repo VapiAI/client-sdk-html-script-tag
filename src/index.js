@@ -21,6 +21,12 @@ const runSDK = ({
   window.vapiSDK.on("message", (message) => {
     console.log("inside message", message);
   });
+
+  vapi.on("message", (message) => {
+    console.log("inside message", message);
+  });
+
+  return vapi;
 };
 
 window.vapiSDK = {
