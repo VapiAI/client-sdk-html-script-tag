@@ -5,13 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Vite App</title>
   </head>
-  <body>
+  <body bgcolor="gray">
     <div id="app">Hi there</div>
     <script>
+      const assistant = {
+        model: {
+          provider: "openai",
+          model: "gpt-3.5-turbo",
+          systemPrompt:
+            "You're a versatile AI assistant named Vapi who is fun to talk with.",
+        },
+        voice: {
+          provider: "11labs",
+          voiceId: "paula",
+        },
+        firstMessage: "Hi, I am Vapi how can I assist you today?"
+      };
+
       (function (d, t) {
         var g = document.createElement(t),
           s = d.getElementsByTagName(t)[0];
-        g.src = "https://cdn.jsdelivr.net/gh/VapiAI/vapi-support-sdk/dist/assets/index.js";
+        g.src =
+          "https://cdn.jsdelivr.net/gh/VapiAI/vapi-support-sdk/dist/assets/index.js";
         g.defer = true;
         g.async = true;
         s.parentNode.insertBefore(g, s);
@@ -19,8 +34,10 @@
         g.onload = function () {
           window.vapiSDK.run({
             apiKey: "",
+            assistant: assistant,
+            position: "bottom-right",
+            color: `rgb(93, 254, 202)`,
           });
-          console.log("hello world script loaded");
         };
       })(document, "script");
     </script>

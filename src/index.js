@@ -8,9 +8,10 @@ const runSDK = ({
   assistant = defaultAssistant(),
   position = "bottom",
   color = `rgb(93, 254, 202)`,
+  offset = "40px"
 }) => {
   const vapi = new Vapi(apiKey);
-  const button = createButtonElement({ position, color });
+  const button = createButtonElement({ position, color, offset });
 
   defaultListeners(vapi, button, color, assistant);
 
