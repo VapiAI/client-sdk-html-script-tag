@@ -128,7 +128,8 @@ The SDK exposes several CSS classes that can be targeted for custom styling. Her
 - `.vapi-btn-is-active`: The class for the Vapi button when the call is active.
 - `.vapi-btn-is-loading`: The class for the Vapi button when the call is connecting.
 - `.vapi-btn-is-speaking`: The class for the Vapi button when the bot is speaking.
-- `.vapi-btn-pill`: The class for Vapi button to use pill like style.
+- `.vapi-btn-pill`: The class for Vapi button to set pill variant.
+- `.vapi-btn-round`: The class for Vapi button to set round variant.
 
 You can add custom styles to these classes to match the look and feel of your website. These are exposed in case u need some more customisations besides the `position`, `color` and `offset` config available currently.
 
