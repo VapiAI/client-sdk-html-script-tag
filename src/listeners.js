@@ -1,29 +1,27 @@
-export function defaultListeners(vapi, button, color, assistant) {
+export function defaultListeners(vapi, button, assistant, buttonStateHandler) {
   let isActiveCall = false;
   let isLoading = false;
 
-  function toggleCall() {
+  console.log("buttonStateHanlder", buttonStateHandler);
+
+  const toggleCall = () => {
     isLoading = true;
-    button.classList.add("vapi-btn-is-loading");
+    buttonStateHandler(button, "loading");
     if (isActiveCall) {
       vapi.stop();
       isActiveCall = false;
     } else {
       vapi.start(assistant);
       isActiveCall = true;
-      button.style.boxShadow = `1px 1px 80px 20px ${color}`;
     }
-  }
+  };
 
   vapi.on("call-start", () => {
-    button.classList.remove("vapi-btn-is-loading");
-    button.classList.add("vapi-btn-is-active");
+    buttonStateHandler(button, "active");
   });
 
   vapi.on("call-end", () => {
-    button.classList.remove("vapi-btn-is-loading");
-    button.classList.remove("vapi-btn-is-active");
-    button.style.boxShadow = `1px 1px 10px ${color}`;
+    buttonStateHandler(button, "idle");
   });
 
   vapi.on("speech-start", () => {
@@ -36,8 +34,10 @@ export function defaultListeners(vapi, button, color, assistant) {
 
   button.addEventListener("click", toggleCall);
   vapi.on("volume-level", (audioLevel) => {
-    button.style.boxShadow = `1px 1px ${10 + audioLevel * 40}px ${
-      audioLevel * 30
-    }px ${color}, inset 0px 0px 10px 0px rgba(0,0,0,0.1)`;
+    const volume = Math.floor(audioLevel * 10);
+    for (let i = 0; i <= 10; i++) {
+      button.classList.remove(`vapi-btn-volume-${i}`);
+    }
+    button.classList.add(`vapi-btn-volume-${volume}`);
   });
 }

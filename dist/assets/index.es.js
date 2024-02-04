@@ -1,8 +1,8 @@
-var ao = Object.defineProperty;
-var oo = (e, t, r) => t in e ? ao(e, t, { enumerable: !0, configurable: !0, writable: !0, value: r }) : e[t] = r;
-var V = (e, t, r) => (oo(e, typeof t != "symbol" ? t + "" : t, r), r);
+var oo = Object.defineProperty;
+var so = (e, t, r) => t in e ? oo(e, t, { enumerable: !0, configurable: !0, writable: !0, value: r }) : e[t] = r;
+var V = (e, t, r) => (so(e, typeof t != "symbol" ? t + "" : t, r), r);
 var Lr = typeof globalThis < "u" ? globalThis : typeof window < "u" ? window : typeof global < "u" ? global : typeof self < "u" ? self : {};
-function so(e) {
+function co(e) {
   if (e.__esModule)
     return e;
   var t = e.default;
@@ -23,8 +23,8 @@ function so(e) {
     });
   }), r;
 }
-var oi = {};
-function co(e, t) {
+var si = {};
+function lo(e, t) {
   if (e == null)
     return {};
   var r, n, a = function(c, u) {
@@ -76,7 +76,7 @@ function j(e) {
     return t && typeof Symbol == "function" && t.constructor === Symbol && t !== Symbol.prototype ? "symbol" : typeof t;
   }, j(e);
 }
-function si(e) {
+function ci(e) {
   var t = function(r, n) {
     if (j(r) !== "object" || r === null)
       return r;
@@ -94,7 +94,7 @@ function si(e) {
 function Ir(e, t) {
   for (var r = 0; r < t.length; r++) {
     var n = t[r];
-    n.enumerable = n.enumerable || !1, n.configurable = !0, "value" in n && (n.writable = !0), Object.defineProperty(e, si(n.key), n);
+    n.enumerable = n.enumerable || !1, n.configurable = !0, "value" in n && (n.writable = !0), Object.defineProperty(e, ci(n.key), n);
   }
 }
 function Z(e, t, r) {
@@ -128,7 +128,7 @@ function K(e) {
   }, K(e);
 }
 function ge(e, t, r) {
-  return (t = si(t)) in e ? Object.defineProperty(e, t, { value: r, enumerable: !0, configurable: !0, writable: !0 }) : e[t] = r, e;
+  return (t = ci(t)) in e ? Object.defineProperty(e, t, { value: r, enumerable: !0, configurable: !0, writable: !0 }) : e[t] = r, e;
 }
 function jr(e, t) {
   (t == null || t > e.length) && (t = e.length);
@@ -177,14 +177,14 @@ function Se(e, t) {
 In order to be iterable, non-array objects must have a [Symbol.iterator]() method.`);
   }();
 }
-var ci, et = typeof globalThis < "u" ? globalThis : typeof window < "u" ? window : typeof global < "u" ? global : typeof self < "u" ? self : {}, le = {}, lo = { get exports() {
+var li, et = typeof globalThis < "u" ? globalThis : typeof window < "u" ? window : typeof global < "u" ? global : typeof self < "u" ? self : {}, le = {}, uo = { get exports() {
   return le;
 }, set exports(e) {
   le = e;
 } }, Ie = typeof Reflect == "object" ? Reflect : null, Dr = Ie && typeof Ie.apply == "function" ? Ie.apply : function(e, t, r) {
   return Function.prototype.apply.call(e, t, r);
 };
-ci = Ie && typeof Ie.ownKeys == "function" ? Ie.ownKeys : Object.getOwnPropertySymbols ? function(e) {
+li = Ie && typeof Ie.ownKeys == "function" ? Ie.ownKeys : Object.getOwnPropertySymbols ? function(e) {
   return Object.getOwnPropertyNames(e).concat(Object.getOwnPropertySymbols(e));
 } : function(e) {
   return Object.getOwnPropertyNames(e);
@@ -192,10 +192,10 @@ ci = Ie && typeof Ie.ownKeys == "function" ? Ie.ownKeys : Object.getOwnPropertyS
 var Nr = Number.isNaN || function(e) {
   return e != e;
 };
-function A() {
-  A.init.call(this);
+function E() {
+  E.init.call(this);
 }
-lo.exports = A, le.once = function(e, t) {
+uo.exports = E, le.once = function(e, t) {
   return new Promise(function(r, n) {
     function a(c) {
       e.removeListener(t, s), n(c);
@@ -207,32 +207,32 @@ lo.exports = A, le.once = function(e, t) {
       typeof c.on == "function" && Ur(c, "error", u, d);
     }(e, a, { once: !0 });
   });
-}, A.EventEmitter = A, A.prototype._events = void 0, A.prototype._eventsCount = 0, A.prototype._maxListeners = void 0;
+}, E.EventEmitter = E, E.prototype._events = void 0, E.prototype._eventsCount = 0, E.prototype._maxListeners = void 0;
 var Rr = 10;
 function at(e) {
   if (typeof e != "function")
     throw new TypeError('The "listener" argument must be of type Function. Received type ' + typeof e);
 }
-function li(e) {
-  return e._maxListeners === void 0 ? A.defaultMaxListeners : e._maxListeners;
+function ui(e) {
+  return e._maxListeners === void 0 ? E.defaultMaxListeners : e._maxListeners;
 }
 function Fr(e, t, r, n) {
   var a, s, c, u;
   if (at(r), (s = e._events) === void 0 ? (s = e._events = /* @__PURE__ */ Object.create(null), e._eventsCount = 0) : (s.newListener !== void 0 && (e.emit("newListener", t, r.listener ? r.listener : r), s = e._events), c = s[t]), c === void 0)
     c = s[t] = r, ++e._eventsCount;
-  else if (typeof c == "function" ? c = s[t] = n ? [r, c] : [c, r] : n ? c.unshift(r) : c.push(r), (a = li(e)) > 0 && c.length > a && !c.warned) {
+  else if (typeof c == "function" ? c = s[t] = n ? [r, c] : [c, r] : n ? c.unshift(r) : c.push(r), (a = ui(e)) > 0 && c.length > a && !c.warned) {
     c.warned = !0;
     var d = new Error("Possible EventEmitter memory leak detected. " + c.length + " " + String(t) + " listeners added. Use emitter.setMaxListeners() to increase limit");
     d.name = "MaxListenersExceededWarning", d.emitter = e, d.type = t, d.count = c.length, u = d, console && console.warn && console.warn(u);
   }
   return e;
 }
-function uo() {
+function ho() {
   if (!this.fired)
     return this.target.removeListener(this.type, this.wrapFn), this.fired = !0, arguments.length === 0 ? this.listener.call(this.target) : this.listener.apply(this.target, arguments);
 }
 function xr(e, t, r) {
-  var n = { fired: !1, wrapFn: void 0, target: e, type: t, listener: r }, a = uo.bind(n);
+  var n = { fired: !1, wrapFn: void 0, target: e, type: t, listener: r }, a = ho.bind(n);
   return a.listener = r, n.wrapFn = a, a;
 }
 function Vr(e, t, r) {
@@ -244,7 +244,7 @@ function Vr(e, t, r) {
     for (var c = new Array(s.length), u = 0; u < c.length; ++u)
       c[u] = s[u].listener || s[u];
     return c;
-  }(a) : ui(a, a.length);
+  }(a) : di(a, a.length);
 }
 function Br(e) {
   var t = this._events;
@@ -257,7 +257,7 @@ function Br(e) {
   }
   return 0;
 }
-function ui(e, t) {
+function di(e, t) {
   for (var r = new Array(t), n = 0; n < t; ++n)
     r[n] = e[n];
   return r;
@@ -273,21 +273,21 @@ function Ur(e, t, r, n) {
     });
   }
 }
-Object.defineProperty(A, "defaultMaxListeners", { enumerable: !0, get: function() {
+Object.defineProperty(E, "defaultMaxListeners", { enumerable: !0, get: function() {
   return Rr;
 }, set: function(e) {
   if (typeof e != "number" || e < 0 || Nr(e))
     throw new RangeError('The value of "defaultMaxListeners" is out of range. It must be a non-negative number. Received ' + e + ".");
   Rr = e;
-} }), A.init = function() {
+} }), E.init = function() {
   this._events !== void 0 && this._events !== Object.getPrototypeOf(this)._events || (this._events = /* @__PURE__ */ Object.create(null), this._eventsCount = 0), this._maxListeners = this._maxListeners || void 0;
-}, A.prototype.setMaxListeners = function(e) {
+}, E.prototype.setMaxListeners = function(e) {
   if (typeof e != "number" || e < 0 || Nr(e))
     throw new RangeError('The value of "n" is out of range. It must be a non-negative number. Received ' + e + ".");
   return this._maxListeners = e, this;
-}, A.prototype.getMaxListeners = function() {
-  return li(this);
-}, A.prototype.emit = function(e) {
+}, E.prototype.getMaxListeners = function() {
+  return ui(this);
+}, E.prototype.emit = function(e) {
   for (var t = [], r = 1; r < arguments.length; r++)
     t.push(arguments[r]);
   var n = e === "error", a = this._events;
@@ -308,20 +308,20 @@ Object.defineProperty(A, "defaultMaxListeners", { enumerable: !0, get: function(
   if (typeof u == "function")
     Dr(u, this, t);
   else {
-    var d = u.length, f = ui(u, d);
+    var d = u.length, f = di(u, d);
     for (r = 0; r < d; ++r)
       Dr(f[r], this, t);
   }
   return !0;
-}, A.prototype.addListener = function(e, t) {
+}, E.prototype.addListener = function(e, t) {
   return Fr(this, e, t, !1);
-}, A.prototype.on = A.prototype.addListener, A.prototype.prependListener = function(e, t) {
+}, E.prototype.on = E.prototype.addListener, E.prototype.prependListener = function(e, t) {
   return Fr(this, e, t, !0);
-}, A.prototype.once = function(e, t) {
+}, E.prototype.once = function(e, t) {
   return at(t), this.on(e, xr(this, e, t)), this;
-}, A.prototype.prependOnceListener = function(e, t) {
+}, E.prototype.prependOnceListener = function(e, t) {
   return at(t), this.prependListener(e, xr(this, e, t)), this;
-}, A.prototype.removeListener = function(e, t) {
+}, E.prototype.removeListener = function(e, t) {
   var r, n, a, s, c;
   if (at(t), (n = this._events) === void 0)
     return this;
@@ -344,7 +344,7 @@ Object.defineProperty(A, "defaultMaxListeners", { enumerable: !0, get: function(
     }(r, a), r.length === 1 && (n[e] = r[0]), n.removeListener !== void 0 && this.emit("removeListener", e, c || t);
   }
   return this;
-}, A.prototype.off = A.prototype.removeListener, A.prototype.removeAllListeners = function(e) {
+}, E.prototype.off = E.prototype.removeListener, E.prototype.removeAllListeners = function(e) {
   var t, r, n;
   if ((r = this._events) === void 0)
     return this;
@@ -362,16 +362,16 @@ Object.defineProperty(A, "defaultMaxListeners", { enumerable: !0, get: function(
     for (n = t.length - 1; n >= 0; n--)
       this.removeListener(e, t[n]);
   return this;
-}, A.prototype.listeners = function(e) {
+}, E.prototype.listeners = function(e) {
   return Vr(this, e, !0);
-}, A.prototype.rawListeners = function(e) {
+}, E.prototype.rawListeners = function(e) {
   return Vr(this, e, !1);
-}, A.listenerCount = function(e, t) {
+}, E.listenerCount = function(e, t) {
   return typeof e.listenerCount == "function" ? e.listenerCount(t) : Br.call(e, t);
-}, A.prototype.listenerCount = Br, A.prototype.eventNames = function() {
-  return this._eventsCount > 0 ? ci(this._events) : [];
+}, E.prototype.listenerCount = Br, E.prototype.eventNames = function() {
+  return this._eventsCount > 0 ? li(this._events) : [];
 };
-var ho = typeof Map == "function", po = typeof Set == "function", fo = typeof WeakSet == "function", Yr = Object.keys, qr = function(e, t) {
+var po = typeof Map == "function", fo = typeof Set == "function", vo = typeof WeakSet == "function", Yr = Object.keys, qr = function(e, t) {
   return e && typeof e == "object" && t.add(e);
 }, Jr = function(e, t, r, n) {
   for (var a, s = 0; s < e.length; s++)
@@ -385,9 +385,9 @@ var ho = typeof Map == "function", po = typeof Set == "function", fo = typeof We
   return !1;
 }, Ge = function(e, t) {
   return e === t || e != e && t != t;
-}, Wr = function(e) {
-  return e.constructor === Object;
 }, zr = function(e) {
+  return e.constructor === Object;
+}, Wr = function(e) {
   return typeof e.then == "function";
 }, $r = function(e) {
   return !(!e.$$typeof || !e._store);
@@ -395,7 +395,7 @@ var ho = typeof Map == "function", po = typeof Set == "function", fo = typeof We
   return function(t) {
     var r = e || t;
     return function(n, a, s) {
-      s === void 0 && (s = fo ? /* @__PURE__ */ new WeakSet() : /* @__PURE__ */ Object.create({ _values: [], add: function(d) {
+      s === void 0 && (s = vo ? /* @__PURE__ */ new WeakSet() : /* @__PURE__ */ Object.create({ _values: [], add: function(d) {
         this._values.push(d);
       }, has: function(d) {
         return !!~this._values.indexOf(d);
@@ -430,7 +430,7 @@ var ho = typeof Map == "function", po = typeof Set == "function", fo = typeof We
     var c = typeof n;
     if (c !== typeof a || c !== "object" || !n || !a)
       return !1;
-    if (Wr(n) && Wr(a))
+    if (zr(n) && zr(a))
       return Qr(n, a, t, s);
     var u = Zr(n), d = Zr(a);
     if (u || d)
@@ -448,9 +448,9 @@ var ho = typeof Map == "function", po = typeof Set == "function", fo = typeof We
     var y, _, R = n instanceof RegExp, M = a instanceof RegExp;
     if (R || M)
       return R === M && (_ = a, (y = n).source === _.source && y.global === _.global && y.ignoreCase === _.ignoreCase && y.multiline === _.multiline && y.unicode === _.unicode && y.sticky === _.sticky && y.lastIndex === _.lastIndex);
-    if (zr(n) || zr(a))
+    if (Wr(n) || Wr(a))
       return n === a;
-    if (ho) {
+    if (po) {
       var I = n instanceof Map, O = a instanceof Map;
       if (I || O)
         return I === O && function(U, H, ee, te) {
@@ -462,7 +462,7 @@ var ho = typeof Map == "function", po = typeof Set == "function", fo = typeof We
           return !0;
         }(n, a, t, s);
     }
-    if (po) {
+    if (fo) {
       var Y = n instanceof Set, x = a instanceof Set;
       if (Y || x)
         return Y === x && function(U, H, ee, te) {
@@ -483,7 +483,7 @@ var pe = vt();
 vt(function() {
   return Ge;
 });
-const vo = { "Amazon Silk": "amazon_silk", "Android Browser": "android", Bada: "bada", BlackBerry: "blackberry", Chrome: "chrome", Chromium: "chromium", Electron: "electron", Epiphany: "epiphany", Firefox: "firefox", Focus: "focus", Generic: "generic", "Google Search": "google_search", Googlebot: "googlebot", "Internet Explorer": "ie", "K-Meleon": "k_meleon", Maxthon: "maxthon", "Microsoft Edge": "edge", "MZ Browser": "mz", "NAVER Whale Browser": "naver", Opera: "opera", "Opera Coast": "opera_coast", PhantomJS: "phantomjs", Puffin: "puffin", QupZilla: "qupzilla", QQ: "qq", QQLite: "qqlite", Safari: "safari", Sailfish: "sailfish", "Samsung Internet for Android": "samsung_internet", SeaMonkey: "seamonkey", Sleipnir: "sleipnir", Swing: "swing", Tizen: "tizen", "UC Browser": "uc", Vivaldi: "vivaldi", "WebOS Browser": "webos", WeChat: "wechat", "Yandex Browser": "yandex", Roku: "roku" }, di = { amazon_silk: "Amazon Silk", android: "Android Browser", bada: "Bada", blackberry: "BlackBerry", chrome: "Chrome", chromium: "Chromium", electron: "Electron", epiphany: "Epiphany", firefox: "Firefox", focus: "Focus", generic: "Generic", googlebot: "Googlebot", google_search: "Google Search", ie: "Internet Explorer", k_meleon: "K-Meleon", maxthon: "Maxthon", edge: "Microsoft Edge", mz: "MZ Browser", naver: "NAVER Whale Browser", opera: "Opera", opera_coast: "Opera Coast", phantomjs: "PhantomJS", puffin: "Puffin", qupzilla: "QupZilla", qq: "QQ Browser", qqlite: "QQ Browser Lite", safari: "Safari", sailfish: "Sailfish", samsung_internet: "Samsung Internet for Android", seamonkey: "SeaMonkey", sleipnir: "Sleipnir", swing: "Swing", tizen: "Tizen", uc: "UC Browser", vivaldi: "Vivaldi", webos: "WebOS Browser", wechat: "WeChat", yandex: "Yandex Browser" }, F = { tablet: "tablet", mobile: "mobile", desktop: "desktop", tv: "tv" }, J = { WindowsPhone: "Windows Phone", Windows: "Windows", MacOS: "macOS", iOS: "iOS", Android: "Android", WebOS: "WebOS", BlackBerry: "BlackBerry", Bada: "Bada", Tizen: "Tizen", Linux: "Linux", ChromeOS: "Chrome OS", PlayStation4: "PlayStation 4", Roku: "Roku" }, fe = { EdgeHTML: "EdgeHTML", Blink: "Blink", Trident: "Trident", Presto: "Presto", Gecko: "Gecko", WebKit: "WebKit" };
+const mo = { "Amazon Silk": "amazon_silk", "Android Browser": "android", Bada: "bada", BlackBerry: "blackberry", Chrome: "chrome", Chromium: "chromium", Electron: "electron", Epiphany: "epiphany", Firefox: "firefox", Focus: "focus", Generic: "generic", "Google Search": "google_search", Googlebot: "googlebot", "Internet Explorer": "ie", "K-Meleon": "k_meleon", Maxthon: "maxthon", "Microsoft Edge": "edge", "MZ Browser": "mz", "NAVER Whale Browser": "naver", Opera: "opera", "Opera Coast": "opera_coast", PhantomJS: "phantomjs", Puffin: "puffin", QupZilla: "qupzilla", QQ: "qq", QQLite: "qqlite", Safari: "safari", Sailfish: "sailfish", "Samsung Internet for Android": "samsung_internet", SeaMonkey: "seamonkey", Sleipnir: "sleipnir", Swing: "swing", Tizen: "tizen", "UC Browser": "uc", Vivaldi: "vivaldi", "WebOS Browser": "webos", WeChat: "wechat", "Yandex Browser": "yandex", Roku: "roku" }, hi = { amazon_silk: "Amazon Silk", android: "Android Browser", bada: "Bada", blackberry: "BlackBerry", chrome: "Chrome", chromium: "Chromium", electron: "Electron", epiphany: "Epiphany", firefox: "Firefox", focus: "Focus", generic: "Generic", googlebot: "Googlebot", google_search: "Google Search", ie: "Internet Explorer", k_meleon: "K-Meleon", maxthon: "Maxthon", edge: "Microsoft Edge", mz: "MZ Browser", naver: "NAVER Whale Browser", opera: "Opera", opera_coast: "Opera Coast", phantomjs: "PhantomJS", puffin: "Puffin", qupzilla: "QupZilla", qq: "QQ Browser", qqlite: "QQ Browser Lite", safari: "Safari", sailfish: "Sailfish", samsung_internet: "Samsung Internet for Android", seamonkey: "SeaMonkey", sleipnir: "Sleipnir", swing: "Swing", tizen: "Tizen", uc: "UC Browser", vivaldi: "Vivaldi", webos: "WebOS Browser", wechat: "WeChat", yandex: "Yandex Browser" }, F = { tablet: "tablet", mobile: "mobile", desktop: "desktop", tv: "tv" }, J = { WindowsPhone: "Windows Phone", Windows: "Windows", MacOS: "macOS", iOS: "iOS", Android: "Android", WebOS: "WebOS", BlackBerry: "BlackBerry", Bada: "Bada", Tizen: "Tizen", Linux: "Linux", ChromeOS: "Chrome OS", PlayStation4: "PlayStation 4", Roku: "Roku" }, fe = { EdgeHTML: "EdgeHTML", Blink: "Blink", Trident: "Trident", Presto: "Presto", Gecko: "Gecko", WebKit: "WebKit" };
 class v {
   static getFirstMatch(t, r) {
     const n = r.match(t);
@@ -611,13 +611,13 @@ class v {
     return t;
   }
   static getBrowserAlias(t) {
-    return vo[t];
+    return mo[t];
   }
   static getBrowserTypeByAlias(t) {
-    return di[t] || "";
+    return hi[t] || "";
   }
 }
-const P = /version\/(\d+(\.?_?\d+)+)/i, mo = [{ test: [/googlebot/i], describe(e) {
+const P = /version\/(\d+(\.?_?\d+)+)/i, go = [{ test: [/googlebot/i], describe(e) {
   const t = { name: "Googlebot" }, r = v.getFirstMatch(/googlebot\/(\d+(\.\d+))/i, e) || v.getFirstMatch(P, e);
   return r && (t.version = r), t;
 } }, { test: [/opera/i], describe(e) {
@@ -750,7 +750,7 @@ const P = /version\/(\d+(\.?_?\d+)+)/i, mo = [{ test: [/googlebot/i], describe(e
   const t = e.search("\\(") !== -1 ? /^(.*)\/(.*)[ \t]\((.*)/ : /^(.*)\/(.*) /;
   return { name: v.getFirstMatch(t, e), version: v.getSecondMatch(t, e) };
 } }];
-var go = [{ test: [/Roku\/DVP/], describe(e) {
+var yo = [{ test: [/Roku\/DVP/], describe(e) {
   const t = v.getFirstMatch(/Roku\/DVP-(\d+\.\d+)/i, e);
   return { name: J.Roku, version: t };
 } }, { test: [/windows phone/i], describe(e) {
@@ -789,7 +789,7 @@ var go = [{ test: [/Roku\/DVP/], describe(e) {
 } }, { test: [/linux/i], describe: () => ({ name: J.Linux }) }, { test: [/CrOS/], describe: () => ({ name: J.ChromeOS }) }, { test: [/PlayStation 4/], describe(e) {
   const t = v.getFirstMatch(/PlayStation 4[/\s](\d+(\.\d+)*)/i, e);
   return { name: J.PlayStation4, version: t };
-} }], yo = [{ test: [/googlebot/i], describe: () => ({ type: "bot", vendor: "Google" }) }, { test: [/huawei/i], describe(e) {
+} }], bo = [{ test: [/googlebot/i], describe: () => ({ type: "bot", vendor: "Google" }) }, { test: [/huawei/i], describe(e) {
   const t = v.getFirstMatch(/(can-l01)/i, e) && "Nova", r = { type: F.mobile, vendor: "Huawei" };
   return t && (r.model = t), r;
 } }, { test: [/nexus\s*(?:7|8|9|10).*/i], describe: () => ({ type: F.tablet, vendor: "Nexus" }) }, { test: [/ipad/i], describe: () => ({ type: F.tablet, vendor: "Apple", model: "iPad" }) }, { test: [/Macintosh(.*?) FxiOS(.*?)\//], describe: () => ({ type: F.tablet, vendor: "Apple", model: "iPad" }) }, { test: [/kftt build/i], describe: () => ({ type: F.tablet, vendor: "Amazon", model: "Kindle Fire HD 7" }) }, { test: [/silk/i], describe: () => ({ type: F.tablet, vendor: "Amazon" }) }, { test: [/tablet(?! pc)/i], describe: () => ({ type: F.tablet }) }, { test(e) {
@@ -801,7 +801,7 @@ var go = [{ test: [/Roku\/DVP/], describe(e) {
 } }, { test: [/nexus\s*[0-6].*/i, /galaxy nexus/i], describe: () => ({ type: F.mobile, vendor: "Nexus" }) }, { test: [/[^-]mobi/i], describe: () => ({ type: F.mobile }) }, { test: (e) => e.getBrowserName(!0) === "blackberry", describe: () => ({ type: F.mobile, vendor: "BlackBerry" }) }, { test: (e) => e.getBrowserName(!0) === "bada", describe: () => ({ type: F.mobile }) }, { test: (e) => e.getBrowserName() === "windows phone", describe: () => ({ type: F.mobile, vendor: "Microsoft" }) }, { test(e) {
   const t = Number(String(e.getOSVersion()).split(".")[0]);
   return e.getOSName(!0) === "android" && t >= 3;
-}, describe: () => ({ type: F.tablet }) }, { test: (e) => e.getOSName(!0) === "android", describe: () => ({ type: F.mobile }) }, { test: (e) => e.getOSName(!0) === "macos", describe: () => ({ type: F.desktop, vendor: "Apple" }) }, { test: (e) => e.getOSName(!0) === "windows", describe: () => ({ type: F.desktop }) }, { test: (e) => e.getOSName(!0) === "linux", describe: () => ({ type: F.desktop }) }, { test: (e) => e.getOSName(!0) === "playstation 4", describe: () => ({ type: F.tv }) }, { test: (e) => e.getOSName(!0) === "roku", describe: () => ({ type: F.tv }) }], bo = [{ test: (e) => e.getBrowserName(!0) === "microsoft edge", describe(e) {
+}, describe: () => ({ type: F.tablet }) }, { test: (e) => e.getOSName(!0) === "android", describe: () => ({ type: F.mobile }) }, { test: (e) => e.getOSName(!0) === "macos", describe: () => ({ type: F.desktop, vendor: "Apple" }) }, { test: (e) => e.getOSName(!0) === "windows", describe: () => ({ type: F.desktop }) }, { test: (e) => e.getOSName(!0) === "linux", describe: () => ({ type: F.desktop }) }, { test: (e) => e.getOSName(!0) === "playstation 4", describe: () => ({ type: F.tv }) }, { test: (e) => e.getOSName(!0) === "roku", describe: () => ({ type: F.tv }) }], _o = [{ test: (e) => e.getBrowserName(!0) === "microsoft edge", describe(e) {
   if (/\sedg\//i.test(e))
     return { name: fe.Blink };
   const t = v.getFirstMatch(/edge\/(\d+(\.?_?\d+)+)/i, e);
@@ -836,7 +836,7 @@ class Xr {
   }
   parseBrowser() {
     this.parsedResult.browser = {};
-    const t = v.find(mo, (r) => {
+    const t = v.find(go, (r) => {
       if (typeof r.test == "function")
         return r.test(this);
       if (r.test instanceof Array)
@@ -859,7 +859,7 @@ class Xr {
   }
   parseOS() {
     this.parsedResult.os = {};
-    const t = v.find(go, (r) => {
+    const t = v.find(yo, (r) => {
       if (typeof r.test == "function")
         return r.test(this);
       if (r.test instanceof Array)
@@ -884,7 +884,7 @@ class Xr {
   }
   parsePlatform() {
     this.parsedResult.platform = {};
-    const t = v.find(yo, (r) => {
+    const t = v.find(bo, (r) => {
       if (typeof r.test == "function")
         return r.test(this);
       if (r.test instanceof Array)
@@ -901,7 +901,7 @@ class Xr {
   }
   parseEngine() {
     this.parsedResult.engine = {};
-    const t = v.find(bo, (r) => {
+    const t = v.find(_o, (r) => {
       if (typeof r.test == "function")
         return r.test(this);
       if (r.test instanceof Array)
@@ -978,7 +978,7 @@ class Xr {
  * MIT License | (c) Dustin Diaz 2012-2015
  * MIT License | (c) Denis Demchenko 2015-2019
  */
-class _o {
+class wo {
   static getParser(t, r = !1) {
     if (typeof t != "string")
       throw new Error("UserAgent should be a string");
@@ -988,7 +988,7 @@ class _o {
     return new Xr(t).getResult();
   }
   static get BROWSER_MAP() {
-    return di;
+    return hi;
   }
   static get ENGINE_MAP() {
     return fe;
@@ -1006,11 +1006,11 @@ function _t() {
 function Be() {
   throw new Error("Method must be implemented in subclass");
 }
-function hi(e) {
+function pi(e) {
   return window._dailyConfig && window._dailyConfig.proxyUrl ? window._dailyConfig.proxyUrl + (window._dailyConfig.proxyUrl.slice(-1) === "/" ? "" : "/") + e.substring(8) : e;
 }
-function pi() {
-  return window._dailyConfig && window._dailyConfig.callObjectBundleUrlOverride ? window._dailyConfig.callObjectBundleUrlOverride : hi("https://c.daily.co/call-machine/versioned/".concat("0.53.0", "/static/call-machine-object-bundle.js"));
+function fi() {
+  return window._dailyConfig && window._dailyConfig.callObjectBundleUrlOverride ? window._dailyConfig.callObjectBundleUrlOverride : pi("https://c.daily.co/call-machine/versioned/".concat("0.53.0", "/static/call-machine-object-bundle.js"));
 }
 function He(e) {
   try {
@@ -1020,17 +1020,17 @@ function He(e) {
   }
   return !0;
 }
-var qt = "new", en = "loading", tn = "loaded", Te = "joining-meeting", z = "joined-meeting", ve = "left-meeting", me = "error", wo = "blocked", ko = "off", So = "sendable", Co = "loading", Mo = "interrupted", To = "playable", ot = "unknown", fi = "full", Ao = "lobby", Eo = "none", vi = "base", mi = "*", Oo = "ejected", Lo = "nbf-room", Po = "nbf-token", Io = "exp-room", jo = "exp-token", Do = "meeting-full", No = "end-of-life", Ro = "not-allowed", Fo = "connection-error", xo = "cam-in-use", Vo = "mic-in-use", Bo = "cam-mic-in-use", Uo = "permissions", Yo = "undefined-mediadevices", qo = "not-found", Jo = "constraints", Wo = "unknown", gi = "iframe-ready-for-launch-config", yi = "iframe-launch-config", Jt = "theme-updated", Wt = "loading", zt = "load-attempt-failed", st = "loaded", bi = "started-camera", _i = "camera-error", $t = "joining-meeting", wi = "joined-meeting", ki = "left-meeting", rn = "available-devices-updated", Si = "participant-joined", Ci = "participant-updated", Mi = "participant-left", Ti = "participant-counts-updated", Ai = "access-state-updated", Ei = "meeting-session-updated", Oi = "meeting-session-state-updated", zo = "meeting-session-data-error", Li = "waiting-participant-added", Pi = "waiting-participant-updated", Ii = "waiting-participant-removed", Gt = "track-started", Ht = "track-stopped", ji = "transcription-started", Di = "transcription-stopped", Ni = "transcription-error", ct = "recording-started", lt = "recording-stopped", Ri = "recording-stats", Fi = "recording-error", xi = "recording-upload-completed", Vi = "recording-data", Bi = "app-message", Ui = "remote-media-player-started", Yi = "remote-media-player-updated", qi = "remote-media-player-stopped", Ji = "local-screen-share-started", Wi = "local-screen-share-stopped", zi = "active-speaker-change", $i = "active-speaker-mode-change", Gi = "network-quality-change", Hi = "network-connection", Ki = "cpu-load-change", _e = "fullscreen", we = "exited-fullscreen", Qi = "live-streaming-started", Zi = "live-streaming-updated", Xi = "live-streaming-stopped", ea = "live-streaming-error", ta = "lang-updated", ra = "receive-settings-updated", na = "input-settings-updated", ut = "nonfatal-error", dt = "error", nn = 102400, Lt = "iframe-call-message", an = "local-screen-start", tt = "register-input-handler", on = "daily-method-update-live-streaming-endpoints", Pt = "transmit-log", qe = "daily-custom-track", ht = { NONE: "none", BGBLUR: "background-blur", BGIMAGE: "background-image" }, ia = { NONE: "none", NOISE_CANCELLATION: "noise-cancellation" }, Kt = { PLAY: "play", PAUSE: "pause" }, sn = 10, It = ["jpg", "png", "jpeg"], $o = "add-endpoints", Go = "remove-endpoints";
+var qt = "new", en = "loading", tn = "loaded", Te = "joining-meeting", W = "joined-meeting", ve = "left-meeting", me = "error", ko = "blocked", So = "off", Co = "sendable", Mo = "loading", To = "interrupted", Eo = "playable", ot = "unknown", vi = "full", Ao = "lobby", Oo = "none", mi = "base", gi = "*", Lo = "ejected", Po = "nbf-room", Io = "nbf-token", jo = "exp-room", Do = "exp-token", No = "meeting-full", Ro = "end-of-life", Fo = "not-allowed", xo = "connection-error", Vo = "cam-in-use", Bo = "mic-in-use", Uo = "cam-mic-in-use", Yo = "permissions", qo = "undefined-mediadevices", Jo = "not-found", zo = "constraints", Wo = "unknown", yi = "iframe-ready-for-launch-config", bi = "iframe-launch-config", Jt = "theme-updated", zt = "loading", Wt = "load-attempt-failed", st = "loaded", _i = "started-camera", wi = "camera-error", $t = "joining-meeting", ki = "joined-meeting", Si = "left-meeting", rn = "available-devices-updated", Ci = "participant-joined", Mi = "participant-updated", Ti = "participant-left", Ei = "participant-counts-updated", Ai = "access-state-updated", Oi = "meeting-session-updated", Li = "meeting-session-state-updated", $o = "meeting-session-data-error", Pi = "waiting-participant-added", Ii = "waiting-participant-updated", ji = "waiting-participant-removed", Gt = "track-started", Ht = "track-stopped", Di = "transcription-started", Ni = "transcription-stopped", Ri = "transcription-error", ct = "recording-started", lt = "recording-stopped", Fi = "recording-stats", xi = "recording-error", Vi = "recording-upload-completed", Bi = "recording-data", Ui = "app-message", Yi = "remote-media-player-started", qi = "remote-media-player-updated", Ji = "remote-media-player-stopped", zi = "local-screen-share-started", Wi = "local-screen-share-stopped", $i = "active-speaker-change", Gi = "active-speaker-mode-change", Hi = "network-quality-change", Ki = "network-connection", Qi = "cpu-load-change", _e = "fullscreen", we = "exited-fullscreen", Zi = "live-streaming-started", Xi = "live-streaming-updated", ea = "live-streaming-stopped", ta = "live-streaming-error", ra = "lang-updated", na = "receive-settings-updated", ia = "input-settings-updated", ut = "nonfatal-error", dt = "error", nn = 102400, Lt = "iframe-call-message", an = "local-screen-start", tt = "register-input-handler", on = "daily-method-update-live-streaming-endpoints", Pt = "transmit-log", qe = "daily-custom-track", ht = { NONE: "none", BGBLUR: "background-blur", BGIMAGE: "background-image" }, aa = { NONE: "none", NOISE_CANCELLATION: "noise-cancellation" }, Kt = { PLAY: "play", PAUSE: "pause" }, sn = 10, It = ["jpg", "png", "jpeg"], Go = "add-endpoints", Ho = "remove-endpoints";
 function oe() {
   return !N() && typeof window < "u" && window.navigator && window.navigator.userAgent ? window.navigator.userAgent : "";
 }
 function N() {
   return typeof navigator < "u" && navigator.product && navigator.product === "ReactNative";
 }
-function aa() {
+function oa() {
   return navigator && navigator.mediaDevices && navigator.mediaDevices.getUserMedia;
 }
-function Ho() {
+function Ko() {
   return !!(navigator && navigator.mediaDevices && navigator.mediaDevices.getDisplayMedia) && (function(e, t) {
     if (!e || !t)
       return !0;
@@ -1046,11 +1046,11 @@ function Ho() {
   }(Re(), function() {
     switch (Re()) {
       case "Chrome":
-        return la();
+        return ua();
       case "Safari":
-        return da();
-      case "Firefox":
         return ha();
+      case "Firefox":
+        return pa();
       case "Edge":
         return function() {
           var e = 0, t = 0;
@@ -1073,42 +1073,42 @@ function cn() {
   var e = document.createElement("iframe");
   return !!e.requestFullscreen || !!e.webkitRequestFullscreen;
 }
-var Ko = ["Chrome", "Firefox"];
-function oa() {
-  return !N() && !ca() && Ko.includes(Re());
-}
 var Qo = ["Chrome", "Firefox"];
 function sa() {
-  return !N() && !ca() && typeof AudioWorkletNode < "u" && Qo.includes(Re());
+  return !N() && !la() && Qo.includes(Re());
+}
+var Zo = ["Chrome", "Firefox"];
+function ca() {
+  return !N() && !la() && typeof AudioWorkletNode < "u" && Zo.includes(Re());
 }
 function ln() {
-  return aa() && !function() {
+  return oa() && !function() {
     var e, t = Re();
     if (!oe())
       return !0;
     switch (t) {
       case "Chrome":
-        return (e = la()).major && e.major > 0 && e.major < 61;
+        return (e = ua()).major && e.major > 0 && e.major < 61;
       case "Firefox":
-        return (e = ha()).major < 78;
+        return (e = pa()).major < 78;
       case "Safari":
-        return (e = da()).major < 12;
+        return (e = ha()).major < 12;
       default:
         return !0;
     }
   }();
 }
-function ca() {
+function la() {
   var e, t, r = oe(), n = r.match(/Mac/) && (!N() && typeof window < "u" && (e = window) !== null && e !== void 0 && (t = e.navigator) !== null && t !== void 0 && t.maxTouchPoints ? window.navigator.maxTouchPoints : 0) >= 5;
   return !!(r.match(/Mobi/) || r.match(/Android/) || n) || !!oe().match(/DailyAnd\//) || void 0;
 }
 function Re() {
   if (typeof window < "u") {
     var e = oe();
-    return ua() ? "Safari" : e.indexOf("Edge") > -1 ? "Edge" : e.match(/Chrome\//) ? "Chrome" : e.indexOf("Safari") > -1 ? "Safari" : e.indexOf("Firefox") > -1 ? "Firefox" : e.indexOf("MSIE") > -1 || e.indexOf(".NET") > -1 ? "IE" : "Unknown Browser";
+    return da() ? "Safari" : e.indexOf("Edge") > -1 ? "Edge" : e.match(/Chrome\//) ? "Chrome" : e.indexOf("Safari") > -1 ? "Safari" : e.indexOf("Firefox") > -1 ? "Firefox" : e.indexOf("MSIE") > -1 || e.indexOf(".NET") > -1 ? "IE" : "Unknown Browser";
   }
 }
-function la() {
+function ua() {
   var e = 0, t = 0, r = 0, n = 0, a = !1;
   if (typeof window < "u") {
     var s = oe(), c = s.match(/Chrome\/(\d+).(\d+).(\d+).(\d+)/);
@@ -1120,10 +1120,10 @@ function la() {
   }
   return { major: e, minor: t, build: r, patch: n, opera: a };
 }
-function ua() {
-  return !!oe().match(/iPad|iPhone|iPod/i) && aa();
-}
 function da() {
+  return !!oe().match(/iPad|iPhone|iPod/i) && oa();
+}
+function ha() {
   var e = 0, t = 0, r = 0;
   if (typeof window < "u") {
     var n = oe().match(/Version\/(\d+).(\d+)(.(\d+))?/);
@@ -1133,11 +1133,11 @@ function da() {
       } catch {
       }
     else
-      ua() && (e = 14, t = 0, r = 3);
+      da() && (e = 14, t = 0, r = 3);
   }
   return { major: e, minor: t, point: r };
 }
-function ha() {
+function pa() {
   var e = 0, t = 0;
   if (typeof window < "u") {
     var r = oe().match(/Firefox\/(\d+).(\d+)/);
@@ -1149,7 +1149,7 @@ function ha() {
   }
   return { major: e, minor: t };
 }
-var pa = function() {
+var fa = function() {
   function e() {
     Q(this, e);
   }
@@ -1186,7 +1186,7 @@ function jt(e) {
   }
   return e;
 }
-function Zo(e) {
+function Xo(e) {
   var t = function() {
     if (typeof Reflect > "u" || !Reflect.construct || Reflect.construct.sham)
       return !1;
@@ -1209,9 +1209,9 @@ function Zo(e) {
     return bt(this, r);
   };
 }
-var Xo = function(e) {
-  yt(r, pa);
-  var t = Zo(r);
+var es = function(e) {
+  yt(r, fa);
+  var t = Xo(r);
   function r() {
     var n;
     return Q(this, r), (n = t.call(this))._wrappedListeners = {}, n._messageCallbacks = {}, n;
@@ -1266,7 +1266,7 @@ var Xo = function(e) {
     a && (window.removeEventListener("message", a), delete this._wrappedListeners[n]);
   } }]), r;
 }();
-function es(e) {
+function ts(e) {
   var t = function() {
     if (typeof Reflect > "u" || !Reflect.construct || Reflect.construct.sham)
       return !1;
@@ -1289,9 +1289,9 @@ function es(e) {
     return bt(this, r);
   };
 }
-var ts = function(e) {
-  yt(r, pa);
-  var t = es(r);
+var rs = function(e) {
+  yt(r, fa);
+  var t = ts(r);
   function r() {
     var n;
     return Q(this, r), n = t.call(this), global.callMachineToDailyJsEmitter = global.callMachineToDailyJsEmitter || new le.EventEmitter(), global.dailyJsToCallMachineEmitter = global.dailyJsToCallMachineEmitter || new le.EventEmitter(), n._wrappedListeners = {}, n._messageCallbacks = {}, n;
@@ -1383,7 +1383,7 @@ function je(e, t) {
   }
   return e != e && t != t;
 }
-var Qt = "replace", Zt = "shallow-merge", pn = [Qt, Zt], rs = function() {
+var Qt = "replace", Zt = "shallow-merge", pn = [Qt, Zt], ns = function() {
   function e() {
     var t = arguments.length > 0 && arguments[0] !== void 0 ? arguments[0] : {}, r = t.data, n = t.mergeStrategy, a = n === void 0 ? Qt : n;
     Q(this, e), e._validateMergeStrategy(a), e._validateData(r, a), this.mergeStrategy = a, this.data = r;
@@ -1460,7 +1460,7 @@ function er(e) {
     return a.prototype = Object.create(r.prototype, { constructor: { value: a, enumerable: !1, writable: !0, configurable: !0 } }), $e(a, r);
   }, er(e);
 }
-function ns(e) {
+function is(e) {
   var t = function() {
     if (typeof Reflect > "u" || !Reflect.construct || Reflect.construct.sham)
       return !1;
@@ -1483,7 +1483,7 @@ function ns(e) {
     return bt(this, r);
   };
 }
-var is = function() {
+var as = function() {
   function e() {
     Q(this, e), this._currentLoad = null;
   }
@@ -1492,7 +1492,7 @@ var is = function() {
       return window._dailyCallObjectSetup(t), void n(!0);
     (function(s, c) {
       window._dailyConfig || (window._dailyConfig = {}), window._dailyConfig.callFrameId = s, window._dailyConfig.avoidEval = c;
-    })(t, r), this._currentLoad && this._currentLoad.cancel(), this._currentLoad = new as(function() {
+    })(t, r), this._currentLoad && this._currentLoad.cancel(), this._currentLoad = new os(function() {
       n(!1);
     }, a), this._currentLoad.start();
   } }, { key: "cancel", value: function() {
@@ -1500,7 +1500,7 @@ var is = function() {
   } }, { key: "loaded", get: function() {
     return this._currentLoad && this._currentLoad.succeeded;
   } }]), e;
-}(), as = function() {
+}(), os = function() {
   function e(t, r) {
     Q(this, e), this._attemptsRemaining = 3, this._currentAttempt = null, this._successCallback = t, this._failureCallback = r;
   }
@@ -1520,14 +1520,14 @@ var is = function() {
   } }]), e;
 }(), Dt = function(e) {
   yt(r, er(Error));
-  var t = ns(r);
+  var t = is(r);
   function r() {
     return Q(this, r), t.apply(this, arguments);
   }
   return Z(r);
 }(), mt = 2e4, fn = function() {
   function e(r, n) {
-    Q(this, e), this._loadAttemptImpl = N() || !_dailyConfig.avoidEval ? new os(r, n) : new ss(r, n);
+    Q(this, e), this._loadAttemptImpl = N() || !_dailyConfig.avoidEval ? new ss(r, n) : new cs(r, n);
   }
   var t;
   return Z(e, [{ key: "start", value: (t = b(function* () {
@@ -1541,13 +1541,13 @@ var is = function() {
   } }, { key: "succeeded", get: function() {
     return this._loadAttemptImpl.succeeded;
   } }]), e;
-}(), os = function() {
+}(), ss = function() {
   function e(s, c) {
     Q(this, e), this.cancelled = !1, this.succeeded = !1, this._networkTimedOut = !1, this._networkTimeout = null, this._iosCache = typeof iOSCallObjectBundleCache < "u" && iOSCallObjectBundleCache, this._refetchHeaders = null, this._successCallback = s, this._failureCallback = c;
   }
   var t, r, n, a;
   return Z(e, [{ key: "start", value: (a = b(function* () {
-    var s = pi();
+    var s = fi();
     !(yield this._tryLoadFromIOSCache(s)) && this._loadFromNetwork(s);
   }), function() {
     return a.apply(this, arguments);
@@ -1593,14 +1593,14 @@ var is = function() {
   }), function(s, c) {
     return t.apply(this, arguments);
   }) }]), e;
-}(), ss = function() {
+}(), cs = function() {
   function e(r, n) {
     Q(this, e), this.cancelled = !1, this.succeeded = !1, this._successCallback = r, this._failureCallback = n, this._attemptId = _t(), this._networkTimeout = null, this._scriptElement = null;
   }
   var t;
   return Z(e, [{ key: "start", value: (t = b(function* () {
     window._dailyCallMachineLoadWaitlist || (window._dailyCallMachineLoadWaitlist = /* @__PURE__ */ new Set());
-    var r = pi();
+    var r = fi();
     (typeof document > "u" ? "undefined" : j(document)) === "object" ? this._startLoading(r) : this._failureCallback("Call object bundle must be loaded in a DOM/web context");
   }), function() {
     return t.apply(this, arguments);
@@ -1629,13 +1629,13 @@ var is = function() {
   } }, { key: "_withdrawFromCallMachineLoadWaitlist", value: function() {
     window._dailyCallMachineLoadWaitlist.delete(this._attemptId);
   } }]), e;
-}(), fa = function(e, t) {
+}(), va = function(e, t) {
   for (var r = -1, n = e == null ? 0 : e.length, a = 0, s = []; ++r < n; ) {
     var c = e[r];
     t(c, r, e) && (s[a++] = c);
   }
   return s;
-}, cs = /* @__PURE__ */ function(e) {
+}, ls = /* @__PURE__ */ function(e) {
   return function(t, r, n) {
     for (var a = -1, s = Object(t), c = n(t), u = c.length; u--; ) {
       var d = c[e ? u : ++a];
@@ -1644,58 +1644,58 @@ var is = function() {
     }
     return t;
   };
-}(), ls = function(e, t) {
+}(), us = function(e, t) {
   for (var r = -1, n = Array(e); ++r < e; )
     n[r] = t(r);
   return n;
-}, va = typeof et == "object" && et && et.Object === Object && et, us = va, ds = typeof self == "object" && self && self.Object === Object && self, ue = us || ds || Function("return this")(), Ce = ue.Symbol, vn = Ce, ma = Object.prototype, hs = ma.hasOwnProperty, ps = ma.toString, Ue = vn ? vn.toStringTag : void 0, fs = function(e) {
-  var t = hs.call(e, Ue), r = e[Ue];
+}, ma = typeof et == "object" && et && et.Object === Object && et, ds = ma, hs = typeof self == "object" && self && self.Object === Object && self, ue = ds || hs || Function("return this")(), Ce = ue.Symbol, vn = Ce, ga = Object.prototype, ps = ga.hasOwnProperty, fs = ga.toString, Ue = vn ? vn.toStringTag : void 0, vs = function(e) {
+  var t = ps.call(e, Ue), r = e[Ue];
   try {
     e[Ue] = void 0;
     var n = !0;
   } catch {
   }
-  var a = ps.call(e);
+  var a = fs.call(e);
   return n && (t ? e[Ue] = r : delete e[Ue]), a;
-}, vs = Object.prototype.toString, ms = fs, gs = function(e) {
-  return vs.call(e);
+}, ms = Object.prototype.toString, gs = vs, ys = function(e) {
+  return ms.call(e);
 }, mn = Ce ? Ce.toStringTag : void 0, Ke = function(e) {
-  return e == null ? e === void 0 ? "[object Undefined]" : "[object Null]" : mn && mn in Object(e) ? ms(e) : gs(e);
+  return e == null ? e === void 0 ? "[object Undefined]" : "[object Null]" : mn && mn in Object(e) ? gs(e) : ys(e);
 }, Qe = function(e) {
   return e != null && typeof e == "object";
-}, ys = Ke, bs = Qe, gn = function(e) {
-  return bs(e) && ys(e) == "[object Arguments]";
-}, _s = Qe, ga = Object.prototype, ws = ga.hasOwnProperty, ks = ga.propertyIsEnumerable, ya = gn(/* @__PURE__ */ function() {
+}, bs = Ke, _s = Qe, gn = function(e) {
+  return _s(e) && bs(e) == "[object Arguments]";
+}, ws = Qe, ya = Object.prototype, ks = ya.hasOwnProperty, Ss = ya.propertyIsEnumerable, ba = gn(/* @__PURE__ */ function() {
   return arguments;
 }()) ? gn : function(e) {
-  return _s(e) && ws.call(e, "callee") && !ks.call(e, "callee");
-}, X = Array.isArray, Je = {}, Ss = function() {
+  return ws(e) && ks.call(e, "callee") && !Ss.call(e, "callee");
+}, X = Array.isArray, Je = {}, Cs = function() {
   return !1;
 };
 (function(e, t) {
-  var r = ue, n = Ss, a = t && !t.nodeType && t, s = a && e && !e.nodeType && e, c = s && s.exports === a ? r.Buffer : void 0, u = (c ? c.isBuffer : void 0) || n;
+  var r = ue, n = Cs, a = t && !t.nodeType && t, s = a && e && !e.nodeType && e, c = s && s.exports === a ? r.Buffer : void 0, u = (c ? c.isBuffer : void 0) || n;
   e.exports = u;
 })({ get exports() {
   return Je;
 }, set exports(e) {
   Je = e;
 } }, Je);
-var Cs = /^(?:0|[1-9]\d*)$/, ba = function(e, t) {
+var Ms = /^(?:0|[1-9]\d*)$/, _a = function(e, t) {
   var r = typeof e;
-  return !!(t = t ?? 9007199254740991) && (r == "number" || r != "symbol" && Cs.test(e)) && e > -1 && e % 1 == 0 && e < t;
+  return !!(t = t ?? 9007199254740991) && (r == "number" || r != "symbol" && Ms.test(e)) && e > -1 && e % 1 == 0 && e < t;
 }, lr = function(e) {
   return typeof e == "number" && e > -1 && e % 1 == 0 && e <= 9007199254740991;
-}, Ms = Ke, Ts = lr, As = Qe, D = {};
+}, Ts = Ke, Es = lr, As = Qe, D = {};
 D["[object Float32Array]"] = D["[object Float64Array]"] = D["[object Int8Array]"] = D["[object Int16Array]"] = D["[object Int32Array]"] = D["[object Uint8Array]"] = D["[object Uint8ClampedArray]"] = D["[object Uint16Array]"] = D["[object Uint32Array]"] = !0, D["[object Arguments]"] = D["[object Array]"] = D["[object ArrayBuffer]"] = D["[object Boolean]"] = D["[object DataView]"] = D["[object Date]"] = D["[object Error]"] = D["[object Function]"] = D["[object Map]"] = D["[object Number]"] = D["[object Object]"] = D["[object RegExp]"] = D["[object Set]"] = D["[object String]"] = D["[object WeakMap]"] = !1;
-var Es = function(e) {
-  return As(e) && Ts(e.length) && !!D[Ms(e)];
-}, _a = function(e) {
+var Os = function(e) {
+  return As(e) && Es(e.length) && !!D[Ts(e)];
+}, wa = function(e) {
   return function(t) {
     return e(t);
   };
-}, We = {};
+}, ze = {};
 (function(e, t) {
-  var r = va, n = t && !t.nodeType && t, a = n && e && !e.nodeType && e, s = a && a.exports === n && r.process, c = function() {
+  var r = ma, n = t && !t.nodeType && t, a = n && e && !e.nodeType && e, s = a && a.exports === n && r.process, c = function() {
     try {
       var u = a && a.require && a.require("util").types;
       return u || s && s.binding && s.binding("util");
@@ -1704,135 +1704,78 @@ var Es = function(e) {
   }();
   e.exports = c;
 })({ get exports() {
-  return We;
+  return ze;
 }, set exports(e) {
-  We = e;
-} }, We);
-var Os = Es, Ls = _a, yn = We && We.isTypedArray, wa = yn ? Ls(yn) : Os, Ps = ls, Is = ya, js = X, Ds = Je, Ns = ba, Rs = wa, Fs = Object.prototype.hasOwnProperty, xs = function(e, t) {
-  var r = js(e), n = !r && Is(e), a = !r && !n && Ds(e), s = !r && !n && !a && Rs(e), c = r || n || a || s, u = c ? Ps(e.length, String) : [], d = u.length;
+  ze = e;
+} }, ze);
+var Ls = Os, Ps = wa, yn = ze && ze.isTypedArray, ka = yn ? Ps(yn) : Ls, Is = us, js = ba, Ds = X, Ns = Je, Rs = _a, Fs = ka, xs = Object.prototype.hasOwnProperty, Vs = function(e, t) {
+  var r = Ds(e), n = !r && js(e), a = !r && !n && Ns(e), s = !r && !n && !a && Fs(e), c = r || n || a || s, u = c ? Is(e.length, String) : [], d = u.length;
   for (var f in e)
-    !t && !Fs.call(e, f) || c && (f == "length" || a && (f == "offset" || f == "parent") || s && (f == "buffer" || f == "byteLength" || f == "byteOffset") || Ns(f, d)) || u.push(f);
+    !t && !xs.call(e, f) || c && (f == "length" || a && (f == "offset" || f == "parent") || s && (f == "buffer" || f == "byteLength" || f == "byteOffset") || Rs(f, d)) || u.push(f);
   return u;
-}, Vs = Object.prototype, Bs = function(e) {
+}, Bs = Object.prototype, Us = function(e) {
   var t = e && e.constructor;
-  return e === (typeof t == "function" && t.prototype || Vs);
-}, Us = /* @__PURE__ */ function(e, t) {
+  return e === (typeof t == "function" && t.prototype || Bs);
+}, Ys = /* @__PURE__ */ function(e, t) {
   return function(r) {
     return e(t(r));
   };
-}(Object.keys, Object), Ys = Bs, qs = Us, Js = Object.prototype.hasOwnProperty, ur = function(e) {
+}(Object.keys, Object), qs = Us, Js = Ys, zs = Object.prototype.hasOwnProperty, ur = function(e) {
   var t = typeof e;
   return e != null && (t == "object" || t == "function");
-}, Ws = Ke, zs = ur, ka = function(e) {
-  if (!zs(e))
+}, Ws = Ke, $s = ur, Sa = function(e) {
+  if (!$s(e))
     return !1;
   var t = Ws(e);
   return t == "[object Function]" || t == "[object GeneratorFunction]" || t == "[object AsyncFunction]" || t == "[object Proxy]";
-}, $s = ka, Gs = lr, dr = function(e) {
-  return e != null && Gs(e.length) && !$s(e);
-}, Hs = xs, Ks = function(e) {
-  if (!Ys(e))
-    return qs(e);
+}, Gs = Sa, Hs = lr, dr = function(e) {
+  return e != null && Hs(e.length) && !Gs(e);
+}, Ks = Vs, Qs = function(e) {
+  if (!qs(e))
+    return Js(e);
   var t = [];
   for (var r in Object(e))
-    Js.call(e, r) && r != "constructor" && t.push(r);
+    zs.call(e, r) && r != "constructor" && t.push(r);
   return t;
-}, Qs = dr, hr = function(e) {
-  return Qs(e) ? Hs(e) : Ks(e);
-}, Zs = cs, Xs = hr, ec = dr, Sa = /* @__PURE__ */ function(e, t) {
+}, Zs = dr, hr = function(e) {
+  return Zs(e) ? Ks(e) : Qs(e);
+}, Xs = ls, ec = hr, tc = dr, Ca = /* @__PURE__ */ function(e, t) {
   return function(r, n) {
     if (r == null)
       return r;
-    if (!ec(r))
+    if (!tc(r))
       return e(r, n);
     for (var a = r.length, s = t ? a : -1, c = Object(r); (t ? s-- : ++s < a) && n(c[s], s, c) !== !1; )
       ;
     return r;
   };
 }(function(e, t) {
-  return e && Zs(e, t, Xs);
-}), tc = Sa, rc = function(e, t) {
+  return e && Xs(e, t, ec);
+}), rc = Ca, nc = function(e, t) {
   var r = [];
-  return tc(e, function(n, a, s) {
+  return rc(e, function(n, a, s) {
     t(n, a, s) && r.push(n);
   }), r;
-}, nc = function() {
+}, ic = function() {
   this.__data__ = [], this.size = 0;
-}, Ca = function(e, t) {
+}, Ma = function(e, t) {
   return e === t || e != e && t != t;
-}, ic = Ca, wt = function(e, t) {
+}, ac = Ma, wt = function(e, t) {
   for (var r = e.length; r--; )
-    if (ic(e[r][0], t))
+    if (ac(e[r][0], t))
       return r;
   return -1;
-}, ac = wt, oc = Array.prototype.splice, sc = wt, cc = wt, lc = wt, uc = nc, dc = function(e) {
-  var t = this.__data__, r = ac(t, e);
-  return !(r < 0) && (r == t.length - 1 ? t.pop() : oc.call(t, r, 1), --this.size, !0);
-}, hc = function(e) {
-  var t = this.__data__, r = sc(t, e);
-  return r < 0 ? void 0 : t[r][1];
+}, oc = wt, sc = Array.prototype.splice, cc = wt, lc = wt, uc = wt, dc = ic, hc = function(e) {
+  var t = this.__data__, r = oc(t, e);
+  return !(r < 0) && (r == t.length - 1 ? t.pop() : sc.call(t, r, 1), --this.size, !0);
 }, pc = function(e) {
-  return cc(this.__data__, e) > -1;
-}, fc = function(e, t) {
-  var r = this.__data__, n = lc(r, e);
+  var t = this.__data__, r = cc(t, e);
+  return r < 0 ? void 0 : t[r][1];
+}, fc = function(e) {
+  return lc(this.__data__, e) > -1;
+}, vc = function(e, t) {
+  var r = this.__data__, n = uc(r, e);
   return n < 0 ? (++this.size, r.push([e, t])) : r[n][1] = t, this;
-};
-function Ae(e) {
-  var t = -1, r = e == null ? 0 : e.length;
-  for (this.clear(); ++t < r; ) {
-    var n = e[t];
-    this.set(n[0], n[1]);
-  }
-}
-Ae.prototype.clear = uc, Ae.prototype.delete = dc, Ae.prototype.get = hc, Ae.prototype.has = pc, Ae.prototype.set = fc;
-var kt = Ae, vc = kt, mc = function() {
-  this.__data__ = new vc(), this.size = 0;
-}, gc = function(e) {
-  var t = this.__data__, r = t.delete(e);
-  return this.size = t.size, r;
-}, yc = function(e) {
-  return this.__data__.get(e);
-}, bn, bc = function(e) {
-  return this.__data__.has(e);
-}, Nt = ue["__core-js_shared__"], _n = (bn = /[^.]+$/.exec(Nt && Nt.keys && Nt.keys.IE_PROTO || "")) ? "Symbol(src)_1." + bn : "", _c = function(e) {
-  return !!_n && _n in e;
-}, wc = Function.prototype.toString, Ma = function(e) {
-  if (e != null) {
-    try {
-      return wc.call(e);
-    } catch {
-    }
-    try {
-      return e + "";
-    } catch {
-    }
-  }
-  return "";
-}, kc = ka, Sc = _c, Cc = ur, Mc = Ma, Tc = /^\[object .+?Constructor\]$/, Ac = Function.prototype, Ec = Object.prototype, Oc = Ac.toString, Lc = Ec.hasOwnProperty, Pc = RegExp("^" + Oc.call(Lc).replace(/[\\^$.*+?()[\]{}|]/g, "\\$&").replace(/hasOwnProperty|(function).*?(?=\\\()| for .+?(?=\\\])/g, "$1.*?") + "$"), Ic = function(e) {
-  return !(!Cc(e) || Sc(e)) && (kc(e) ? Pc : Tc).test(Mc(e));
-}, jc = function(e, t) {
-  return e == null ? void 0 : e[t];
-}, Fe = function(e, t) {
-  var r = jc(e, t);
-  return Ic(r) ? r : void 0;
-}, pr = Fe(ue, "Map"), St = Fe(Object, "create"), wn = St, Dc = function() {
-  this.__data__ = wn ? wn(null) : {}, this.size = 0;
-}, Nc = function(e) {
-  var t = this.has(e) && delete this.__data__[e];
-  return this.size -= t ? 1 : 0, t;
-}, Rc = St, Fc = Object.prototype.hasOwnProperty, xc = function(e) {
-  var t = this.__data__;
-  if (Rc) {
-    var r = t[e];
-    return r === "__lodash_hash_undefined__" ? void 0 : r;
-  }
-  return Fc.call(t, e) ? t[e] : void 0;
-}, Vc = St, Bc = Object.prototype.hasOwnProperty, Uc = St, Yc = Dc, qc = Nc, Jc = xc, Wc = function(e) {
-  var t = this.__data__;
-  return Vc ? t[e] !== void 0 : Bc.call(t, e);
-}, zc = function(e, t) {
-  var r = this.__data__;
-  return this.size += this.has(e) ? 0 : 1, r[e] = Uc && t === void 0 ? "__lodash_hash_undefined__" : t, this;
 };
 function Ee(e) {
   var t = -1, r = e == null ? 0 : e.length;
@@ -1841,24 +1784,81 @@ function Ee(e) {
     this.set(n[0], n[1]);
   }
 }
-Ee.prototype.clear = Yc, Ee.prototype.delete = qc, Ee.prototype.get = Jc, Ee.prototype.has = Wc, Ee.prototype.set = zc;
-var kn = Ee, $c = kt, Gc = pr, Hc = function(e) {
+Ee.prototype.clear = dc, Ee.prototype.delete = hc, Ee.prototype.get = pc, Ee.prototype.has = fc, Ee.prototype.set = vc;
+var kt = Ee, mc = kt, gc = function() {
+  this.__data__ = new mc(), this.size = 0;
+}, yc = function(e) {
+  var t = this.__data__, r = t.delete(e);
+  return this.size = t.size, r;
+}, bc = function(e) {
+  return this.__data__.get(e);
+}, bn, _c = function(e) {
+  return this.__data__.has(e);
+}, Nt = ue["__core-js_shared__"], _n = (bn = /[^.]+$/.exec(Nt && Nt.keys && Nt.keys.IE_PROTO || "")) ? "Symbol(src)_1." + bn : "", wc = function(e) {
+  return !!_n && _n in e;
+}, kc = Function.prototype.toString, Ta = function(e) {
+  if (e != null) {
+    try {
+      return kc.call(e);
+    } catch {
+    }
+    try {
+      return e + "";
+    } catch {
+    }
+  }
+  return "";
+}, Sc = Sa, Cc = wc, Mc = ur, Tc = Ta, Ec = /^\[object .+?Constructor\]$/, Ac = Function.prototype, Oc = Object.prototype, Lc = Ac.toString, Pc = Oc.hasOwnProperty, Ic = RegExp("^" + Lc.call(Pc).replace(/[\\^$.*+?()[\]{}|]/g, "\\$&").replace(/hasOwnProperty|(function).*?(?=\\\()| for .+?(?=\\\])/g, "$1.*?") + "$"), jc = function(e) {
+  return !(!Mc(e) || Cc(e)) && (Sc(e) ? Ic : Ec).test(Tc(e));
+}, Dc = function(e, t) {
+  return e == null ? void 0 : e[t];
+}, Fe = function(e, t) {
+  var r = Dc(e, t);
+  return jc(r) ? r : void 0;
+}, pr = Fe(ue, "Map"), St = Fe(Object, "create"), wn = St, Nc = function() {
+  this.__data__ = wn ? wn(null) : {}, this.size = 0;
+}, Rc = function(e) {
+  var t = this.has(e) && delete this.__data__[e];
+  return this.size -= t ? 1 : 0, t;
+}, Fc = St, xc = Object.prototype.hasOwnProperty, Vc = function(e) {
+  var t = this.__data__;
+  if (Fc) {
+    var r = t[e];
+    return r === "__lodash_hash_undefined__" ? void 0 : r;
+  }
+  return xc.call(t, e) ? t[e] : void 0;
+}, Bc = St, Uc = Object.prototype.hasOwnProperty, Yc = St, qc = Nc, Jc = Rc, zc = Vc, Wc = function(e) {
+  var t = this.__data__;
+  return Bc ? t[e] !== void 0 : Uc.call(t, e);
+}, $c = function(e, t) {
+  var r = this.__data__;
+  return this.size += this.has(e) ? 0 : 1, r[e] = Yc && t === void 0 ? "__lodash_hash_undefined__" : t, this;
+};
+function Ae(e) {
+  var t = -1, r = e == null ? 0 : e.length;
+  for (this.clear(); ++t < r; ) {
+    var n = e[t];
+    this.set(n[0], n[1]);
+  }
+}
+Ae.prototype.clear = qc, Ae.prototype.delete = Jc, Ae.prototype.get = zc, Ae.prototype.has = Wc, Ae.prototype.set = $c;
+var kn = Ae, Gc = kt, Hc = pr, Kc = function(e) {
   var t = typeof e;
   return t == "string" || t == "number" || t == "symbol" || t == "boolean" ? e !== "__proto__" : e === null;
 }, Ct = function(e, t) {
   var r = e.__data__;
-  return Hc(t) ? r[typeof t == "string" ? "string" : "hash"] : r.map;
-}, Kc = Ct, Qc = Ct, Zc = Ct, Xc = Ct, el = function() {
-  this.size = 0, this.__data__ = { hash: new kn(), map: new (Gc || $c)(), string: new kn() };
-}, tl = function(e) {
-  var t = Kc(this, e).delete(e);
-  return this.size -= t ? 1 : 0, t;
+  return Kc(t) ? r[typeof t == "string" ? "string" : "hash"] : r.map;
+}, Qc = Ct, Zc = Ct, Xc = Ct, el = Ct, tl = function() {
+  this.size = 0, this.__data__ = { hash: new kn(), map: new (Hc || Gc)(), string: new kn() };
 }, rl = function(e) {
-  return Qc(this, e).get(e);
+  var t = Qc(this, e).delete(e);
+  return this.size -= t ? 1 : 0, t;
 }, nl = function(e) {
-  return Zc(this, e).has(e);
-}, il = function(e, t) {
-  var r = Xc(this, e), n = r.size;
+  return Zc(this, e).get(e);
+}, il = function(e) {
+  return Xc(this, e).has(e);
+}, al = function(e, t) {
+  var r = el(this, e), n = r.size;
   return r.set(e, t), this.size += r.size == n ? 0 : 1, this;
 };
 function Oe(e) {
@@ -1868,39 +1868,39 @@ function Oe(e) {
     this.set(n[0], n[1]);
   }
 }
-Oe.prototype.clear = el, Oe.prototype.delete = tl, Oe.prototype.get = rl, Oe.prototype.has = nl, Oe.prototype.set = il;
-var fr = Oe, al = kt, ol = pr, sl = fr, cl = kt, ll = mc, ul = gc, dl = yc, hl = bc, pl = function(e, t) {
+Oe.prototype.clear = tl, Oe.prototype.delete = rl, Oe.prototype.get = nl, Oe.prototype.has = il, Oe.prototype.set = al;
+var fr = Oe, ol = kt, sl = pr, cl = fr, ll = kt, ul = gc, dl = yc, hl = bc, pl = _c, fl = function(e, t) {
   var r = this.__data__;
-  if (r instanceof al) {
+  if (r instanceof ol) {
     var n = r.__data__;
-    if (!ol || n.length < 199)
+    if (!sl || n.length < 199)
       return n.push([e, t]), this.size = ++r.size, this;
-    r = this.__data__ = new sl(n);
+    r = this.__data__ = new cl(n);
   }
   return r.set(e, t), this.size = r.size, this;
 };
 function Le(e) {
-  var t = this.__data__ = new cl(e);
+  var t = this.__data__ = new ll(e);
   this.size = t.size;
 }
-Le.prototype.clear = ll, Le.prototype.delete = ul, Le.prototype.get = dl, Le.prototype.has = hl, Le.prototype.set = pl;
-var Ta = Le, fl = fr, vl = function(e) {
+Le.prototype.clear = ul, Le.prototype.delete = dl, Le.prototype.get = hl, Le.prototype.has = pl, Le.prototype.set = fl;
+var Ea = Le, vl = fr, ml = function(e) {
   return this.__data__.set(e, "__lodash_hash_undefined__"), this;
-}, ml = function(e) {
+}, gl = function(e) {
   return this.__data__.has(e);
 };
 function pt(e) {
   var t = -1, r = e == null ? 0 : e.length;
-  for (this.__data__ = new fl(); ++t < r; )
+  for (this.__data__ = new vl(); ++t < r; )
     this.add(e[t]);
 }
-pt.prototype.add = pt.prototype.push = vl, pt.prototype.has = ml;
-var gl = pt, yl = function(e, t) {
+pt.prototype.add = pt.prototype.push = ml, pt.prototype.has = gl;
+var yl = pt, bl = function(e, t) {
   for (var r = -1, n = e == null ? 0 : e.length; ++r < n; )
     if (t(e[r], r, e))
       return !0;
   return !1;
-}, bl = function(e, t) {
+}, _l = function(e, t) {
   return e.has(t);
 }, Aa = function(e, t, r, n, a, s) {
   var c = 1 & r, u = e.length, d = t.length;
@@ -1909,7 +1909,7 @@ var gl = pt, yl = function(e, t) {
   var f = s.get(e), m = s.get(t);
   if (f && m)
     return f == t && m == e;
-  var y = -1, _ = !0, R = 2 & r ? new gl() : void 0;
+  var y = -1, _ = !0, R = 2 & r ? new yl() : void 0;
   for (s.set(e, t), s.set(t, e); ++y < u; ) {
     var M = e[y], I = t[y];
     if (n)
@@ -1921,8 +1921,8 @@ var gl = pt, yl = function(e, t) {
       break;
     }
     if (R) {
-      if (!yl(t, function(Y, x) {
-        if (!bl(R, x) && (M === Y || a(M, Y, r, n, s)))
+      if (!bl(t, function(Y, x) {
+        if (!_l(R, x) && (M === Y || a(M, Y, r, n, s)))
           return R.push(x);
       })) {
         _ = !1;
@@ -1934,17 +1934,17 @@ var gl = pt, yl = function(e, t) {
     }
   }
   return s.delete(e), s.delete(t), _;
-}, Sn = ue.Uint8Array, _l = Ca, wl = Aa, kl = function(e) {
+}, Sn = ue.Uint8Array, wl = Ma, kl = Aa, Sl = function(e) {
   var t = -1, r = Array(e.size);
   return e.forEach(function(n, a) {
     r[++t] = [a, n];
   }), r;
-}, Sl = function(e) {
+}, Cl = function(e) {
   var t = -1, r = Array(e.size);
   return e.forEach(function(n) {
     r[++t] = n;
   }), r;
-}, Cn = Ce ? Ce.prototype : void 0, Rt = Cn ? Cn.valueOf : void 0, Cl = function(e, t, r, n, a, s, c) {
+}, Cn = Ce ? Ce.prototype : void 0, Rt = Cn ? Cn.valueOf : void 0, Ml = function(e, t, r, n, a, s, c) {
   switch (r) {
     case "[object DataView]":
       if (e.byteLength != t.byteLength || e.byteOffset != t.byteOffset)
@@ -1955,51 +1955,51 @@ var gl = pt, yl = function(e, t) {
     case "[object Boolean]":
     case "[object Date]":
     case "[object Number]":
-      return _l(+e, +t);
+      return wl(+e, +t);
     case "[object Error]":
       return e.name == t.name && e.message == t.message;
     case "[object RegExp]":
     case "[object String]":
       return e == t + "";
     case "[object Map]":
-      var u = kl;
+      var u = Sl;
     case "[object Set]":
       var d = 1 & n;
-      if (u || (u = Sl), e.size != t.size && !d)
+      if (u || (u = Cl), e.size != t.size && !d)
         return !1;
       var f = c.get(e);
       if (f)
         return f == t;
       n |= 2, c.set(e, t);
-      var m = wl(u(e), u(t), n, a, s, c);
+      var m = kl(u(e), u(t), n, a, s, c);
       return c.delete(e), m;
     case "[object Symbol]":
       if (Rt)
         return Rt.call(e) == Rt.call(t);
   }
   return !1;
-}, Ml = function(e, t) {
+}, Tl = function(e, t) {
   for (var r = -1, n = t.length, a = e.length; ++r < n; )
     e[a + r] = t[r];
   return e;
-}, Tl = X, Al = function(e, t, r) {
+}, El = X, Al = function(e, t, r) {
   var n = t(e);
-  return Tl(e) ? n : Ml(n, r(e));
-}, El = fa, Ol = function() {
+  return El(e) ? n : Tl(n, r(e));
+}, Ol = va, Ll = function() {
   return [];
-}, Ll = Object.prototype.propertyIsEnumerable, Mn = Object.getOwnPropertySymbols, Pl = Al, Il = Mn ? function(e) {
-  return e == null ? [] : (e = Object(e), El(Mn(e), function(t) {
-    return Ll.call(e, t);
+}, Pl = Object.prototype.propertyIsEnumerable, Mn = Object.getOwnPropertySymbols, Il = Al, jl = Mn ? function(e) {
+  return e == null ? [] : (e = Object(e), Ol(Mn(e), function(t) {
+    return Pl.call(e, t);
   }));
-} : Ol, jl = hr, Tn = function(e) {
-  return Pl(e, jl, Il);
-}, Dl = Object.prototype.hasOwnProperty, Nl = function(e, t, r, n, a, s) {
+} : Ll, Dl = hr, Tn = function(e) {
+  return Il(e, Dl, jl);
+}, Nl = Object.prototype.hasOwnProperty, Rl = function(e, t, r, n, a, s) {
   var c = 1 & r, u = Tn(e), d = u.length;
   if (d != Tn(t).length && !c)
     return !1;
   for (var f = d; f--; ) {
     var m = u[f];
-    if (!(c ? m in t : Dl.call(t, m)))
+    if (!(c ? m in t : Nl.call(t, m)))
       return !1;
   }
   var y = s.get(e), _ = s.get(t);
@@ -2022,25 +2022,25 @@ var gl = pt, yl = function(e, t) {
     x == U || !("constructor" in e) || !("constructor" in t) || typeof x == "function" && x instanceof x && typeof U == "function" && U instanceof U || (R = !1);
   }
   return s.delete(e), s.delete(t), R;
-}, tr = Fe(ue, "DataView"), rr = pr, nr = Fe(ue, "Promise"), ir = Fe(ue, "Set"), ar = Fe(ue, "WeakMap"), Ea = Ke, xe = Ma, An = "[object Map]", En = "[object Promise]", On = "[object Set]", Ln = "[object WeakMap]", Pn = "[object DataView]", Rl = xe(tr), Fl = xe(rr), xl = xe(nr), Vl = xe(ir), Bl = xe(ar), ke = Ea;
-(tr && ke(new tr(new ArrayBuffer(1))) != Pn || rr && ke(new rr()) != An || nr && ke(nr.resolve()) != En || ir && ke(new ir()) != On || ar && ke(new ar()) != Ln) && (ke = function(e) {
-  var t = Ea(e), r = t == "[object Object]" ? e.constructor : void 0, n = r ? xe(r) : "";
+}, tr = Fe(ue, "DataView"), rr = pr, nr = Fe(ue, "Promise"), ir = Fe(ue, "Set"), ar = Fe(ue, "WeakMap"), Oa = Ke, xe = Ta, En = "[object Map]", An = "[object Promise]", On = "[object Set]", Ln = "[object WeakMap]", Pn = "[object DataView]", Fl = xe(tr), xl = xe(rr), Vl = xe(nr), Bl = xe(ir), Ul = xe(ar), ke = Oa;
+(tr && ke(new tr(new ArrayBuffer(1))) != Pn || rr && ke(new rr()) != En || nr && ke(nr.resolve()) != An || ir && ke(new ir()) != On || ar && ke(new ar()) != Ln) && (ke = function(e) {
+  var t = Oa(e), r = t == "[object Object]" ? e.constructor : void 0, n = r ? xe(r) : "";
   if (n)
     switch (n) {
-      case Rl:
-        return Pn;
       case Fl:
-        return An;
+        return Pn;
       case xl:
         return En;
       case Vl:
-        return On;
+        return An;
       case Bl:
+        return On;
+      case Ul:
         return Ln;
     }
   return t;
 });
-var Ft = Ta, Ul = Aa, Yl = Cl, ql = Nl, In = ke, jn = X, Dn = Je, Jl = wa, Nn = "[object Arguments]", Rn = "[object Array]", rt = "[object Object]", Fn = Object.prototype.hasOwnProperty, Wl = function(e, t, r, n, a, s) {
+var Ft = Ea, Yl = Aa, ql = Ml, Jl = Rl, In = ke, jn = X, Dn = Je, zl = ka, Nn = "[object Arguments]", Rn = "[object Array]", rt = "[object Object]", Fn = Object.prototype.hasOwnProperty, Wl = function(e, t, r, n, a, s) {
   var c = jn(e), u = jn(t), d = c ? Rn : In(e), f = u ? Rn : In(t), m = (d = d == Nn ? rt : d) == rt, y = (f = f == Nn ? rt : f) == rt, _ = d == f;
   if (_ && Dn(e)) {
     if (!Dn(t))
@@ -2048,7 +2048,7 @@ var Ft = Ta, Ul = Aa, Yl = Cl, ql = Nl, In = ke, jn = X, Dn = Je, Jl = wa, Nn = 
     c = !0, m = !1;
   }
   if (_ && !m)
-    return s || (s = new Ft()), c || Jl(e) ? Ul(e, t, r, n, a, s) : Yl(e, t, d, r, n, a, s);
+    return s || (s = new Ft()), c || zl(e) ? Yl(e, t, r, n, a, s) : ql(e, t, d, r, n, a, s);
   if (!(1 & r)) {
     var R = m && Fn.call(e, "__wrapped__"), M = y && Fn.call(t, "__wrapped__");
     if (R || M) {
@@ -2056,16 +2056,16 @@ var Ft = Ta, Ul = Aa, Yl = Cl, ql = Nl, In = ke, jn = X, Dn = Je, Jl = wa, Nn = 
       return s || (s = new Ft()), a(I, O, r, n, s);
     }
   }
-  return !!_ && (s || (s = new Ft()), ql(e, t, r, n, a, s));
-}, xn = Qe, Oa = function e(t, r, n, a, s) {
+  return !!_ && (s || (s = new Ft()), Jl(e, t, r, n, a, s));
+}, xn = Qe, La = function e(t, r, n, a, s) {
   return t === r || (t == null || r == null || !xn(t) && !xn(r) ? t != t && r != r : Wl(t, r, n, a, e, s));
-}, zl = Ta, $l = Oa, Gl = ur, La = function(e) {
-  return e == e && !Gl(e);
-}, Hl = La, Kl = hr, Pa = function(e, t) {
+}, $l = Ea, Gl = La, Hl = ur, Pa = function(e) {
+  return e == e && !Hl(e);
+}, Kl = Pa, Ql = hr, Ia = function(e, t) {
   return function(r) {
     return r != null && r[e] === t && (t !== void 0 || e in Object(r));
   };
-}, Ql = function(e, t, r, n) {
+}, Zl = function(e, t, r, n) {
   var a = r.length, s = a, c = !n;
   if (e == null)
     return !s;
@@ -2080,33 +2080,33 @@ var Ft = Ta, Ul = Aa, Yl = Cl, ql = Nl, In = ke, jn = X, Dn = Je, Jl = wa, Nn = 
       if (f === void 0 && !(d in e))
         return !1;
     } else {
-      var y = new zl();
+      var y = new $l();
       if (n)
         var _ = n(f, m, d, e, t, y);
-      if (!(_ === void 0 ? $l(m, f, 3, n, y) : _))
+      if (!(_ === void 0 ? Gl(m, f, 3, n, y) : _))
         return !1;
     }
   }
   return !0;
-}, Zl = function(e) {
-  for (var t = Kl(e), r = t.length; r--; ) {
+}, Xl = function(e) {
+  for (var t = Ql(e), r = t.length; r--; ) {
     var n = t[r], a = e[n];
-    t[r] = [n, a, Hl(a)];
+    t[r] = [n, a, Kl(a)];
   }
   return t;
-}, Xl = Pa, eu = function(e) {
-  var t = Zl(e);
-  return t.length == 1 && t[0][2] ? Xl(t[0][0], t[0][1]) : function(r) {
-    return r === e || Ql(r, e, t);
+}, eu = Ia, tu = function(e) {
+  var t = Xl(e);
+  return t.length == 1 && t[0][2] ? eu(t[0][0], t[0][1]) : function(r) {
+    return r === e || Zl(r, e, t);
   };
-}, tu = Ke, ru = Qe, Mt = function(e) {
-  return typeof e == "symbol" || ru(e) && tu(e) == "[object Symbol]";
-}, nu = X, iu = Mt, au = /\.|\[(?:[^[\]]*|(["'])(?:(?!\1)[^\\]|\\.)*?\1)\]/, ou = /^\w*$/, vr = function(e, t) {
-  if (nu(e))
+}, ru = Ke, nu = Qe, Mt = function(e) {
+  return typeof e == "symbol" || nu(e) && ru(e) == "[object Symbol]";
+}, iu = X, au = Mt, ou = /\.|\[(?:[^[\]]*|(["'])(?:(?!\1)[^\\]|\\.)*?\1)\]/, su = /^\w*$/, vr = function(e, t) {
+  if (iu(e))
     return !1;
   var r = typeof e;
-  return !(r != "number" && r != "symbol" && r != "boolean" && e != null && !iu(e)) || ou.test(e) || !au.test(e) || t != null && e in Object(t);
-}, Ia = fr;
+  return !(r != "number" && r != "symbol" && r != "boolean" && e != null && !au(e)) || su.test(e) || !ou.test(e) || t != null && e in Object(t);
+}, ja = fr;
 function mr(e, t) {
   if (typeof e != "function" || t != null && typeof t != "function")
     throw new TypeError("Expected a function");
@@ -2117,82 +2117,82 @@ function mr(e, t) {
     var c = e.apply(this, n);
     return r.cache = s.set(a, c) || s, c;
   };
-  return r.cache = new (mr.Cache || Ia)(), r;
+  return r.cache = new (mr.Cache || ja)(), r;
 }
-mr.Cache = Ia;
-var su = mr, cu = /[^.[\]]+|\[(?:(-?\d+(?:\.\d+)?)|(["'])((?:(?!\2)[^\\]|\\.)*?)\2)\]|(?=(?:\.|\[\])(?:\.|\[\]|$))/g, lu = /\\(\\)?/g, uu = function(e) {
-  var t = su(e, function(n) {
+mr.Cache = ja;
+var cu = mr, lu = /[^.[\]]+|\[(?:(-?\d+(?:\.\d+)?)|(["'])((?:(?!\2)[^\\]|\\.)*?)\2)\]|(?=(?:\.|\[\])(?:\.|\[\]|$))/g, uu = /\\(\\)?/g, du = function(e) {
+  var t = cu(e, function(n) {
     return r.size === 500 && r.clear(), n;
   }), r = t.cache;
   return t;
 }(function(e) {
   var t = [];
-  return e.charCodeAt(0) === 46 && t.push(""), e.replace(cu, function(r, n, a, s) {
-    t.push(a ? s.replace(lu, "$1") : n || r);
+  return e.charCodeAt(0) === 46 && t.push(""), e.replace(lu, function(r, n, a, s) {
+    t.push(a ? s.replace(uu, "$1") : n || r);
   }), t;
-}), ja = function(e, t) {
+}), Da = function(e, t) {
   for (var r = -1, n = e == null ? 0 : e.length, a = Array(n); ++r < n; )
     a[r] = t(e[r], r, e);
   return a;
-}, du = ja, hu = X, pu = Mt, Vn = Ce ? Ce.prototype : void 0, Bn = Vn ? Vn.toString : void 0, fu = function e(t) {
+}, hu = Da, pu = X, fu = Mt, Vn = Ce ? Ce.prototype : void 0, Bn = Vn ? Vn.toString : void 0, vu = function e(t) {
   if (typeof t == "string")
     return t;
-  if (hu(t))
-    return du(t, e) + "";
   if (pu(t))
+    return hu(t, e) + "";
+  if (fu(t))
     return Bn ? Bn.call(t) : "";
   var r = t + "";
   return r == "0" && 1 / t == -1 / 0 ? "-0" : r;
-}, vu = fu, mu = X, gu = vr, yu = uu, bu = function(e) {
-  return e == null ? "" : vu(e);
-}, Da = function(e, t) {
-  return mu(e) ? e : gu(e, t) ? [e] : yu(bu(e));
-}, _u = Mt, Tt = function(e) {
-  if (typeof e == "string" || _u(e))
+}, mu = vu, gu = X, yu = vr, bu = du, _u = function(e) {
+  return e == null ? "" : mu(e);
+}, Na = function(e, t) {
+  return gu(e) ? e : yu(e, t) ? [e] : bu(_u(e));
+}, wu = Mt, Tt = function(e) {
+  if (typeof e == "string" || wu(e))
     return e;
   var t = e + "";
   return t == "0" && 1 / e == -1 / 0 ? "-0" : t;
-}, wu = Da, ku = Tt, gr = function(e, t) {
-  for (var r = 0, n = (t = wu(t, e)).length; e != null && r < n; )
-    e = e[ku(t[r++])];
+}, ku = Na, Su = Tt, gr = function(e, t) {
+  for (var r = 0, n = (t = ku(t, e)).length; e != null && r < n; )
+    e = e[Su(t[r++])];
   return r && r == n ? e : void 0;
-}, Su = gr, Cu = Da, Mu = ya, Tu = X, Au = ba, Eu = lr, Ou = Tt, Lu = function(e, t) {
+}, Cu = gr, Mu = Na, Tu = ba, Eu = X, Au = _a, Ou = lr, Lu = Tt, Pu = function(e, t) {
   return e != null && t in Object(e);
-}, Pu = function(e, t, r) {
-  for (var n = -1, a = (t = Cu(t, e)).length, s = !1; ++n < a; ) {
-    var c = Ou(t[n]);
+}, Iu = function(e, t, r) {
+  for (var n = -1, a = (t = Mu(t, e)).length, s = !1; ++n < a; ) {
+    var c = Lu(t[n]);
     if (!(s = e != null && r(e, c)))
       break;
     e = e[c];
   }
-  return s || ++n != a ? s : !!(a = e == null ? 0 : e.length) && Eu(a) && Au(c, a) && (Tu(e) || Mu(e));
-}, Iu = Oa, ju = function(e, t, r) {
-  var n = e == null ? void 0 : Su(e, t);
+  return s || ++n != a ? s : !!(a = e == null ? 0 : e.length) && Ou(a) && Au(c, a) && (Eu(e) || Tu(e));
+}, ju = La, Du = function(e, t, r) {
+  var n = e == null ? void 0 : Cu(e, t);
   return n === void 0 ? r : n;
-}, Du = function(e, t) {
-  return e != null && Pu(e, t, Lu);
-}, Nu = vr, Ru = La, Fu = Pa, xu = Tt, Na = function(e) {
+}, Nu = function(e, t) {
+  return e != null && Iu(e, t, Pu);
+}, Ru = vr, Fu = Pa, xu = Ia, Vu = Tt, Ra = function(e) {
   return e;
-}, Vu = gr, Bu = function(e) {
+}, Bu = gr, Uu = function(e) {
   return function(t) {
     return t == null ? void 0 : t[e];
   };
-}, Uu = function(e) {
+}, Yu = function(e) {
   return function(t) {
-    return Vu(t, e);
+    return Bu(t, e);
   };
-}, Yu = vr, qu = Tt, Ju = eu, Wu = function(e, t) {
-  return Nu(e) && Ru(t) ? Fu(xu(e), t) : function(r) {
-    var n = ju(r, e);
-    return n === void 0 && n === t ? Du(r, e) : Iu(t, n, 3);
+}, qu = vr, Ju = Tt, zu = tu, Wu = function(e, t) {
+  return Ru(e) && Fu(t) ? xu(Vu(e), t) : function(r) {
+    var n = Du(r, e);
+    return n === void 0 && n === t ? Nu(r, e) : ju(t, n, 3);
   };
-}, zu = Na, $u = X, Gu = function(e) {
-  return Yu(e) ? Bu(qu(e)) : Uu(e);
-}, Ra = function(e) {
-  return typeof e == "function" ? e : e == null ? zu : typeof e == "object" ? $u(e) ? Wu(e[0], e[1]) : Ju(e) : Gu(e);
-}, Hu = fa, Ku = rc, Qu = Ra, Zu = X, Xu = function(e, t) {
-  return (Zu(e) ? Hu : Ku)(e, Qu(t));
-}, ed = Sa, td = dr, Un = Mt, rd = function(e, t) {
+}, $u = Ra, Gu = X, Hu = function(e) {
+  return qu(e) ? Uu(Ju(e)) : Yu(e);
+}, Fa = function(e) {
+  return typeof e == "function" ? e : e == null ? $u : typeof e == "object" ? Gu(e) ? Wu(e[0], e[1]) : zu(e) : Hu(e);
+}, Ku = va, Qu = nc, Zu = Fa, Xu = X, ed = function(e, t) {
+  return (Xu(e) ? Ku : Qu)(e, Zu(t));
+}, td = Ca, rd = dr, Un = Mt, nd = function(e, t) {
   if (e !== t) {
     var r = e !== void 0, n = e === null, a = e == e, s = Un(e), c = t !== void 0, u = t === null, d = t == t, f = Un(t);
     if (!u && !f && !s && e > t || s && c && d && !u && !f || n && c && d || !r && d || !a)
@@ -2201,49 +2201,49 @@ var su = mr, cu = /[^.[\]]+|\[(?:(-?\d+(?:\.\d+)?)|(["'])((?:(?!\2)[^\\]|\\.)*?)
       return -1;
   }
   return 0;
-}, xt = ja, nd = gr, id = Ra, ad = function(e, t) {
-  var r = -1, n = td(e) ? Array(e.length) : [];
-  return ed(e, function(a, s, c) {
+}, xt = Da, id = gr, ad = Fa, od = function(e, t) {
+  var r = -1, n = rd(e) ? Array(e.length) : [];
+  return td(e, function(a, s, c) {
     n[++r] = t(a, s, c);
   }), n;
-}, od = function(e, t) {
+}, sd = function(e, t) {
   var r = e.length;
   for (e.sort(t); r--; )
     e[r] = e[r].value;
   return e;
-}, sd = _a, cd = function(e, t, r) {
+}, cd = wa, ld = function(e, t, r) {
   for (var n = -1, a = e.criteria, s = t.criteria, c = a.length, u = r.length; ++n < c; ) {
-    var d = rd(a[n], s[n]);
+    var d = nd(a[n], s[n]);
     if (d)
       return n >= u ? d : d * (r[n] == "desc" ? -1 : 1);
   }
   return e.index - t.index;
-}, ld = Na, ud = X, dd = function(e, t, r) {
+}, ud = Ra, dd = X, hd = function(e, t, r) {
   t = t.length ? xt(t, function(s) {
-    return ud(s) ? function(c) {
-      return nd(c, s.length === 1 ? s[0] : s);
+    return dd(s) ? function(c) {
+      return id(c, s.length === 1 ? s[0] : s);
     } : s;
-  }) : [ld];
+  }) : [ud];
   var n = -1;
-  t = xt(t, sd(id));
-  var a = ad(e, function(s, c, u) {
+  t = xt(t, cd(ad));
+  var a = od(e, function(s, c, u) {
     return { criteria: xt(t, function(d) {
       return d(s);
     }), index: ++n, value: s };
   });
-  return od(a, function(s, c) {
-    return cd(s, c, r);
+  return sd(a, function(s, c) {
+    return ld(s, c, r);
   });
-}, Yn = X, hd = function(e, t, r, n) {
-  return e == null ? [] : (Yn(t) || (t = t == null ? [] : [t]), Yn(r = n ? void 0 : r) || (r = r == null ? [] : [r]), dd(e, t, r));
+}, Yn = X, pd = function(e, t, r, n) {
+  return e == null ? [] : (Yn(t) || (t = t == null ? [] : [t]), Yn(r = n ? void 0 : r) || (r = r == null ? [] : [r]), hd(e, t, r));
 }, nt = function(e, t, r) {
-  return fd(e.local, t, r) === !0;
-}, pd = function(e, t, r) {
+  return vd(e.local, t, r) === !0;
+}, fd = function(e, t, r) {
   return e.local.streams && e.local.streams[t] && e.local.streams[t].stream && e.local.streams[t].stream["get".concat(r === "video" ? "Video" : "Audio", "Tracks")]()[0];
 }, Pe = function(e, t, r, n) {
-  var a = vd(e, t, r, n);
+  var a = md(e, t, r, n);
   return a && a.pendingTrack;
-}, fd = function(e, t, r) {
+}, vd = function(e, t, r) {
   if (!e)
     return !1;
   var n = function(s) {
@@ -2257,12 +2257,12 @@ var su = mr, cu = /[^.[\]]+|\[(?:(-?\d+(?:\.\d+)?)|(["'])((?:(?!\2)[^\\]|\\.)*?)
     }
   }, a = e.public.subscribedTracks;
   return a && a[t] ? ["cam-audio", "cam-video", "screen-video", "screen-audio", "rmpAudio", "rmpVideo"].indexOf(r) === -1 && a[t].custom ? [!0, "staged"].includes(a[t].custom) ? n(a[t].custom) : n(a[t].custom[r]) : n(a[t][r]) : !a || n(a.ALL);
-}, vd = function(e, t, r, n) {
-  var a = hd(Xu(e.streams, function(s) {
+}, md = function(e, t, r, n) {
+  var a = pd(ed(e.streams, function(s) {
     return s.participantId === t && s.type === r && s.pendingTrack && s.pendingTrack.kind === n;
   }), "starttime", "desc");
   return a && a[0];
-}, md = function(e, t) {
+}, gd = function(e, t) {
   var r = e.local.public.customTracks;
   if (r && r[t])
     return r[t].track;
@@ -2272,7 +2272,7 @@ function qn(e) {
     for (var a = n[r], s = 0, c = ["video", "audio"]; s < c.length; s++) {
       var u = c[s], d = a === "cam" ? u : "screen".concat(u.charAt(0).toUpperCase() + u.slice(1)), f = e.tracks[d];
       if (f) {
-        var m = e.local ? pd(t, a, u) : Pe(t, e.session_id, a, u);
+        var m = e.local ? fd(t, a, u) : Pe(t, e.session_id, a, u);
         f.state === "playable" && (f.track = m), f.persistentTrack = m;
       }
     }
@@ -2281,12 +2281,12 @@ function Jn(e) {
   try {
     var t = store.getState();
     for (var r in e.tracks)
-      if (!gd(r)) {
+      if (!yd(r)) {
         var n = e.tracks[r].kind;
         if (n) {
           var a = e.tracks[r];
           if (a) {
-            var s = e.local ? md(t, r) : Pe(t, e.session_id, r, n);
+            var s = e.local ? gd(t, r) : Pe(t, e.session_id, r, n);
             a.state === "playable" && (e.tracks[r].track = s), a.persistentTrack = s;
           }
         } else
@@ -2296,10 +2296,10 @@ function Jn(e) {
     console.error(c);
   }
 }
-function gd(e) {
+function yd(e) {
   return ["video", "audio", "screenVideo", "screenAudio"].includes(e);
 }
-function Wn(e, t) {
+function zn(e, t) {
   var r = store.getState();
   if (e.local) {
     if (e.audio)
@@ -2350,18 +2350,18 @@ function Wn(e, t) {
     }
   }
 }
-function yd(e, t) {
+function bd(e, t) {
   var r = typeof Symbol < "u" && e[Symbol.iterator] || e["@@iterator"];
   if (!r) {
     if (Array.isArray(e) || (r = function(d, f) {
       if (d) {
         if (typeof d == "string")
-          return zn(d, f);
+          return Wn(d, f);
         var m = Object.prototype.toString.call(d).slice(8, -1);
         if (m === "Object" && d.constructor && (m = d.constructor.name), m === "Map" || m === "Set")
           return Array.from(d);
         if (m === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(m))
-          return zn(d, f);
+          return Wn(d, f);
       }
     }(e)) || t && e && typeof e.length == "number") {
       r && (e = r);
@@ -2393,14 +2393,14 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
     }
   } };
 }
-function zn(e, t) {
+function Wn(e, t) {
   (t == null || t > e.length) && (t = e.length);
   for (var r = 0, n = new Array(t); r < t; r++)
     n[r] = e[r];
   return n;
 }
 var ie = /* @__PURE__ */ new Map(), De = null;
-function bd(e, t) {
+function _d(e, t) {
   var r = typeof Symbol < "u" && e[Symbol.iterator] || e["@@iterator"];
   if (!r) {
     if (Array.isArray(e) || (r = function(d, f) {
@@ -2449,13 +2449,13 @@ function $n(e, t) {
     n[r] = e[r];
   return n;
 }
-var ae = /* @__PURE__ */ new Map(), ze = null, _d = 3e3;
-function wd(e) {
-  Fa() ? function(t) {
+var ae = /* @__PURE__ */ new Map(), We = null, wd = 3e3;
+function kd(e) {
+  xa() ? function(t) {
     ie.has(t) || (ie.set(t, {}), navigator.mediaDevices.enumerateDevices().then(function(r) {
       ie.has(t) && (ie.get(t).lastDevicesString = JSON.stringify(r), De || (De = function() {
         var n = b(function* () {
-          var a, s = yield navigator.mediaDevices.enumerateDevices(), c = yd(ie.keys());
+          var a, s = yield navigator.mediaDevices.enumerateDevices(), c = bd(ie.keys());
           try {
             for (c.s(); !(a = c.n()).done; ) {
               var u = a.value, d = JSON.stringify(s);
@@ -2474,8 +2474,8 @@ function wd(e) {
     }));
   }(e) : function(t) {
     ae.has(t) || (ae.set(t, {}), navigator.mediaDevices.enumerateDevices().then(function(r) {
-      ae.has(t) && (ae.get(t).lastDevicesString = JSON.stringify(r), ze || (ze = setInterval(b(function* () {
-        var n, a = yield navigator.mediaDevices.enumerateDevices(), s = bd(ae.keys());
+      ae.has(t) && (ae.get(t).lastDevicesString = JSON.stringify(r), We || (We = setInterval(b(function* () {
+        var n, a = yield navigator.mediaDevices.enumerateDevices(), s = _d(ae.keys());
         try {
           for (s.s(); !(n = s.n()).done; ) {
             var c = n.value, u = JSON.stringify(a);
@@ -2486,28 +2486,28 @@ function wd(e) {
         } finally {
           s.f();
         }
-      }), _d)));
+      }), wd)));
     }));
   }(e);
 }
-function kd(e) {
-  Fa() ? function(t) {
+function Sd(e) {
+  xa() ? function(t) {
     ie.has(t) && (ie.delete(t), ie.size === 0 && De && (navigator.mediaDevices.removeEventListener("devicechange", De), De = null));
   }(e) : function(t) {
-    ae.has(t) && (ae.delete(t), ae.size === 0 && ze && (clearInterval(ze), ze = null));
+    ae.has(t) && (ae.delete(t), ae.size === 0 && We && (clearInterval(We), We = null));
   }(e);
 }
-function Fa() {
+function xa() {
   return N() || navigator.mediaDevices.ondevicechange !== void 0;
 }
-var Sd = /* @__PURE__ */ new Set();
-function Cd(e, t) {
+var Cd = /* @__PURE__ */ new Set();
+function Md(e, t) {
   var r = t.isLocalScreenVideo;
   return e && e.readyState === "live" && !function(n, a) {
-    return (!a.isLocalScreenVideo || Re() !== "Chrome") && n.muted && !Sd.has(n.id);
+    return (!a.isLocalScreenVideo || Re() !== "Chrome") && n.muted && !Cd.has(n.id);
   }(e, { isLocalScreenVideo: r });
 }
-var se, Md = ["preserveIframe"];
+var se, Td = ["preserveIframe"];
 function Gn(e, t) {
   var r = Object.keys(e);
   if (Object.getOwnPropertySymbols) {
@@ -2529,7 +2529,7 @@ function T(e) {
   }
   return e;
 }
-function Td(e) {
+function Ed(e) {
   var t = function() {
     if (typeof Reflect > "u" || !Reflect.construct || Reflect.construct.sham)
       return !1;
@@ -2601,7 +2601,7 @@ function Kn(e, t) {
     n[r] = e[r];
   return n;
 }
-var Qn = "video", Ad = "voice", Zn = N() ? { data: {} } : { data: {}, topology: "none" }, Xn = { present: 0, hidden: 0 }, xa = { maxBitrate: { min: 1e5, max: 25e5 }, maxFramerate: { min: 1, max: 30 }, scaleResolutionDownBy: { min: 1, max: 8 } }, Vt = Object.keys(xa), ei = ["state", "volume", "simulcastEncodings"], ti = { androidInCallNotification: { title: "string", subtitle: "string", iconName: "string", disableForCustomOverride: "boolean" }, disableAutoDeviceManagement: { audio: "boolean", video: "boolean" } }, gt = { id: { iconPath: "string", iconPathDarkMode: "string", label: "string", tooltip: "string" } }, or = { id: { allow: "string", controlledBy: "'*' | 'owners' | string[]", csp: "string", iconURL: "string", label: "string", loading: "'eager' | 'lazy'", location: "'main' | 'sidebar'", name: "string", referrerPolicy: "string", sandbox: "string", src: "string", srcdoc: "string", shared: "string[] | 'owners' | boolean" } }, be = { customIntegrations: { validate: Wa, help: qa() }, customTrayButtons: { validate: Ja, help: "customTrayButtons should be a dictionary of the type ".concat(JSON.stringify(gt)) }, url: { validate: function(e) {
+var Qn = "video", Ad = "voice", Zn = N() ? { data: {} } : { data: {}, topology: "none" }, Xn = { present: 0, hidden: 0 }, Va = { maxBitrate: { min: 1e5, max: 25e5 }, maxFramerate: { min: 1, max: 30 }, scaleResolutionDownBy: { min: 1, max: 8 } }, Vt = Object.keys(Va), ei = ["state", "volume", "simulcastEncodings"], ti = { androidInCallNotification: { title: "string", subtitle: "string", iconName: "string", disableForCustomOverride: "boolean" }, disableAutoDeviceManagement: { audio: "boolean", video: "boolean" } }, gt = { id: { iconPath: "string", iconPathDarkMode: "string", label: "string", tooltip: "string" } }, or = { id: { allow: "string", controlledBy: "'*' | 'owners' | string[]", csp: "string", iconURL: "string", label: "string", loading: "'eager' | 'lazy'", location: "'main' | 'sidebar'", name: "string", referrerPolicy: "string", sandbox: "string", src: "string", srcdoc: "string", shared: "string[] | 'owners' | boolean" } }, be = { customIntegrations: { validate: Wa, help: Ja() }, customTrayButtons: { validate: za, help: "customTrayButtons should be a dictionary of the type ".concat(JSON.stringify(gt)) }, url: { validate: function(e) {
   return typeof e == "string";
 }, help: "url should be a string" }, baseUrl: { validate: function(e) {
   return typeof e == "string";
@@ -2615,12 +2615,12 @@ var Qn = "video", Ad = "voice", Zn = N() ? { data: {} } : { data: {}, topology: 
   }
   return !1;
 }, help: "Unsupported dailyConfig. Check error logs for detailed info." }, reactNativeConfig: { validate: function(e) {
-  return za(e, ti);
+  return $a(e, ti);
 }, help: "reactNativeConfig should look like ".concat(JSON.stringify(ti), ", all fields optional") }, lang: { validate: function(e) {
   return ["de", "en-us", "en", "es", "fi", "fr", "it", "jp", "ka", "nl", "no", "pl", "pt", "pt-BR", "ru", "sv", "tr", "user"].includes(e);
 }, help: "language not supported. Options are: de, en-us, en, es, fi, fr, it, jp, ka, nl, no, pl, pt, pt-BR, ru, sv, tr, user" }, userName: !0, userData: { validate: function(e) {
   try {
-    return Va(e), !0;
+    return Ba(e), !0;
   } catch (t) {
     return console.error(t), !1;
   }
@@ -2662,8 +2662,8 @@ var Qn = "video", Ad = "voice", Zn = N() ? { data: {} } : { data: {}, topology: 
   }
   return !0;
 }, help: "unsupported layoutConfig. Check error logs for detailed info." }, receiveSettings: { validate: function(e) {
-  return Ba(e, { allowAllParticipantsKey: !1 });
-}, help: Ya({ allowAllParticipantsKey: !1 }) }, sendSettings: { validate: function(e, t) {
+  return Ua(e, { allowAllParticipantsKey: !1 });
+}, help: qa({ allowAllParticipantsKey: !1 }) }, sendSettings: { validate: function(e, t) {
   return !!function(r, n) {
     try {
       return n.validateUpdateSendSettings(r), !0;
@@ -2672,7 +2672,7 @@ var Qn = "video", Ad = "voice", Zn = N() ? { data: {} } : { data: {}, topology: 
     }
   }(e, t) && (t._preloadCache.sendSettings = e, !0);
 }, help: "Invalid sendSettings provided. Check error logs for detailed info." }, inputSettings: { validate: function(e, t) {
-  return !!sr(e) && (t._preloadCache.inputSettings || (t._preloadCache.inputSettings = {}), Ua(e), e.audio && (t._preloadCache.inputSettings.audio = e.audio), e.video && (t._preloadCache.inputSettings.video = e.video), !0);
+  return !!sr(e) && (t._preloadCache.inputSettings || (t._preloadCache.inputSettings = {}), Ya(e), e.audio && (t._preloadCache.inputSettings.audio = e.audio), e.video && (t._preloadCache.inputSettings.video = e.video), !0);
 }, help: cr() }, layout: { validate: function(e) {
   return e === "custom-v1" || e === "browser" || e === "none";
 }, help: 'layout may only be set to "custom-v1"', queryString: "layout" }, emb: { queryString: "emb" }, embHref: { queryString: "embHref" }, dailyJsVersion: { queryString: "dailyJsVersion" }, proxy: { queryString: "proxy" }, strictMode: !0 }, it = { styles: { validate: function(e) {
@@ -2761,15 +2761,15 @@ var Qn = "video", Ad = "voice", Zn = N() ? { data: {} } : { data: {}, topology: 
     }
   }
   return !0;
-}, help: "updatePermissions can take hasPresence, canSend, and canAdmin permissions. hasPresence must be a boolean. canSend can be a boolean or an Array or Set of media types (video, audio, screenVideo, screenAudio, customVideo, customAudio). canAdmin can be a boolean or an Array or Set of admin types (participants, streaming, transcription)." } }, Ed = function(e) {
+}, help: "updatePermissions can take hasPresence, canSend, and canAdmin permissions. hasPresence must be a boolean. canSend can be a boolean or an Array or Set of media types (video, audio, screenVideo, screenAudio, customVideo, customAudio). canAdmin can be a boolean or an Array or Set of admin types (participants, streaming, transcription)." } }, Od = function(e) {
   yt(re, le);
-  var t, r, n, a, s, c, u, d, f, m, y, _, R, M, I, O, Y, x, U, H, ee, te, q, de, $, br, _r, wr, kr, Sr, Cr, Mr, Tr, Ar, no = Td(re);
+  var t, r, n, a, s, c, u, d, f, m, y, _, R, M, I, O, Y, x, U, H, ee, te, q, de, $, br, _r, wr, kr, Sr, Cr, Mr, Tr, Er, io = Ed(re);
   function re(i) {
     var o, l, h = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : {};
-    if (Q(this, re), ge(ce(o = no.call(this)), "startListeningForDeviceChanges", function() {
-      wd(o.handleDeviceChange);
-    }), ge(ce(o), "stopListeningForDeviceChanges", function() {
+    if (Q(this, re), ge(ce(o = io.call(this)), "startListeningForDeviceChanges", function() {
       kd(o.handleDeviceChange);
+    }), ge(ce(o), "stopListeningForDeviceChanges", function() {
+      Sd(o.handleDeviceChange);
     }), ge(ce(o), "handleDeviceChange", function(g) {
       g = g.map(function(w) {
         return JSON.parse(JSON.stringify(w));
@@ -2785,7 +2785,7 @@ var Qn = "video", Ad = "voice", Zn = N() ? { data: {} } : { data: {}, topology: 
         throw new Error("Duplicate DailyIframe instances are not allowed");
     } else
       l = ce(o), se = l;
-    if (h.dailyJsVersion = re.version(), o._iframe = i, o._callObjectMode = h.layout === "none" && !o._iframe, o._preloadCache = { subscribeToTracksAutomatically: !0, audioDeviceId: null, videoDeviceId: null, outputDeviceId: null, inputSettings: null, sendSettings: null, videoTrackForNetworkConnectivityTest: null, videoTrackForConnectionQualityTest: null }, o._callObjectMode && (window._dailyPreloadCache = o._preloadCache), h.showLocalVideo !== void 0 ? o._callObjectMode ? console.error("showLocalVideo is not available in call object mode") : o._showLocalVideo = !!h.showLocalVideo : o._showLocalVideo = !0, h.showParticipantsBar !== void 0 ? o._callObjectMode ? console.error("showParticipantsBar is not available in call object mode") : o._showParticipantsBar = !!h.showParticipantsBar : o._showParticipantsBar = !0, h.customIntegrations !== void 0 ? o._callObjectMode ? console.error("customIntegrations is not available in call object mode") : o._customIntegrations = h.customIntegrations : o._customIntegrations = {}, h.customTrayButtons !== void 0 ? o._callObjectMode ? console.error("customTrayButtons is not available in call object mode") : o._customTrayButtons = h.customTrayButtons : o._customTrayButtons = {}, h.activeSpeakerMode !== void 0 ? o._callObjectMode ? console.error("activeSpeakerMode is not available in call object mode") : o._activeSpeakerMode = !!h.activeSpeakerMode : o._activeSpeakerMode = !1, h.receiveSettings ? o._callObjectMode ? o._receiveSettings = h.receiveSettings : console.error("receiveSettings is only available in call object mode") : o._receiveSettings = {}, o.validateProperties(h), o.properties = T({}, h), o._preloadCache.inputSettings || (o._preloadCache.inputSettings = {}), h.inputSettings && h.inputSettings.audio && (o._preloadCache.inputSettings.audio = h.inputSettings.audio), h.inputSettings && h.inputSettings.video && (o._preloadCache.inputSettings.video = h.inputSettings.video), o._callObjectLoader = o._callObjectMode ? new is() : null, o._callState = qt, o._isPreparingToJoin = !1, o._accessState = { access: ot }, o._meetingSessionState = Bt(Zn, o._callObjectMode), o._nativeInCallAudioMode = Qn, o._participants = {}, o._participantCounts = Xn, o._rmpPlayerState = {}, o._waitingParticipants = {}, o._inputEventsOn = {}, o._network = { threshold: "good", quality: 100 }, o._activeSpeaker = {}, o._callFrameId = _t(), o._localAudioLevel = 0, o._remoteParticipantsAudioLevel = {}, o._messageChannel = N() ? new ts() : new Xo(), o._iframe && (o._iframe.requestFullscreen ? o._iframe.addEventListener("fullscreenchange", function() {
+    if (h.dailyJsVersion = re.version(), o._iframe = i, o._callObjectMode = h.layout === "none" && !o._iframe, o._preloadCache = { subscribeToTracksAutomatically: !0, audioDeviceId: null, videoDeviceId: null, outputDeviceId: null, inputSettings: null, sendSettings: null, videoTrackForNetworkConnectivityTest: null, videoTrackForConnectionQualityTest: null }, o._callObjectMode && (window._dailyPreloadCache = o._preloadCache), h.showLocalVideo !== void 0 ? o._callObjectMode ? console.error("showLocalVideo is not available in call object mode") : o._showLocalVideo = !!h.showLocalVideo : o._showLocalVideo = !0, h.showParticipantsBar !== void 0 ? o._callObjectMode ? console.error("showParticipantsBar is not available in call object mode") : o._showParticipantsBar = !!h.showParticipantsBar : o._showParticipantsBar = !0, h.customIntegrations !== void 0 ? o._callObjectMode ? console.error("customIntegrations is not available in call object mode") : o._customIntegrations = h.customIntegrations : o._customIntegrations = {}, h.customTrayButtons !== void 0 ? o._callObjectMode ? console.error("customTrayButtons is not available in call object mode") : o._customTrayButtons = h.customTrayButtons : o._customTrayButtons = {}, h.activeSpeakerMode !== void 0 ? o._callObjectMode ? console.error("activeSpeakerMode is not available in call object mode") : o._activeSpeakerMode = !!h.activeSpeakerMode : o._activeSpeakerMode = !1, h.receiveSettings ? o._callObjectMode ? o._receiveSettings = h.receiveSettings : console.error("receiveSettings is only available in call object mode") : o._receiveSettings = {}, o.validateProperties(h), o.properties = T({}, h), o._preloadCache.inputSettings || (o._preloadCache.inputSettings = {}), h.inputSettings && h.inputSettings.audio && (o._preloadCache.inputSettings.audio = h.inputSettings.audio), h.inputSettings && h.inputSettings.video && (o._preloadCache.inputSettings.video = h.inputSettings.video), o._callObjectLoader = o._callObjectMode ? new as() : null, o._callState = qt, o._isPreparingToJoin = !1, o._accessState = { access: ot }, o._meetingSessionState = Bt(Zn, o._callObjectMode), o._nativeInCallAudioMode = Qn, o._participants = {}, o._participantCounts = Xn, o._rmpPlayerState = {}, o._waitingParticipants = {}, o._inputEventsOn = {}, o._network = { threshold: "good", quality: 100 }, o._activeSpeaker = {}, o._callFrameId = _t(), o._localAudioLevel = 0, o._remoteParticipantsAudioLevel = {}, o._messageChannel = N() ? new rs() : new es(), o._iframe && (o._iframe.requestFullscreen ? o._iframe.addEventListener("fullscreenchange", function() {
       document.fullscreenElement === o._iframe ? (o.emit(_e, { action: _e }), o.sendMessageToCallMachine({ action: _e })) : (o.emit(we, { action: we }), o.sendMessageToCallMachine({ action: we }));
     }) : o._iframe.webkitRequestFullscreen && o._iframe.addEventListener("webkitfullscreenchange", function() {
       document.webkitFullscreenElement === o._iframe ? (o.emit(_e, { action: _e }), o.sendMessageToCallMachine({ action: _e })) : (o.emit(we, { action: we }), o.sendMessageToCallMachine({ action: we }));
@@ -2795,7 +2795,7 @@ var Qn = "video", Ad = "voice", Zn = N() ? { data: {} } : { data: {}, topology: 
     }
     return o._callObjectMode && o.startListeningForDeviceChanges(), o._messageChannel.addListenerForMessagesFromCallMachine(o.handleMessageFromCallMachine, o._callFrameId, ce(o)), o;
   }
-  return Z(re, [{ key: "destroy", value: (Ar = b(function* () {
+  return Z(re, [{ key: "destroy", value: (Er = b(function* () {
     try {
       yield this.leave();
     } catch {
@@ -2817,7 +2817,7 @@ var Qn = "video", Ad = "voice", Zn = N() ? { data: {} } : { data: {}, topology: 
     }
     this.strictMode && (this._callFrameId = void 0), se = void 0;
   }), function() {
-    return Ar.apply(this, arguments);
+    return Er.apply(this, arguments);
   }) }, { key: "isDestroyed", value: function() {
     return !!this._destroyed;
   } }, { key: "loadCss", value: function(i) {
@@ -2872,7 +2872,7 @@ var Qn = "video", Ad = "voice", Zn = N() ? { data: {} } : { data: {}, topology: 
   }), function() {
     return Mr.apply(this, arguments);
   }) }, { key: "requestAccess", value: (Cr = b(function* () {
-    var i = this, o = arguments.length > 0 && arguments[0] !== void 0 ? arguments[0] : {}, l = o.access, h = l === void 0 ? { level: fi } : l, p = o.name, g = p === void 0 ? "" : p;
+    var i = this, o = arguments.length > 0 && arguments[0] !== void 0 ? arguments[0] : {}, l = o.access, h = l === void 0 ? { level: vi } : l, p = o.name, g = p === void 0 ? "" : p;
     return ne(this._callObjectMode, "requestAccess()"), G(this._callState, "requestAccess()"), new Promise(function(w, S) {
       i.sendMessageToCallMachine({ action: "daily-method-request-access", access: h, name: g }, function(L) {
         L.error && S(L.error), L.access || S(new Error("unknown error in requestAccess()")), w({ access: L.access, granted: L.granted });
@@ -2906,8 +2906,8 @@ var Qn = "video", Ad = "voice", Zn = N() ? { data: {} } : { data: {}, topology: 
     return Sr.apply(this, arguments);
   }) }, { key: "updateReceiveSettings", value: (kr = b(function* (i) {
     var o = this;
-    if (ne(this._callObjectMode, "updateReceiveSettings()"), !Ba(i, { allowAllParticipantsKey: !0 }))
-      throw new Error(Ya({ allowAllParticipantsKey: !0 }));
+    if (ne(this._callObjectMode, "updateReceiveSettings()"), !Ua(i, { allowAllParticipantsKey: !0 }))
+      throw new Error(qa({ allowAllParticipantsKey: !0 }));
     return G(this._callState, "updateReceiveSettings()", "To specify receive settings earlier, use the receiveSettings config property."), new Promise(function(l) {
       o.sendMessageToCallMachine({ action: "update-receive-settings", receiveSettings: i }, function(h) {
         l({ receiveSettings: h.receiveSettings });
@@ -2942,7 +2942,7 @@ var Qn = "video", Ad = "voice", Zn = N() ? { data: {} } : { data: {}, topology: 
     return this._prepInputSettingsToPresentToUser(he);
   } }, { key: "updateInputSettings", value: (wr = b(function* (i) {
     var o = this;
-    return sr(i) ? (i && (this._preloadCache.inputSettings || (this._preloadCache.inputSettings = {}), Ua(i), i.audio && (this._preloadCache.inputSettings.audio = i.audio), i.video && (this._preloadCache.inputSettings.video = i.video)), sr(i) ? this._callObjectMode && this.needsLoad() ? this._getInputSettings() : new Promise(function(l, h) {
+    return sr(i) ? (i && (this._preloadCache.inputSettings || (this._preloadCache.inputSettings = {}), Ya(i), i.audio && (this._preloadCache.inputSettings.audio = i.audio), i.video && (this._preloadCache.inputSettings.video = i.video)), sr(i) ? this._callObjectMode && this.needsLoad() ? this._getInputSettings() : new Promise(function(l, h) {
       o.sendMessageToCallMachine({ action: "update-input-settings", inputSettings: i }, function(p) {
         p.error ? h(p.error) : l({ inputSettings: o._prepInputSettingsToPresentToUser(p.inputSettings) });
       });
@@ -2985,16 +2985,16 @@ var Qn = "video", Ad = "voice", Zn = N() ? { data: {} } : { data: {}, topology: 
   }), function() {
     return _r.apply(this, arguments);
   }) }, { key: "meetingSessionState", value: function() {
-    if (this._callState !== z)
+    if (this._callState !== W)
       throw new Error("meetingSessionState() is only available when joined");
     return this._meetingSessionState;
   } }, { key: "setMeetingSessionData", value: function(i) {
     var o = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : "replace";
-    if (ne(this._callObjectMode, "setMeetingSessionData()"), this._callState !== z)
+    if (ne(this._callObjectMode, "setMeetingSessionData()"), this._callState !== W)
       throw new Error("setMeetingSessionData() is only available when joined");
     try {
       (function(l, h) {
-        new rs({ data: l, mergeStrategy: h });
+        new ns({ data: l, mergeStrategy: h });
       })(i, o);
     } catch (l) {
       throw console.error(l), l;
@@ -3014,7 +3014,7 @@ var Qn = "video", Ad = "voice", Zn = N() ? { data: {} } : { data: {}, topology: 
   } }, { key: "setUserData", value: (br = b(function* (i) {
     var o = this;
     try {
-      Va(i);
+      Ba(i);
     } catch (l) {
       throw console.error(l), l;
     }
@@ -3060,7 +3060,7 @@ var Qn = "video", Ad = "voice", Zn = N() ? { data: {} } : { data: {}, topology: 
     return de.apply(this, arguments);
   }) }, { key: "startCamera", value: (q = b(function* () {
     var i = this, o = arguments.length > 0 && arguments[0] !== void 0 ? arguments[0] : {};
-    if (ne(this._callObjectMode, "startCamera()"), [Te, z].includes(this._callState))
+    if (ne(this._callObjectMode, "startCamera()"), [Te, W].includes(this._callState))
       throw new Error("startCamera() not supported after joining a meeting: did you mean to use setLocalAudio() and/or setLocalVideo() instead?");
     if (this.needsLoad())
       try {
@@ -3095,7 +3095,7 @@ var Qn = "video", Ad = "voice", Zn = N() ? { data: {} } : { data: {}, topology: 
       throw new Error("Custom tracks provided must be instances of MediaStreamTrack");
   } }, { key: "startCustomTrack", value: function() {
     var i = this, o = arguments.length > 0 && arguments[0] !== void 0 ? arguments[0] : { track, mode, trackName };
-    if (C(), this.validateCustomTrack(o.track, o.mode, o.trackName), this._callState !== z)
+    if (C(), this.validateCustomTrack(o.track, o.mode, o.trackName), this._callState !== W)
       throw new Error("startCustomTrack() is only allowed when joined");
     return new Promise(function(l, h) {
       window._dailyPreloadCache.customTrack = o.track, o.track = qe, i.sendMessageToCallMachine({ action: "start-custom-track", properties: o }, function(p) {
@@ -3104,7 +3104,7 @@ var Qn = "video", Ad = "voice", Zn = N() ? { data: {} } : { data: {}, topology: 
     });
   } }, { key: "stopCustomTrack", value: function(i) {
     var o = this;
-    if (C(), this._callState !== z)
+    if (C(), this._callState !== W)
       throw new Error("stopCustomTrack() is only allowed when joined");
     return new Promise(function(l) {
       o.sendMessageToCallMachine({ action: "stop-custom-track", mediaTag: i }, function(h) {
@@ -3188,7 +3188,7 @@ var Qn = "video", Ad = "voice", Zn = N() ? { data: {} } : { data: {}, topology: 
       console.error("invalid in-call audio mode specified: ", i);
   } }, { key: "preAuth", value: (x = b(function* () {
     var i = this, o = arguments.length > 0 && arguments[0] !== void 0 ? arguments[0] : {};
-    if (ne(this._callObjectMode, "preAuth()"), [Te, z].includes(this._callState))
+    if (ne(this._callObjectMode, "preAuth()"), [Te, W].includes(this._callState))
       throw new Error("preAuth() not supported after joining a meeting");
     if (this.needsLoad() && (yield this.load(o)), !o.url)
       throw new Error("preAuth() requires at least a url to be provided");
@@ -3208,7 +3208,7 @@ var Qn = "video", Ad = "voice", Zn = N() ? { data: {} } : { data: {}, topology: 
         throw new Error("can't load iframe meeting because url property isn't set");
       this._updateCallState(en);
       try {
-        this.emit(Wt, { action: Wt });
+        this.emit(zt, { action: zt });
       } catch (l) {
         console.log("could not emit 'loading'", l);
       }
@@ -3216,9 +3216,9 @@ var Qn = "video", Ad = "voice", Zn = N() ? { data: {} } : { data: {}, topology: 
         o._callObjectLoader.cancel(), o._callObjectLoader.load(o._callFrameId, o.properties.dailyConfig && o.properties.dailyConfig.avoidEval, function(p) {
           o._updateCallState(tn), p && o.emit(st, { action: st }), l();
         }, function(p, g) {
-          o.emit(zt, { action: zt, errorMsg: p }), g || (o._updateCallState(me), o.resetMeetingDependentVars(), o.emit(dt, { action: dt, errorMsg: p }), h(p));
+          o.emit(Wt, { action: Wt, errorMsg: p }), g || (o._updateCallState(me), o.resetMeetingDependentVars(), o.emit(dt, { action: dt, errorMsg: p }), h(p));
         });
-      }) : (this._iframe.src = hi(this.assembleMeetingUrl()), new Promise(function(l, h) {
+      }) : (this._iframe.src = pi(this.assembleMeetingUrl()), new Promise(function(l, h) {
         o._loadedCallback = function(p) {
           if (o._callState !== me) {
             for (var g in o._updateCallState(tn), (o.properties.cssFile || o.properties.cssText) && o.loadCss(o.properties), o._inputEventsOn)
@@ -3251,7 +3251,7 @@ var Qn = "video", Ad = "voice", Zn = N() ? { data: {} } : { data: {}, topology: 
         return console.error("url in join() is different than the one used in load() (".concat(this.properties.url, " -> ").concat(o.url, ")")), this.updateIsPreparingToJoin(!1), Promise.reject();
       this.validateProperties(o), this.properties = T(T({}, this.properties), o);
     }
-    if (o.showLocalVideo !== void 0 && (this._callObjectMode ? console.error("showLocalVideo is not available in callObject mode") : this._showLocalVideo = !!o.showLocalVideo), o.showParticipantsBar !== void 0 && (this._callObjectMode ? console.error("showParticipantsBar is not available in callObject mode") : this._showParticipantsBar = !!o.showParticipantsBar), this._callState === z || this._callState === Te)
+    if (o.showLocalVideo !== void 0 && (this._callObjectMode ? console.error("showLocalVideo is not available in callObject mode") : this._showLocalVideo = !!o.showLocalVideo), o.showParticipantsBar !== void 0 && (this._callObjectMode ? console.error("showParticipantsBar is not available in callObject mode") : this._showParticipantsBar = !!o.showParticipantsBar), this._callState === W || this._callState === Te)
       return console.warn("already joined meeting, call leave() before joining again"), void this.updateIsPreparingToJoin(!1);
     this._updateCallState(Te, !1);
     try {
@@ -3262,9 +3262,9 @@ var Qn = "video", Ad = "voice", Zn = N() ? { data: {} } : { data: {}, topology: 
     return this._preloadCache.inputSettings || (this._preloadCache.inputSettings = {}), o.inputSettings && o.inputSettings.audio && (this._preloadCache.inputSettings.audio = o.inputSettings.audio), o.inputSettings && o.inputSettings.video && (this._preloadCache.inputSettings.video = o.inputSettings.video), this.sendMessageToCallMachine({ action: "join-meeting", properties: Me(this.properties), preloadCache: Me(this._preloadCache) }), new Promise(function(h, p) {
       i._joinedCallback = function(g, w) {
         if (i._callState !== me) {
-          if (i._updateCallState(z), g)
+          if (i._updateCallState(W), g)
             for (var S in g)
-              i._callObjectMode && (qn(g[S]), Jn(g[S]), Wn(g[S], i._participants[S])), i._participants[S] = T({}, g[S]), i.toggleParticipantAudioBasedOnNativeAudioFocus();
+              i._callObjectMode && (qn(g[S]), Jn(g[S]), zn(g[S], i._participants[S])), i._participants[S] = T({}, g[S]), i.toggleParticipantAudioBasedOnNativeAudioFocus();
           l && i.loadCss(i.properties), h(g);
         } else
           p(w);
@@ -3322,10 +3322,10 @@ var Qn = "video", Ad = "voice", Zn = N() ? { data: {} } : { data: {}, topology: 
     this.sendMessageToCallMachine({ action: "daily-method-update-live-streaming", layout: l, instanceId: h });
   } }, { key: "addLiveStreamingEndpoints", value: function(i) {
     var o = i.endpoints, l = i.instanceId;
-    this.sendMessageToCallMachine({ action: on, endpointsOp: $o, endpoints: o, instanceId: l });
+    this.sendMessageToCallMachine({ action: on, endpointsOp: Go, endpoints: o, instanceId: l });
   } }, { key: "removeLiveStreamingEndpoints", value: function(i) {
     var o = i.endpoints, l = i.instanceId;
-    this.sendMessageToCallMachine({ action: on, endpointsOp: Go, endpoints: o, instanceId: l });
+    this.sendMessageToCallMachine({ action: on, endpointsOp: Ho, endpoints: o, instanceId: l });
   } }, { key: "stopLiveStreaming", value: function() {
     var i = arguments.length > 0 && arguments[0] !== void 0 ? arguments[0] : {};
     this.sendMessageToCallMachine(T({ action: "daily-method-stop-live-streaming" }, i));
@@ -3365,7 +3365,7 @@ var Qn = "video", Ad = "voice", Zn = N() ? { data: {} } : { data: {}, topology: 
         for (var w in g)
           if (!ei.includes(w))
             throw new Error("Invalid key ".concat(w, ", valid keys are: ").concat(ei));
-        g.simulcastEncodings && this.validateSimulcastEncodings(g.simulcastEncodings, xa, !0);
+        g.simulcastEncodings && this.validateSimulcastEncodings(g.simulcastEncodings, Va, !0);
       }(p);
     } catch (g) {
       throw console.error("invalid argument Error: ".concat(g)), console.error(`startRemoteMediaPlayer arguments must be of the form: 
@@ -3428,7 +3428,7 @@ var Qn = "video", Ad = "voice", Zn = N() ? { data: {} } : { data: {}, topology: 
     this.sendMessageToCallMachine({ action: "daily-method-stop-transcription" });
   } }, { key: "getNetworkStats", value: function() {
     var i = this;
-    return this._callState !== z ? { stats: { latest: {} } } : new Promise(function(o) {
+    return this._callState !== W ? { stats: { latest: {} } } : new Promise(function(o) {
       i.sendMessageToCallMachine({ action: "get-calc-stats" }, function(l) {
         o(T({ stats: l.stats }, i._network));
       });
@@ -3451,7 +3451,7 @@ var Qn = "video", Ad = "voice", Zn = N() ? { data: {} } : { data: {}, topology: 
   }) }, { key: "abortTestWebsocketConnectivity", value: function() {
     this.sendMessageToCallMachine({ action: "abort-test-websocket-connectivity" });
   } }, { key: "_validateVideoTrackForNetworkTests", value: function(i) {
-    return i ? i instanceof MediaStreamTrack ? !!Cd(i, { isLocalScreenVideo: !1 }) || (console.error("Video track is not playable. This test needs a live video track."), !1) : (console.error("Video track needs to be of type `MediaStreamTrack`."), !1) : (console.error("Missing video track. You must provide a video track in order to run this test."), !1);
+    return i ? i instanceof MediaStreamTrack ? !!Md(i, { isLocalScreenVideo: !1 }) || (console.error("Video track is not playable. This test needs a live video track."), !1) : (console.error("Video track needs to be of type `MediaStreamTrack`."), !1) : (console.error("Missing video track. You must provide a video track in order to run this test."), !1);
   } }, { key: "testConnectionQuality", value: (f = b(function* (i) {
     var o = this;
     if (this.needsLoad())
@@ -3494,7 +3494,7 @@ var Qn = "video", Ad = "voice", Zn = N() ? { data: {} } : { data: {}, topology: 
   } }, { key: "getCpuLoadStats", value: function() {
     var i = this;
     return new Promise(function(o, l) {
-      i._callState === z ? i.sendMessageToCallMachine({ action: "get-cpu-load-stats" }, function(h) {
+      i._callState === W ? i.sendMessageToCallMachine({ action: "get-cpu-load-stats" }, function(h) {
         o(h.cpuStats);
       }) : o({ cpuLoadState: void 0, cpuLoadStateReason: void 0, stats: {} });
     });
@@ -3584,24 +3584,24 @@ var Qn = "video", Ad = "voice", Zn = N() ? { data: {} } : { data: {}, topology: 
   } }, { key: "addFakeParticipant", value: function(i) {
     return C(), this.sendMessageToCallMachine(T({ action: "add-fake-participant" }, i)), this;
   } }, { key: "setShowNamesMode", value: function(i) {
-    return W(this._callObjectMode, "setShowNamesMode()"), C(), i && i !== "always" && i !== "never" ? (console.error('setShowNamesMode argument should be "always", "never", or false'), this) : (this.sendMessageToCallMachine({ action: "set-show-names", mode: i }), this);
+    return z(this._callObjectMode, "setShowNamesMode()"), C(), i && i !== "always" && i !== "never" ? (console.error('setShowNamesMode argument should be "always", "never", or false'), this) : (this.sendMessageToCallMachine({ action: "set-show-names", mode: i }), this);
   } }, { key: "setShowLocalVideo", value: function() {
     var i = !(arguments.length > 0 && arguments[0] !== void 0) || arguments[0];
-    return W(this._callObjectMode, "setShowLocalVideo()"), C(), G(this._callState, "setShowLocalVideo()"), typeof i != "boolean" ? (console.error("setShowLocalVideo only accepts a boolean value"), this) : (this.sendMessageToCallMachine({ action: "set-show-local-video", show: i }), this._showLocalVideo = i, this);
+    return z(this._callObjectMode, "setShowLocalVideo()"), C(), G(this._callState, "setShowLocalVideo()"), typeof i != "boolean" ? (console.error("setShowLocalVideo only accepts a boolean value"), this) : (this.sendMessageToCallMachine({ action: "set-show-local-video", show: i }), this._showLocalVideo = i, this);
   } }, { key: "showLocalVideo", value: function() {
-    return W(this._callObjectMode, "showLocalVideo()"), C(), this._showLocalVideo;
+    return z(this._callObjectMode, "showLocalVideo()"), C(), this._showLocalVideo;
   } }, { key: "setShowParticipantsBar", value: function() {
     var i = !(arguments.length > 0 && arguments[0] !== void 0) || arguments[0];
-    return W(this._callObjectMode, "setShowParticipantsBar()"), C(), G(this._callState, "setShowParticipantsBar()"), typeof i != "boolean" ? (console.error("setShowParticipantsBar only accepts a boolean value"), this) : (this.sendMessageToCallMachine({ action: "set-show-participants-bar", show: i }), this._showParticipantsBar = i, this);
+    return z(this._callObjectMode, "setShowParticipantsBar()"), C(), G(this._callState, "setShowParticipantsBar()"), typeof i != "boolean" ? (console.error("setShowParticipantsBar only accepts a boolean value"), this) : (this.sendMessageToCallMachine({ action: "set-show-participants-bar", show: i }), this._showParticipantsBar = i, this);
   } }, { key: "showParticipantsBar", value: function() {
-    return W(this._callObjectMode, "showParticipantsBar()"), C(), this._showParticipantsBar;
+    return z(this._callObjectMode, "showParticipantsBar()"), C(), this._showParticipantsBar;
   } }, { key: "customIntegrations", value: function() {
-    return C(), W(this._callObjectMode, "customIntegrations()"), this._customIntegrations;
+    return C(), z(this._callObjectMode, "customIntegrations()"), this._customIntegrations;
   } }, { key: "setCustomIntegrations", value: function(i) {
-    return C(), W(this._callObjectMode, "setCustomIntegrations()"), G(this._callState, "setCustomIntegrations()"), Wa(i) ? (this.sendMessageToCallMachine({ action: "set-custom-integrations", integrations: i }), this._customIntegrations = i, this) : this;
+    return C(), z(this._callObjectMode, "setCustomIntegrations()"), G(this._callState, "setCustomIntegrations()"), Wa(i) ? (this.sendMessageToCallMachine({ action: "set-custom-integrations", integrations: i }), this._customIntegrations = i, this) : this;
   } }, { key: "startCustomIntegrations", value: function(i) {
     var o = this;
-    if (C(), W(this._callObjectMode, "startCustomIntegrations()"), G(this._callState, "startCustomIntegrations()"), Array.isArray(i) && i.some(function(p) {
+    if (C(), z(this._callObjectMode, "startCustomIntegrations()"), G(this._callState, "startCustomIntegrations()"), Array.isArray(i) && i.some(function(p) {
       return typeof p != "string";
     }) || !Array.isArray(i) && typeof i != "string")
       return console.error("startCustomIntegrations() only accepts string | string[]"), this;
@@ -3611,7 +3611,7 @@ var Qn = "video", Ad = "voice", Zn = N() ? { data: {} } : { data: {}, topology: 
     return h.length ? (console.error(`Can't find custom integration(s): "`.concat(h.join(", "), '"')), this) : (this.sendMessageToCallMachine({ action: "start-custom-integrations", ids: l }), this);
   } }, { key: "stopCustomIntegrations", value: function(i) {
     var o = this;
-    if (C(), W(this._callObjectMode, "stopCustomIntegrations()"), G(this._callState, "stopCustomIntegrations()"), Array.isArray(i) && i.some(function(p) {
+    if (C(), z(this._callObjectMode, "stopCustomIntegrations()"), G(this._callState, "stopCustomIntegrations()"), Array.isArray(i) && i.some(function(p) {
       return typeof p != "string";
     }) || !Array.isArray(i) && typeof i != "string")
       return console.error("stopCustomIntegrations() only accepts string | string[]"), this;
@@ -3620,14 +3620,14 @@ var Qn = "video", Ad = "voice", Zn = N() ? { data: {} } : { data: {}, topology: 
     });
     return h.length ? (console.error(`Can't find custom integration(s): "`.concat(h.join(", "), '"')), this) : (this.sendMessageToCallMachine({ action: "stop-custom-integrations", ids: l }), this);
   } }, { key: "customTrayButtons", value: function() {
-    return W(this._callObjectMode, "customTrayButtons()"), C(), this._customTrayButtons;
+    return z(this._callObjectMode, "customTrayButtons()"), C(), this._customTrayButtons;
   } }, { key: "updateCustomTrayButtons", value: function(i) {
-    return W(this._callObjectMode, "updateCustomTrayButtons()"), C(), G(this._callState, "updateCustomTrayButtons()"), Ja(i) ? (this.sendMessageToCallMachine({ action: "update-custom-tray-buttons", btns: i }), this._customTrayButtons = i, this) : (console.error("updateCustomTrayButtons only accepts a dictionary of the type ".concat(JSON.stringify(gt))), this);
+    return z(this._callObjectMode, "updateCustomTrayButtons()"), C(), G(this._callState, "updateCustomTrayButtons()"), za(i) ? (this.sendMessageToCallMachine({ action: "update-custom-tray-buttons", btns: i }), this._customTrayButtons = i, this) : (console.error("updateCustomTrayButtons only accepts a dictionary of the type ".concat(JSON.stringify(gt))), this);
   } }, { key: "theme", value: function() {
-    return W(this._callObjectMode, "theme()"), this.properties.theme;
+    return z(this._callObjectMode, "theme()"), this.properties.theme;
   } }, { key: "setTheme", value: function(i) {
     var o = this;
-    return W(this._callObjectMode, "setTheme()"), new Promise(function(l, h) {
+    return z(this._callObjectMode, "setTheme()"), new Promise(function(l, h) {
       try {
         o.validateProperties({ theme: i }), o.properties.theme = T({}, i), o.sendMessageToCallMachine({ action: "set-theme", theme: o.properties.theme });
         try {
@@ -3760,8 +3760,8 @@ var Qn = "video", Ad = "voice", Zn = N() ? { data: {} } : { data: {}, topology: 
     this._messageChannel.removeListenerForPackagedMessagesFromCallMachine(i);
   } }, { key: "handleMessageFromCallMachine", value: function(i) {
     switch (i.action) {
-      case gi:
-        this.sendMessageToCallMachine(T({ action: yi }, this.properties));
+      case yi:
+        this.sendMessageToCallMachine(T({ action: bi }, this.properties));
         break;
       case "daily-main-executed":
         this._dailyMainExecuted = !0;
@@ -3773,7 +3773,7 @@ var Qn = "video", Ad = "voice", Zn = N() ? { data: {} } : { data: {}, topology: 
           console.log("could not emit", i, k);
         }
         break;
-      case wi:
+      case ki:
         this._joinedCallback && (this._joinedCallback(i.participants), this._joinedCallback = null);
         try {
           this.emit(i.action, i);
@@ -3781,13 +3781,13 @@ var Qn = "video", Ad = "voice", Zn = N() ? { data: {} } : { data: {}, topology: 
           console.log("could not emit", i, k);
         }
         break;
-      case Si:
       case Ci:
+      case Mi:
         if (this._callState === ve)
           return;
         if (i.participant && i.participant.session_id) {
           var o = i.participant.local ? "local" : i.participant.session_id;
-          this._callObjectMode && (qn(i.participant), Jn(i.participant), Wn(i.participant, this._participants[o]));
+          this._callObjectMode && (qn(i.participant), Jn(i.participant), zn(i.participant, this._participants[o]));
           try {
             this.maybeParticipantTracksStopped(this._participants[o], i.participant), this.maybeParticipantTracksStarted(this._participants[o], i.participant), this.maybeEventRecordingStopped(this._participants[o], i.participant), this.maybeEventRecordingStarted(this._participants[o], i.participant);
           } catch (k) {
@@ -3803,7 +3803,7 @@ var Qn = "video", Ad = "voice", Zn = N() ? { data: {} } : { data: {}, topology: 
           }
         }
         break;
-      case Mi:
+      case Ti:
         if (i.participant && i.participant.session_id) {
           var l = this._participants[i.participant.session_id];
           l && this.maybeParticipantTracksStopped(l, null), delete this._participants[i.participant.session_id];
@@ -3814,7 +3814,7 @@ var Qn = "video", Ad = "voice", Zn = N() ? { data: {} } : { data: {}, topology: 
           }
         }
         break;
-      case Ti:
+      case Ei:
         if (!pe(this._participantCounts, i.participantCounts)) {
           this._participantCounts = i.participantCounts;
           try {
@@ -3835,7 +3835,7 @@ var Qn = "video", Ad = "voice", Zn = N() ? { data: {} } : { data: {}, topology: 
           }
         }
         break;
-      case Ei:
+      case Oi:
         if (i.meetingSession)
           try {
             delete i.callFrameId, this.emit(i.action, i);
@@ -3846,7 +3846,7 @@ var Qn = "video", Ad = "voice", Zn = N() ? { data: {} } : { data: {}, topology: 
       case dt:
         var p, g;
         this._iframe && !i.preserveIframe && (this._iframe.src = ""), this._updateCallState(me), this.resetMeetingDependentVars(), this._loadedCallback && (this._loadedCallback(i.errorMsg), this._loadedCallback = null), i.preserveIframe;
-        var w = co(i, Md);
+        var w = lo(i, Td);
         w != null && (p = w.error) !== null && p !== void 0 && (g = p.details) !== null && g !== void 0 && g.sourceError && (w.error.details.sourceError = JSON.parse(w.error.details.sourceError)), this._joinedCallback && (this._joinedCallback(null, w), this._joinedCallback = null);
         try {
           this.emit(i.action, w);
@@ -3854,7 +3854,7 @@ var Qn = "video", Ad = "voice", Zn = N() ? { data: {} } : { data: {}, topology: 
           console.log("could not emit", i, k);
         }
         break;
-      case ki:
+      case Si:
         this._callState !== me && this._updateCallState(ve), this.resetMeetingDependentVars(), this._resolveLeave && (this._resolveLeave(), this._resolveLeave = null);
         try {
           this.emit(i.action, i);
@@ -3870,7 +3870,7 @@ var Qn = "video", Ad = "voice", Zn = N() ? { data: {} } : { data: {}, topology: 
             console.log("could not emit", i, k);
           }
         break;
-      case Gi:
+      case Hi:
         var S = i.threshold, L = i.quality;
         if (S !== this._network.threshold || L !== this._network.quality) {
           this._network.quality = L, this._network.threshold = S;
@@ -3881,7 +3881,7 @@ var Qn = "video", Ad = "voice", Zn = N() ? { data: {} } : { data: {}, topology: 
           }
         }
         break;
-      case Ki:
+      case Qi:
         if (i && i.cpuLoadState)
           try {
             this.emit(i.action, i);
@@ -3889,7 +3889,7 @@ var Qn = "video", Ad = "voice", Zn = N() ? { data: {} } : { data: {}, topology: 
             console.log("could not emit", i, k);
           }
         break;
-      case zi:
+      case $i:
         var he = i.activeSpeaker;
         if (this._activeSpeaker.peerId !== he.peerId) {
           this._activeSpeaker.peerId = he.peerId;
@@ -3911,7 +3911,7 @@ var Qn = "video", Ad = "voice", Zn = N() ? { data: {} } : { data: {}, topology: 
           console.log("could not emit", i, k);
         }
         break;
-      case $i:
+      case Gi:
         var Ve = i.enabled;
         if (this._activeSpeakerMode !== Ve) {
           this._activeSpeakerMode = Ve;
@@ -3922,9 +3922,9 @@ var Qn = "video", Ad = "voice", Zn = N() ? { data: {} } : { data: {}, topology: 
           }
         }
         break;
-      case Li:
       case Pi:
       case Ii:
+      case ji:
         this._waitingParticipants = i.allWaitingParticipants;
         try {
           this.emit(i.action, { action: i.action, participant: i.participant });
@@ -3932,7 +3932,7 @@ var Qn = "video", Ad = "voice", Zn = N() ? { data: {} } : { data: {}, topology: 
           console.log("could not emit", i, k);
         }
         break;
-      case ra:
+      case na:
         if (!pe(this._receiveSettings, i.receiveSettings)) {
           this._receiveSettings = i.receiveSettings;
           try {
@@ -3942,7 +3942,7 @@ var Qn = "video", Ad = "voice", Zn = N() ? { data: {} } : { data: {}, topology: 
           }
         }
         break;
-      case na:
+      case ia:
         if (!pe(this._inputSettings, i.inputSettings)) {
           var Ot = this._getInputSettings();
           if (this._inputSettings = i.inputSettings, this._preloadCache.inputSettings = {}, !pe(Ot, this._getInputSettings()))
@@ -3969,46 +3969,46 @@ var Qn = "video", Ad = "voice", Zn = N() ? { data: {} } : { data: {}, topology: 
       case "remote-participants-audio-level":
         this._remoteParticipantsAudioLevel = i.participantsAudioLevel, this.emitDailyJSEvent(i);
         break;
-      case Ui:
+      case Yi:
         var Xe = i.session_id;
         this._rmpPlayerState[Xe] = i.playerState, this.emitDailyJSEvent(i);
         break;
-      case qi:
+      case Ji:
         delete this._rmpPlayerState[i.session_id], this.emitDailyJSEvent(i);
         break;
-      case Yi:
-        var Er = i.session_id, Or = this._rmpPlayerState[Er];
-        Or && this.compareEqualForRMPUpdateEvent(Or, i.remoteMediaPlayerState) || (this._rmpPlayerState[Er] = i.remoteMediaPlayerState, this.emitDailyJSEvent(i));
+      case qi:
+        var Ar = i.session_id, Or = this._rmpPlayerState[Ar];
+        Or && this.compareEqualForRMPUpdateEvent(Or, i.remoteMediaPlayerState) || (this._rmpPlayerState[Ar] = i.remoteMediaPlayerState, this.emitDailyJSEvent(i));
         break;
       case "custom-button-click":
       case "sidebar-view-changed":
         this.emitDailyJSEvent(i);
         break;
-      case Oi:
-        var io = this._meetingSessionState.topology !== (i.meetingSessionState && i.meetingSessionState.topology);
-        this._meetingSessionState = Bt(i.meetingSessionState, this._callObjectMode), (this._callObjectMode || io) && this.emitDailyJSEvent(i);
+      case Li:
+        var ao = this._meetingSessionState.topology !== (i.meetingSessionState && i.meetingSessionState.topology);
+        this._meetingSessionState = Bt(i.meetingSessionState, this._callObjectMode), (this._callObjectMode || ao) && this.emitDailyJSEvent(i);
         break;
       case ct:
       case lt:
-      case Ri:
       case Fi:
       case xi:
-      case ji:
+      case Vi:
       case Di:
       case Ni:
-      case bi:
+      case Ri:
       case _i:
-      case Bi:
-      case Ji:
+      case wi:
+      case Ui:
+      case zi:
       case Wi:
-      case Hi:
-      case Vi:
-      case Qi:
+      case Ki:
+      case Bi:
       case Zi:
       case Xi:
       case ea:
-      case ut:
       case ta:
+      case ut:
+      case ra:
         try {
           this.emit(i.action, i);
         } catch (k) {
@@ -4103,7 +4103,7 @@ var Qn = "video", Ad = "voice", Zn = N() ? { data: {} } : { data: {}, topology: 
   } }, { key: "updateNoOpRecordingEnsuringBackgroundContinuity", value: function(i) {
     N() && this.nativeUtils().enableNoOpRecordingEnsuringBackgroundContinuity && this.nativeUtils().enableNoOpRecordingEnsuringBackgroundContinuity(i);
   } }, { key: "_isCallPendingOrOngoing", value: function(i, o) {
-    return [Te, z].includes(i) || o;
+    return [Te, W].includes(i) || o;
   } }, { key: "toggleParticipantAudioBasedOnNativeAudioFocus", value: function() {
     if (N()) {
       var i = store.getState();
@@ -4138,8 +4138,8 @@ var Qn = "video", Ad = "voice", Zn = N() ? { data: {} } : { data: {}, topology: 
   } }], [{ key: "supportedBrowser", value: function() {
     if (N())
       return { supported: !0, mobile: !0, name: "React Native", version: null, supportsScreenShare: !1, supportsSfu: !0, supportsVideoProcessing: !1, supportsAudioProcessing: !1 };
-    var i = _o.getParser(oe());
-    return { supported: !!ln(), mobile: i.getPlatformType() === "mobile", name: i.getBrowserName(), version: i.getBrowserVersion(), supportsFullscreen: !!cn(), supportsScreenShare: !!Ho(), supportsSfu: !!ln(), supportsVideoProcessing: oa(), supportsAudioProcessing: sa() };
+    var i = wo.getParser(oe());
+    return { supported: !!ln(), mobile: i.getPlatformType() === "mobile", name: i.getBrowserName(), version: i.getBrowserVersion(), supportsFullscreen: !!cn(), supportsScreenShare: !!Ko(), supportsSfu: !!ln(), supportsVideoProcessing: sa(), supportsAudioProcessing: ca() };
   } }, { key: "version", value: function() {
     return "0.53.0";
   } }, { key: "createCallObject", value: function() {
@@ -4189,7 +4189,7 @@ function Me(e) {
 }
 function G(e) {
   var t = arguments.length > 2 ? arguments[2] : void 0;
-  if (e !== z) {
+  if (e !== W) {
     var r = "".concat(arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : "This daily-js method", " only supported after join.");
     throw t && (r += " ".concat(t)), console.error(r), new Error(r);
   }
@@ -4200,7 +4200,7 @@ function ne(e) {
     throw console.error(t), new Error(t);
   }
 }
-function W(e) {
+function z(e) {
   if (e) {
     var t = "".concat(arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : "This daily-js method", " is only supported as part of Daily's Prebuilt");
     throw console.error(t), new Error(t);
@@ -4214,7 +4214,7 @@ function Ye() {
   if (!N())
     throw new Error("This daily-js method is only supported in React Native");
 }
-function Va(e) {
+function Ba(e) {
   if (e === void 0)
     return !0;
   var t;
@@ -4230,7 +4230,7 @@ function Va(e) {
     throw Error("userData is too large (".concat(t.length, " characters). Maximum size suppported is ").concat(4096, "."));
   return !0;
 }
-function Ba(e, t) {
+function Ua(e, t) {
   for (var r = t.allowAllParticipantsKey, n = function(y) {
     var _ = ["local"];
     return r || _.push("*"), y && !_.includes(y);
@@ -4290,25 +4290,25 @@ function sr(e) {
     return !n.includes(a);
   }).forEach(function(a) {
     console.warn("invalid key inputSettings -> audio -> processor : ".concat(a)), delete r[a];
-  }), t = r.type, typeof t != "string" || !Object.values(ia).includes(t) && (console.error("inputSettings audio processor type invalid"), 1))));
+  }), t = r.type, typeof t != "string" || !Object.values(aa).includes(t) && (console.error("inputSettings audio processor type invalid"), 1))));
   var t, r, n;
 }
-function Ua(e) {
+function Ya(e) {
   var t = [];
-  e.video && !oa() && (delete e.video, t.push("video")), e.audio && !sa() && (delete e.audio, t.push("audio")), t.length > 0 && console.error("Ignoring settings for browser- or platform-unsupported input processor(s): ".concat(t.join(", ")));
+  e.video && !sa() && (delete e.video, t.push("video")), e.audio && !ca() && (delete e.audio, t.push("audio")), t.length > 0 && console.error("Ignoring settings for browser- or platform-unsupported input processor(s): ".concat(t.join(", ")));
 }
 function cr() {
-  var e = Object.values(ht).join(" | "), t = Object.values(ia).join(" | ");
+  var e = Object.values(ht).join(" | "), t = Object.values(aa).join(" | ");
   return "inputSettings must be of the form: { video?: { processor: { type: [ ".concat(e, " ], config?: {} } }, audio?: { processor: {type: [ ").concat(t, " ] } } }");
 }
-function Ya(e) {
+function qa(e) {
   var t = e.allowAllParticipantsKey;
-  return "receiveSettings must be of the form { [<remote participant id> | ".concat(vi).concat(t ? ' | "'.concat(mi, '"') : "", "]: ") + '{ [video: [{ layer: [<non-negative integer> | "inherit"] } | "inherit"]], [screenVideo: [{ layer: [<non-negative integer> | "inherit"] } | "inherit"]] }}}';
+  return "receiveSettings must be of the form { [<remote participant id> | ".concat(mi).concat(t ? ' | "'.concat(gi, '"') : "", "]: ") + '{ [video: [{ layer: [<non-negative integer> | "inherit"] } | "inherit"]], [screenVideo: [{ layer: [<non-negative integer> | "inherit"] } | "inherit"]] }}}';
 }
-function qa() {
+function Ja() {
   return "customIntegrations should be an object of type ".concat(JSON.stringify(or), ".");
 }
-function Ja(e) {
+function za(e) {
   if (e && j(e) !== "object" || Array.isArray(e))
     return console.error("customTrayButtons should be an Object of the type ".concat(JSON.stringify(gt), ".")), !1;
   if (e)
@@ -4327,7 +4327,7 @@ function Ja(e) {
 }
 function Wa(e) {
   if (!e || e && j(e) !== "object" || Array.isArray(e))
-    return console.error(qa()), !1;
+    return console.error(Ja()), !1;
   for (var t = function(y) {
     return "".concat(y, " should be ").concat(or.id[y]);
   }, r = function(y, _) {
@@ -4391,7 +4391,7 @@ function Wa(e) {
   }
   return !0;
 }
-function za(e, t) {
+function $a(e, t) {
   if (t === void 0)
     return !1;
   switch (j(t)) {
@@ -4401,7 +4401,7 @@ function za(e, t) {
       if (j(e) !== "object")
         return !1;
       for (var r in e)
-        if (!za(e[r], t[r]))
+        if (!$a(e[r], t[r]))
           return !1;
       return !0;
     default:
@@ -4426,99 +4426,99 @@ function ni(e, t, r) {
 function Bt(e, t) {
   return e && !t && delete e.data, e;
 }
-const Od = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const Ld = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
-  DAILY_ACCESS_LEVEL_FULL: fi,
+  DAILY_ACCESS_LEVEL_FULL: vi,
   DAILY_ACCESS_LEVEL_LOBBY: Ao,
-  DAILY_ACCESS_LEVEL_NONE: Eo,
+  DAILY_ACCESS_LEVEL_NONE: Oo,
   DAILY_ACCESS_UNKNOWN: ot,
-  DAILY_CAMERA_ERROR_CAM_AND_MIC_IN_USE: Bo,
-  DAILY_CAMERA_ERROR_CAM_IN_USE: xo,
-  DAILY_CAMERA_ERROR_CONSTRAINTS: Jo,
-  DAILY_CAMERA_ERROR_MIC_IN_USE: Vo,
-  DAILY_CAMERA_ERROR_NOT_FOUND: qo,
-  DAILY_CAMERA_ERROR_PERMISSIONS: Uo,
-  DAILY_CAMERA_ERROR_UNDEF_MEDIADEVICES: Yo,
+  DAILY_CAMERA_ERROR_CAM_AND_MIC_IN_USE: Uo,
+  DAILY_CAMERA_ERROR_CAM_IN_USE: Vo,
+  DAILY_CAMERA_ERROR_CONSTRAINTS: zo,
+  DAILY_CAMERA_ERROR_MIC_IN_USE: Bo,
+  DAILY_CAMERA_ERROR_NOT_FOUND: Jo,
+  DAILY_CAMERA_ERROR_PERMISSIONS: Yo,
+  DAILY_CAMERA_ERROR_UNDEF_MEDIADEVICES: qo,
   DAILY_CAMERA_ERROR_UNKNOWN: Wo,
   DAILY_EVENT_ACCESS_STATE_UPDATED: Ai,
-  DAILY_EVENT_ACTIVE_SPEAKER_CHANGE: zi,
-  DAILY_EVENT_ACTIVE_SPEAKER_MODE_CHANGE: $i,
-  DAILY_EVENT_APP_MSG: Bi,
-  DAILY_EVENT_CAMERA_ERROR: _i,
-  DAILY_EVENT_CPU_LOAD_CHANGE: Ki,
+  DAILY_EVENT_ACTIVE_SPEAKER_CHANGE: $i,
+  DAILY_EVENT_ACTIVE_SPEAKER_MODE_CHANGE: Gi,
+  DAILY_EVENT_APP_MSG: Ui,
+  DAILY_EVENT_CAMERA_ERROR: wi,
+  DAILY_EVENT_CPU_LOAD_CHANGE: Qi,
   DAILY_EVENT_ERROR: dt,
   DAILY_EVENT_EXIT_FULLSCREEN: we,
   DAILY_EVENT_FULLSCREEN: _e,
-  DAILY_EVENT_IFRAME_LAUNCH_CONFIG: yi,
-  DAILY_EVENT_IFRAME_READY_FOR_LAUNCH_CONFIG: gi,
-  DAILY_EVENT_INPUT_SETTINGS_UPDATED: na,
-  DAILY_EVENT_JOINED_MEETING: wi,
+  DAILY_EVENT_IFRAME_LAUNCH_CONFIG: bi,
+  DAILY_EVENT_IFRAME_READY_FOR_LAUNCH_CONFIG: yi,
+  DAILY_EVENT_INPUT_SETTINGS_UPDATED: ia,
+  DAILY_EVENT_JOINED_MEETING: ki,
   DAILY_EVENT_JOINING_MEETING: $t,
-  DAILY_EVENT_LANG_UPDATED: ta,
-  DAILY_EVENT_LEFT_MEETING: ki,
-  DAILY_EVENT_LIVE_STREAMING_ERROR: ea,
-  DAILY_EVENT_LIVE_STREAMING_STARTED: Qi,
-  DAILY_EVENT_LIVE_STREAMING_STOPPED: Xi,
-  DAILY_EVENT_LIVE_STREAMING_UPDATED: Zi,
+  DAILY_EVENT_LANG_UPDATED: ra,
+  DAILY_EVENT_LEFT_MEETING: Si,
+  DAILY_EVENT_LIVE_STREAMING_ERROR: ta,
+  DAILY_EVENT_LIVE_STREAMING_STARTED: Zi,
+  DAILY_EVENT_LIVE_STREAMING_STOPPED: ea,
+  DAILY_EVENT_LIVE_STREAMING_UPDATED: Xi,
   DAILY_EVENT_LOADED: st,
-  DAILY_EVENT_LOADING: Wt,
-  DAILY_EVENT_LOAD_ATTEMPT_FAILED: zt,
-  DAILY_EVENT_LOCAL_SCREEN_SHARE_STARTED: Ji,
+  DAILY_EVENT_LOADING: zt,
+  DAILY_EVENT_LOAD_ATTEMPT_FAILED: Wt,
+  DAILY_EVENT_LOCAL_SCREEN_SHARE_STARTED: zi,
   DAILY_EVENT_LOCAL_SCREEN_SHARE_STOPPED: Wi,
-  DAILY_EVENT_MEETING_SESSION_DATA_ERROR: zo,
-  DAILY_EVENT_MEETING_SESSION_STATE_UPDATED: Oi,
-  DAILY_EVENT_MEETING_SESSION_UPDATED: Ei,
-  DAILY_EVENT_NETWORK_CONNECTION: Hi,
-  DAILY_EVENT_NETWORK_QUALITY_CHANGE: Gi,
+  DAILY_EVENT_MEETING_SESSION_DATA_ERROR: $o,
+  DAILY_EVENT_MEETING_SESSION_STATE_UPDATED: Li,
+  DAILY_EVENT_MEETING_SESSION_UPDATED: Oi,
+  DAILY_EVENT_NETWORK_CONNECTION: Ki,
+  DAILY_EVENT_NETWORK_QUALITY_CHANGE: Hi,
   DAILY_EVENT_NONFATAL_ERROR: ut,
-  DAILY_EVENT_PARTICIPANT_COUNTS_UPDATED: Ti,
-  DAILY_EVENT_PARTICIPANT_JOINED: Si,
-  DAILY_EVENT_PARTICIPANT_LEFT: Mi,
-  DAILY_EVENT_PARTICIPANT_UPDATED: Ci,
-  DAILY_EVENT_RECEIVE_SETTINGS_UPDATED: ra,
-  DAILY_EVENT_RECORDING_DATA: Vi,
-  DAILY_EVENT_RECORDING_ERROR: Fi,
+  DAILY_EVENT_PARTICIPANT_COUNTS_UPDATED: Ei,
+  DAILY_EVENT_PARTICIPANT_JOINED: Ci,
+  DAILY_EVENT_PARTICIPANT_LEFT: Ti,
+  DAILY_EVENT_PARTICIPANT_UPDATED: Mi,
+  DAILY_EVENT_RECEIVE_SETTINGS_UPDATED: na,
+  DAILY_EVENT_RECORDING_DATA: Bi,
+  DAILY_EVENT_RECORDING_ERROR: xi,
   DAILY_EVENT_RECORDING_STARTED: ct,
-  DAILY_EVENT_RECORDING_STATS: Ri,
+  DAILY_EVENT_RECORDING_STATS: Fi,
   DAILY_EVENT_RECORDING_STOPPED: lt,
-  DAILY_EVENT_RECORDING_UPLOAD_COMPLETED: xi,
-  DAILY_EVENT_REMOTE_MEDIA_PLAYER_STARTED: Ui,
-  DAILY_EVENT_REMOTE_MEDIA_PLAYER_STOPPED: qi,
-  DAILY_EVENT_REMOTE_MEDIA_PLAYER_UPDATED: Yi,
-  DAILY_EVENT_STARTED_CAMERA: bi,
+  DAILY_EVENT_RECORDING_UPLOAD_COMPLETED: Vi,
+  DAILY_EVENT_REMOTE_MEDIA_PLAYER_STARTED: Yi,
+  DAILY_EVENT_REMOTE_MEDIA_PLAYER_STOPPED: Ji,
+  DAILY_EVENT_REMOTE_MEDIA_PLAYER_UPDATED: qi,
+  DAILY_EVENT_STARTED_CAMERA: _i,
   DAILY_EVENT_THEME_UPDATED: Jt,
   DAILY_EVENT_TRACK_STARTED: Gt,
   DAILY_EVENT_TRACK_STOPPED: Ht,
-  DAILY_EVENT_TRANSCRIPTION_ERROR: Ni,
-  DAILY_EVENT_TRANSCRIPTION_STARTED: ji,
-  DAILY_EVENT_TRANSCRIPTION_STOPPED: Di,
-  DAILY_EVENT_WAITING_PARTICIPANT_ADDED: Li,
-  DAILY_EVENT_WAITING_PARTICIPANT_REMOVED: Ii,
-  DAILY_EVENT_WAITING_PARTICIPANT_UPDATED: Pi,
-  DAILY_FATAL_ERROR_CONNECTION: Fo,
-  DAILY_FATAL_ERROR_EJECTED: Oo,
-  DAILY_FATAL_ERROR_EOL: No,
-  DAILY_FATAL_ERROR_EXP_ROOM: Io,
-  DAILY_FATAL_ERROR_EXP_TOKEN: jo,
-  DAILY_FATAL_ERROR_MEETING_FULL: Do,
-  DAILY_FATAL_ERROR_NBF_ROOM: Lo,
-  DAILY_FATAL_ERROR_NBF_TOKEN: Po,
-  DAILY_FATAL_ERROR_NOT_ALLOWED: Ro,
-  DAILY_RECEIVE_SETTINGS_ALL_PARTICIPANTS_KEY: mi,
-  DAILY_RECEIVE_SETTINGS_BASE_KEY: vi,
+  DAILY_EVENT_TRANSCRIPTION_ERROR: Ri,
+  DAILY_EVENT_TRANSCRIPTION_STARTED: Di,
+  DAILY_EVENT_TRANSCRIPTION_STOPPED: Ni,
+  DAILY_EVENT_WAITING_PARTICIPANT_ADDED: Pi,
+  DAILY_EVENT_WAITING_PARTICIPANT_REMOVED: ji,
+  DAILY_EVENT_WAITING_PARTICIPANT_UPDATED: Ii,
+  DAILY_FATAL_ERROR_CONNECTION: xo,
+  DAILY_FATAL_ERROR_EJECTED: Lo,
+  DAILY_FATAL_ERROR_EOL: Ro,
+  DAILY_FATAL_ERROR_EXP_ROOM: jo,
+  DAILY_FATAL_ERROR_EXP_TOKEN: Do,
+  DAILY_FATAL_ERROR_MEETING_FULL: No,
+  DAILY_FATAL_ERROR_NBF_ROOM: Po,
+  DAILY_FATAL_ERROR_NBF_TOKEN: Io,
+  DAILY_FATAL_ERROR_NOT_ALLOWED: Fo,
+  DAILY_RECEIVE_SETTINGS_ALL_PARTICIPANTS_KEY: gi,
+  DAILY_RECEIVE_SETTINGS_BASE_KEY: mi,
   DAILY_STATE_ERROR: me,
-  DAILY_STATE_JOINED: z,
+  DAILY_STATE_JOINED: W,
   DAILY_STATE_JOINING: Te,
   DAILY_STATE_LEFT: ve,
   DAILY_STATE_NEW: qt,
-  DAILY_TRACK_STATE_BLOCKED: wo,
-  DAILY_TRACK_STATE_INTERRUPTED: Mo,
-  DAILY_TRACK_STATE_LOADING: Co,
-  DAILY_TRACK_STATE_OFF: ko,
-  DAILY_TRACK_STATE_PLAYABLE: To,
-  DAILY_TRACK_STATE_SENDABLE: So,
-  default: Ed
-}, Symbol.toStringTag, { value: "Module" })), Ld = /* @__PURE__ */ so(Od);
+  DAILY_TRACK_STATE_BLOCKED: ko,
+  DAILY_TRACK_STATE_INTERRUPTED: To,
+  DAILY_TRACK_STATE_LOADING: Mo,
+  DAILY_TRACK_STATE_OFF: So,
+  DAILY_TRACK_STATE_PLAYABLE: Eo,
+  DAILY_TRACK_STATE_SENDABLE: Co,
+  default: Od
+}, Symbol.toStringTag, { value: "Module" })), Pd = /* @__PURE__ */ co(Ld);
 var yr = { exports: {} }, Ne = typeof Reflect == "object" ? Reflect : null, ii = Ne && typeof Ne.apply == "function" ? Ne.apply : function(t, r, n) {
   return Function.prototype.apply.call(t, r, n);
 }, ft;
@@ -4527,52 +4527,52 @@ Ne && typeof Ne.ownKeys == "function" ? ft = Ne.ownKeys : Object.getOwnPropertyS
 } : ft = function(t) {
   return Object.getOwnPropertyNames(t);
 };
-function Pd(e) {
+function Id(e) {
   console && console.warn && console.warn(e);
 }
-var $a = Number.isNaN || function(t) {
+var Ga = Number.isNaN || function(t) {
   return t !== t;
 };
-function E() {
-  E.init.call(this);
+function A() {
+  A.init.call(this);
 }
-yr.exports = E;
-yr.exports.once = Nd;
-E.EventEmitter = E;
-E.prototype._events = void 0;
-E.prototype._eventsCount = 0;
-E.prototype._maxListeners = void 0;
+yr.exports = A;
+yr.exports.once = Rd;
+A.EventEmitter = A;
+A.prototype._events = void 0;
+A.prototype._eventsCount = 0;
+A.prototype._maxListeners = void 0;
 var ai = 10;
-function At(e) {
+function Et(e) {
   if (typeof e != "function")
     throw new TypeError('The "listener" argument must be of type Function. Received type ' + typeof e);
 }
-Object.defineProperty(E, "defaultMaxListeners", {
+Object.defineProperty(A, "defaultMaxListeners", {
   enumerable: !0,
   get: function() {
     return ai;
   },
   set: function(e) {
-    if (typeof e != "number" || e < 0 || $a(e))
+    if (typeof e != "number" || e < 0 || Ga(e))
       throw new RangeError('The value of "defaultMaxListeners" is out of range. It must be a non-negative number. Received ' + e + ".");
     ai = e;
   }
 });
-E.init = function() {
+A.init = function() {
   (this._events === void 0 || this._events === Object.getPrototypeOf(this)._events) && (this._events = /* @__PURE__ */ Object.create(null), this._eventsCount = 0), this._maxListeners = this._maxListeners || void 0;
 };
-E.prototype.setMaxListeners = function(t) {
-  if (typeof t != "number" || t < 0 || $a(t))
+A.prototype.setMaxListeners = function(t) {
+  if (typeof t != "number" || t < 0 || Ga(t))
     throw new RangeError('The value of "n" is out of range. It must be a non-negative number. Received ' + t + ".");
   return this._maxListeners = t, this;
 };
-function Ga(e) {
-  return e._maxListeners === void 0 ? E.defaultMaxListeners : e._maxListeners;
+function Ha(e) {
+  return e._maxListeners === void 0 ? A.defaultMaxListeners : e._maxListeners;
 }
-E.prototype.getMaxListeners = function() {
-  return Ga(this);
+A.prototype.getMaxListeners = function() {
+  return Ha(this);
 };
-E.prototype.emit = function(t) {
+A.prototype.emit = function(t) {
   for (var r = [], n = 1; n < arguments.length; n++)
     r.push(arguments[n]);
   var a = t === "error", s = this._events;
@@ -4593,49 +4593,49 @@ E.prototype.emit = function(t) {
   if (typeof d == "function")
     ii(d, this, r);
   else
-    for (var f = d.length, m = Xa(d, f), n = 0; n < f; ++n)
+    for (var f = d.length, m = eo(d, f), n = 0; n < f; ++n)
       ii(m[n], this, r);
   return !0;
 };
-function Ha(e, t, r, n) {
+function Ka(e, t, r, n) {
   var a, s, c;
-  if (At(r), s = e._events, s === void 0 ? (s = e._events = /* @__PURE__ */ Object.create(null), e._eventsCount = 0) : (s.newListener !== void 0 && (e.emit(
+  if (Et(r), s = e._events, s === void 0 ? (s = e._events = /* @__PURE__ */ Object.create(null), e._eventsCount = 0) : (s.newListener !== void 0 && (e.emit(
     "newListener",
     t,
     r.listener ? r.listener : r
   ), s = e._events), c = s[t]), c === void 0)
     c = s[t] = r, ++e._eventsCount;
-  else if (typeof c == "function" ? c = s[t] = n ? [r, c] : [c, r] : n ? c.unshift(r) : c.push(r), a = Ga(e), a > 0 && c.length > a && !c.warned) {
+  else if (typeof c == "function" ? c = s[t] = n ? [r, c] : [c, r] : n ? c.unshift(r) : c.push(r), a = Ha(e), a > 0 && c.length > a && !c.warned) {
     c.warned = !0;
     var u = new Error("Possible EventEmitter memory leak detected. " + c.length + " " + String(t) + " listeners added. Use emitter.setMaxListeners() to increase limit");
-    u.name = "MaxListenersExceededWarning", u.emitter = e, u.type = t, u.count = c.length, Pd(u);
+    u.name = "MaxListenersExceededWarning", u.emitter = e, u.type = t, u.count = c.length, Id(u);
   }
   return e;
 }
-E.prototype.addListener = function(t, r) {
-  return Ha(this, t, r, !1);
+A.prototype.addListener = function(t, r) {
+  return Ka(this, t, r, !1);
 };
-E.prototype.on = E.prototype.addListener;
-E.prototype.prependListener = function(t, r) {
-  return Ha(this, t, r, !0);
+A.prototype.on = A.prototype.addListener;
+A.prototype.prependListener = function(t, r) {
+  return Ka(this, t, r, !0);
 };
-function Id() {
+function jd() {
   if (!this.fired)
     return this.target.removeListener(this.type, this.wrapFn), this.fired = !0, arguments.length === 0 ? this.listener.call(this.target) : this.listener.apply(this.target, arguments);
 }
-function Ka(e, t, r) {
-  var n = { fired: !1, wrapFn: void 0, target: e, type: t, listener: r }, a = Id.bind(n);
+function Qa(e, t, r) {
+  var n = { fired: !1, wrapFn: void 0, target: e, type: t, listener: r }, a = jd.bind(n);
   return a.listener = r, n.wrapFn = a, a;
 }
-E.prototype.once = function(t, r) {
-  return At(r), this.on(t, Ka(this, t, r)), this;
+A.prototype.once = function(t, r) {
+  return Et(r), this.on(t, Qa(this, t, r)), this;
 };
-E.prototype.prependOnceListener = function(t, r) {
-  return At(r), this.prependListener(t, Ka(this, t, r)), this;
+A.prototype.prependOnceListener = function(t, r) {
+  return Et(r), this.prependListener(t, Qa(this, t, r)), this;
 };
-E.prototype.removeListener = function(t, r) {
+A.prototype.removeListener = function(t, r) {
   var n, a, s, c, u;
-  if (At(r), a = this._events, a === void 0)
+  if (Et(r), a = this._events, a === void 0)
     return this;
   if (n = a[t], n === void 0)
     return this;
@@ -4649,12 +4649,12 @@ E.prototype.removeListener = function(t, r) {
       }
     if (s < 0)
       return this;
-    s === 0 ? n.shift() : jd(n, s), n.length === 1 && (a[t] = n[0]), a.removeListener !== void 0 && this.emit("removeListener", t, u || r);
+    s === 0 ? n.shift() : Dd(n, s), n.length === 1 && (a[t] = n[0]), a.removeListener !== void 0 && this.emit("removeListener", t, u || r);
   }
   return this;
 };
-E.prototype.off = E.prototype.removeListener;
-E.prototype.removeAllListeners = function(t) {
+A.prototype.off = A.prototype.removeListener;
+A.prototype.removeAllListeners = function(t) {
   var r, n, a;
   if (n = this._events, n === void 0)
     return this;
@@ -4673,24 +4673,24 @@ E.prototype.removeAllListeners = function(t) {
       this.removeListener(t, r[a]);
   return this;
 };
-function Qa(e, t, r) {
+function Za(e, t, r) {
   var n = e._events;
   if (n === void 0)
     return [];
   var a = n[t];
-  return a === void 0 ? [] : typeof a == "function" ? r ? [a.listener || a] : [a] : r ? Dd(a) : Xa(a, a.length);
+  return a === void 0 ? [] : typeof a == "function" ? r ? [a.listener || a] : [a] : r ? Nd(a) : eo(a, a.length);
 }
-E.prototype.listeners = function(t) {
-  return Qa(this, t, !0);
+A.prototype.listeners = function(t) {
+  return Za(this, t, !0);
 };
-E.prototype.rawListeners = function(t) {
-  return Qa(this, t, !1);
+A.prototype.rawListeners = function(t) {
+  return Za(this, t, !1);
 };
-E.listenerCount = function(e, t) {
-  return typeof e.listenerCount == "function" ? e.listenerCount(t) : Za.call(e, t);
+A.listenerCount = function(e, t) {
+  return typeof e.listenerCount == "function" ? e.listenerCount(t) : Xa.call(e, t);
 };
-E.prototype.listenerCount = Za;
-function Za(e) {
+A.prototype.listenerCount = Xa;
+function Xa(e) {
   var t = this._events;
   if (t !== void 0) {
     var r = t[e];
@@ -4701,25 +4701,25 @@ function Za(e) {
   }
   return 0;
 }
-E.prototype.eventNames = function() {
+A.prototype.eventNames = function() {
   return this._eventsCount > 0 ? ft(this._events) : [];
 };
-function Xa(e, t) {
+function eo(e, t) {
   for (var r = new Array(t), n = 0; n < t; ++n)
     r[n] = e[n];
   return r;
 }
-function jd(e, t) {
+function Dd(e, t) {
   for (; t + 1 < e.length; t++)
     e[t] = e[t + 1];
   e.pop();
 }
-function Dd(e) {
+function Nd(e) {
   for (var t = new Array(e.length), r = 0; r < t.length; ++r)
     t[r] = e[r].listener || e[r];
   return t;
 }
-function Nd(e, t) {
+function Rd(e, t) {
   return new Promise(function(r, n) {
     function a(c) {
       e.removeListener(t, s), n(c);
@@ -4727,13 +4727,13 @@ function Nd(e, t) {
     function s() {
       typeof e.removeListener == "function" && e.removeListener("error", a), r([].slice.call(arguments));
     }
-    eo(e, t, s, { once: !0 }), t !== "error" && Rd(e, a, { once: !0 });
+    to(e, t, s, { once: !0 }), t !== "error" && Fd(e, a, { once: !0 });
   });
 }
-function Rd(e, t, r) {
-  typeof e.on == "function" && eo(e, "error", t, r);
+function Fd(e, t, r) {
+  typeof e.on == "function" && to(e, "error", t, r);
 }
-function eo(e, t, r, n) {
+function to(e, t, r, n) {
   if (typeof e.on == "function")
     n.once ? e.once(t, r) : e.on(t, r);
   else if (typeof e.addEventListener == "function")
@@ -4743,14 +4743,14 @@ function eo(e, t, r, n) {
   else
     throw new TypeError('The "emitter" argument must be of type EventEmitter. Received type ' + typeof e);
 }
-var Fd = yr.exports, Et = {}, ye = {};
+var xd = yr.exports, At = {}, ye = {};
 Object.defineProperty(ye, "__esModule", { value: !0 });
 ye.Api = ye.HttpClient = ye.ContentType = void 0;
 var B;
 (function(e) {
   e.Json = "application/json", e.FormData = "multipart/form-data", e.UrlEncoded = "application/x-www-form-urlencoded", e.Text = "text/plain";
 })(B || (ye.ContentType = B = {}));
-class to {
+class ro {
   constructor(t = {}) {
     V(this, "baseUrl", "https://api.vapi.ai");
     V(this, "securityData", null);
@@ -4838,8 +4838,8 @@ class to {
     };
   }
 }
-ye.HttpClient = to;
-class xd extends to {
+ye.HttpClient = ro;
+class Vd extends ro {
   constructor() {
     super(...arguments);
     V(this, "assistant", {
@@ -5208,10 +5208,10 @@ class xd extends to {
     });
   }
 }
-ye.Api = xd;
-Object.defineProperty(Et, "__esModule", { value: !0 });
-Et.client = void 0;
-const Vd = ye, Bd = new Vd.Api({
+ye.Api = Vd;
+Object.defineProperty(At, "__esModule", { value: !0 });
+At.client = void 0;
+const Bd = ye, Ud = new Bd.Api({
   baseUrl: "https://api.vapi.ai",
   baseApiParams: {
     secure: !0
@@ -5225,24 +5225,24 @@ const Vd = ye, Bd = new Vd.Api({
       };
   }
 });
-Et.client = Bd;
-var ro = Lr && Lr.__importDefault || function(e) {
+At.client = Ud;
+var no = Lr && Lr.__importDefault || function(e) {
   return e && e.__esModule ? e : { default: e };
 };
-Object.defineProperty(oi, "__esModule", { value: !0 });
-const Ud = ro(Ld), Yd = ro(Fd), Ut = Et;
-function qd(e) {
+Object.defineProperty(si, "__esModule", { value: !0 });
+const Yd = no(Pd), qd = no(xd), Ut = At;
+function Jd(e) {
   const t = document.querySelector(`audio[data-participant-id="${e}"]`);
   t == null || t.remove();
 }
-async function Jd(e, t) {
+async function zd(e, t) {
   e.muted = !1, e.autoplay = !0, t != null && (e.srcObject = new MediaStream([t]), await e.play());
 }
 async function Wd(e, t) {
   const r = document.createElement("audio");
-  return r.dataset.participantId = t, document.body.appendChild(r), await Jd(r, e), r;
+  return r.dataset.participantId = t, document.body.appendChild(r), await zd(r, e), r;
 }
-function zd(e, t) {
+function $d(e, t) {
   e.participant.local || t.updateParticipant(e.participant.session_id, {
     setSubscribedTracks: {
       audio: !0,
@@ -5250,7 +5250,7 @@ function zd(e, t) {
     }
   });
 }
-class $d extends Yd.default {
+class Gd extends qd.default {
   on(t, r) {
     return super.on(t, r), this;
   }
@@ -5267,7 +5267,7 @@ class $d extends Yd.default {
     return super.removeAllListeners(t), this;
   }
 }
-class Gd extends $d {
+class Hd extends Gd {
   constructor(r, n) {
     super();
     V(this, "started", !1);
@@ -5290,19 +5290,19 @@ class Gd extends $d {
         assistant: typeof r == "string" ? void 0 : r,
         assistantId: typeof r == "string" ? r : void 0
       })).data;
-      return this.call = Ud.default.createCallObject({
+      return this.call = Yd.default.createCallObject({
         audioSource: !0,
         videoSource: !1
       }), (n = this.call.iframe()) == null || n.style.setProperty("display", "none"), this.call.on("left-meeting", () => {
         this.emit("call-end"), this.cleanup();
       }), this.call.on("participant-left", (s) => {
-        s && qd(s.participant.session_id);
+        s && Jd(s.participant.session_id);
       }), this.call.on("error", () => {
       }), this.call.on("track-started", async (s) => {
         var c, u, d;
         !s || !s.participant || (c = s.participant) != null && c.local || s.track.kind === "audio" && (await Wd(s.track, s.participant.session_id), ((u = s == null ? void 0 : s.participant) == null ? void 0 : u.user_name) === "Vapi Speaker" && ((d = this.call) == null || d.sendAppMessage("playable")));
       }), this.call.on("participant-joined", (s) => {
-        !s || !this.call || zd(s, this.call);
+        !s || !this.call || $d(s, this.call);
       }), await this.call.join({
         url: a.webCallUrl,
         subscribeToTracksAutomatically: !1
@@ -5343,8 +5343,8 @@ class Gd extends $d {
     (n = this.call) == null || n.sendAppMessage(JSON.stringify(r));
   }
 }
-var Hd = oi.default = Gd;
-const Kd = () => ({
+var Kd = si.default = Hd;
+const Qd = () => ({
   name: "Mary",
   model: {
     provider: "openai",
@@ -5407,7 +5407,7 @@ const Kd = () => ({
     voiceId: "paula"
   },
   firstMessage: "Hi. I'm Mary, your personal character sketch pad."
-}), Qd = ({
+}), Zd = ({
   idle: e,
   loading: t,
   active: r,
@@ -5444,51 +5444,110 @@ const Kd = () => ({
         transform: translateY(0%);
       }
     }
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
 
     .vapi-btn {
       border-radius: 50%;
-      width: ${n};
+      min-width: ${n};
       height: ${a};
       color: white;
       border: none;
       cursor: pointer;
       transition: all 0.3s ease-in-out;
       display: flex;
-      justify-content: center;
+      text-align: left;
       align-items: center;
       position: absolute;
+      padding: 0;
       animation: bounce 2s ease-in-out infinite;
       ${f[s]}
     }
+    .vapi-btn-round {
+      justify-content: center;
+    }
     .vapi-btn-pill {
-      border-radius: 20px;
+      border-radius: 8px;
+      color: black;
+      background: white;
+      justify-content: flex-start;
+      padding: 0px 10px;
     }
     .vapi-btn:hover {
       animation: none;
       transform: translateY(-5px);
     }
+    #vapi-icon-container {
+      padding: 5px;
+      margin: 5px;
+      border-radius: 5px;
+    }
+
+    #vapi-title-container {
+      padding: 5px 10px;
+    }
+    #vapi-title {
+      font-size: 1.1em;
+    }
+    #vapi-subtitle {
+      font-size: 0.9em;
+    }
+
+    .vapi-btn-is-loading > #vapi-icon-container > img {
+      animation: spin 1s linear infinite;
+    }
 
     .vapi-btn-is-active {
-      background: radial-gradient(circle, rgba(255,255,255,0.2) -40%, ${r.color} 100%);
-      box-shadow: 1px 1px 10px 0px ${r.color};
+      background: ${r.color};
+      box-shadow: 1px 1px 80px 20px ${r.color};
     }
+    .vapi-btn-pill.vapi-btn-is-active {
+      background: white;
+    }
+    .vapi-btn-pill.vapi-btn-is-active > #vapi-icon-container {
+      background: ${r.color};
+    }
+
+
+    .vapi-btn-is-idle {
+      background: ${e.color};
+      box-shadow: 1px 1px 10px ${e.color};
+    }
+    .vapi-btn-pill.vapi-btn-is-idle {
+      background: white;
+    }
+    .vapi-btn-pill.vapi-btn-is-idle > #vapi-icon-container {
+      background: ${e.color};
+    }
+
     .vapi-btn-is-loading {
-      background: radial-gradient(circle, rgba(255,255,255,0.2) -40%, ${t.color} 100%);
-      box-shadow: 1px 1px 10px 0px ${t.color};
+      background: ${t.color};
+      box-shadow: 1px 1px 80px 20px ${t.color};
+    }
+    .vapi-btn-pill.vapi-btn-is-loading {
+      background: white;
+    }
+    .vapi-btn-pill.vapi-btn-is-loading > #vapi-icon-container {
+      background: ${t.color};
     }
     .vapi-btn-is-speaking {
       // Add speaking styles if different from active/loading/idle
-    }
-    .vapi-btn-is-idle {
-      background: radial-gradient(circle, rgba(255,255,255,0.2) -40%, ${e.color} 100%);
-      box-shadow: 1px 1px 10px 0px ${e.color};
     }
     @font-face {
       font-family: 'LucideIcons';
       src: url(https://unpkg.com/lucide-static@latest/font/Lucide.ttf) format('truetype');
     }
-  `, document.head.appendChild(m);
-}, Zd = ({
+  `;
+  for (let y = 0; y <= 10; y++)
+    m.innerText += `
+      .vapi-btn-volume-${y} {
+        box-shadow: 1px 1px ${10 + y * 4}px ${y * 3}px ${r.color}, inset 0px 0px 10px 0px rgba(0,0,0,0.1);
+      }
+    `;
+  document.head.appendChild(m);
+}, Xd = ({
   position: e = "bottom",
   offset: t = "40px",
   width: r = "50px",
@@ -5497,44 +5556,57 @@ const Kd = () => ({
   loading: s,
   active: c
 }, u = "vapi-support-btn") => {
-  Qd({ idle: a, loading: s, active: c, width: r, height: n, position: e, offset: t });
+  Zd({ idle: a, loading: s, active: c, width: r, height: n, position: e, offset: t });
   const d = document.createElement("button");
-  return d.id = u, d.className = "vapi-btn vapi-btn-is-idle", d.onclick = () => {
+  return d.id = u, d.className = "vapi-btn vapi-btn-round vapi-btn-is-idle", d.onclick = () => {
   }, d;
-}, Xd = "https://unpkg.com/lucide-static@0.321.0/icons/phone.svg", eh = (e) => (console.log("config btn state creator", e), (t, r) => {
+}, oi = "https://unpkg.com/lucide-static@0.321.0/icons/phone.svg", eh = (e) => (console.log("config btn state creator", e), (t, r) => {
   console.log("config btn state handler", t, r);
   const n = e[r];
-  if (n && (t.className = `vapi-btn vapi-btn-is-${r} ${n.type === "pill" ? "vapi-btn-pill" : ""}`, t.innerHTML = "", n.type === "pill")) {
-    const a = document.createElement("div");
-    a.id = "vapi-icon-container";
-    const s = document.createElement("img");
-    s.src = n.icon || Xd, s.alt = "Icon", a.appendChild(s);
-    const c = document.createElement("div"), u = document.createElement("h2");
-    u.textContent = n.title;
-    const d = document.createElement("h4");
-    d.textContent = n.subtitle, c.appendChild(u), c.appendChild(d), t.appendChild(a), t.appendChild(c);
+  if (n) {
+    if (t.className = `vapi-btn vapi-btn-is-${r} ${n.type === "pill" ? "vapi-btn-pill" : n.type === "round" ? "vapi-btn-round" : ""}`, t.innerHTML = "", n.type === "pill") {
+      const a = document.createElement("div");
+      a.id = "vapi-icon-container";
+      const s = document.createElement("img");
+      s.src = n.icon || oi, s.alt = "Icon", a.appendChild(s);
+      const c = document.createElement("div");
+      c.id = "vapi-title-container";
+      const u = document.createElement("div");
+      u.id = "vapi-title", u.textContent = n.title;
+      const d = document.createElement("div");
+      d.id = "vapi-subtitle", d.textContent = n.subtitle, c.appendChild(u), c.appendChild(d), t.appendChild(a), t.appendChild(c);
+    } else if (n.type === "round") {
+      const a = document.createElement("div");
+      a.id = "vapi-icon-container";
+      const s = document.createElement("img");
+      s.src = n.icon || oi, s.alt = "Icon", a.appendChild(s), t.appendChild(a);
+    }
   }
 });
-function th(e, t, r, n, a) {
-  let s = !1;
-  function c() {
-    a(t, "loading"), s ? (e.stop(), s = !1) : (e.start(n), s = !0, t.style.boxShadow = `1px 1px 80px 20px ${r}`);
-  }
+function th(e, t, r, n) {
+  let a = !1;
+  console.log("buttonStateHanlder", n);
+  const s = () => {
+    n(t, "loading"), a ? (e.stop(), a = !1) : (e.start(r), a = !0);
+  };
   e.on("call-start", () => {
-    a(t, "active");
+    n(t, "active");
   }), e.on("call-end", () => {
-    t.style.boxShadow = `1px 1px 10px ${r}`, a(t, "idle");
+    n(t, "idle");
   }), e.on("speech-start", () => {
     t.classList.add("vapi-btn-is-speaking");
   }), e.on("speech-end", () => {
     t.classList.remove("vapi-btn-is-speaking");
-  }), t.addEventListener("click", c), e.on("volume-level", (u) => {
-    t.style.boxShadow = `1px 1px ${10 + u * 40}px ${u * 30}px ${r}, inset 0px 0px 10px 0px rgba(0,0,0,0.1)`;
+  }), t.addEventListener("click", s), e.on("volume-level", (c) => {
+    const u = Math.floor(c * 10);
+    for (let d = 0; d <= 10; d++)
+      t.classList.remove(`vapi-btn-volume-${d}`);
+    t.classList.add(`vapi-btn-volume-${u}`);
   });
 }
 const rh = ({
   apiKey: e = "",
-  assistant: t = Kd(),
+  assistant: t = Qd(),
   buttonConfig: r = {
     position: "bottom",
     offset: "40px",
@@ -5542,34 +5614,32 @@ const rh = ({
     height: "50px",
     idle: {
       color: "rgb(93, 254, 202)",
-      type: "pill",
+      type: "round",
       title: "Have a quick question?",
-      subtitle: "Click here to talk with our AI assistant",
-      icon: ""
+      subtitle: "Talk with our AI assistant",
+      icon: "https://unpkg.com/lucide-static@0.321.0/icons/phone.svg"
     },
     loading: {
-      color: "rgb(255, 255, 255)",
-      type: "pill",
+      color: "rgb(93, 124, 202)",
+      type: "round",
       title: "Connecting...",
       subtitle: "Please wait",
-      icon: ""
+      icon: "https://unpkg.com/lucide-static@0.321.0/icons/loader-2.svg"
     },
     active: {
-      color: "rgb(255, 255, 255)",
-      type: "pill",
+      color: "rgb(255, 0, 0)",
+      type: "round",
       title: "Call is in progress...",
-      subtitle: "Click again to end the call.",
-      icon: ""
+      subtitle: "End the call.",
+      icon: "https://unpkg.com/lucide-static@0.321.0/icons/phone-off.svg"
     }
   }
   // position = "bottom",
   // color = `rgb(93, 254, 202)`,
   // offset = "40px",
 }) => {
-  const n = new Hd(e), a = Zd(r);
-  console.log("hi there");
-  const s = eh(defaultButtonConfig);
-  s(a, "idle"), th(n, a, color, t, s), document.body.appendChild(a);
+  const n = new Kd(e), a = Xd(r), s = eh(r);
+  document.body.appendChild(a), s(a, "idle"), th(n, a, t, s);
 };
 window.vapiSDK = {
   run: rh
