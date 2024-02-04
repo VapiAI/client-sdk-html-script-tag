@@ -36,7 +36,7 @@ To add Vapi to your website, include the following javascript snippet in your HT
 </script>
 ```
 
-Where sample assistant config is,
+Where value of assistant can be your assistant ID (Dashboard > Assistants > Select your assistant > Copy the id) or assistant config like below example.
 
 ```js
 const assistant = {
