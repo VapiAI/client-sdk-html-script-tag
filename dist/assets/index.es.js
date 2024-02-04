@@ -5607,7 +5607,7 @@ function th(e, t, r, n) {
 const rh = ({
   apiKey: e = "",
   assistant: t = Qd(),
-  buttonConfig: r = {
+  config: r = {
     position: "bottom",
     offset: "40px",
     width: "50px",
@@ -5638,8 +5638,13 @@ const rh = ({
   // color = `rgb(93, 254, 202)`,
   // offset = "40px",
 }) => {
-  const n = new Kd(e), a = Xd(r), s = eh(r);
-  document.body.appendChild(a), s(a, "idle"), th(n, a, t, s);
+  if (e && t) {
+    const n = new Kd(e), a = Xd(r), s = eh(r);
+    document.body.appendChild(a), s(a, "idle"), th(n, a, t, s);
+  } else
+    console.error(
+      "API Key and Assistant Configurations are required. are required"
+    );
 };
 window.vapiSDK = {
   run: rh

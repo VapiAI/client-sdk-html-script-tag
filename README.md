@@ -27,15 +27,16 @@ To add Vapi to your website, include the following javascript snippet in your HT
 
     g.onload = function () {
       window.vapiSDK.run({
-        apiKey: "",
-        assistant: assistant,
+        apiKey: "", // required
+        assistant: assistant, // required
+        config: buttonConfig // optional
       });
     };
   })(document, "script");
 </script>
 ```
 
-Sample assistant config is
+Where sample assistant config is,
 
 ```js
 const assistant = {
@@ -53,8 +54,10 @@ const assistant = {
 };
 ```
 
-You can customise the look and feel of your Vapi Support Button using the following configurations.
+You can also customise the look and feel of your Vapi Support Button using the following configurations.
 The button will have 3 states, `idle`, `loading` and `active`.
+
+Button Configuration for a pill
 
 ```js
 const buttonConfig = {
@@ -81,6 +84,32 @@ const buttonConfig = {
     type: "pill",
     title: "Call is in progress...",
     subtitle: "End the call.",
+    icon: `https://unpkg.com/lucide-static@0.321.0/icons/phone-off.svg`,
+  },
+};
+```
+
+You can also have a round button. Here is the corresponding configuration.
+
+```js
+const buttonConfig = {
+  position: "bottom-right",
+  offset: "40px",
+  width: "50px",
+  height: "50px",
+  idle: {
+    color: `rgb(93, 254, 202)`,
+    type: "round",
+    icon: `https://unpkg.com/lucide-static@0.321.0/icons/phone.svg`,
+  },
+  loading: {
+    color: `rgb(93, 124, 202)`,
+    type: "round",
+    icon: `https://unpkg.com/lucide-static@0.321.0/icons/loader-2.svg`,
+  },
+  active: {
+    color: `rgb(255, 0, 0)`,
+    type: "round",
     icon: `https://unpkg.com/lucide-static@0.321.0/icons/phone-off.svg`,
   },
 };

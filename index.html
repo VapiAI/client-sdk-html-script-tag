@@ -23,13 +23,40 @@
         firstMessage: "Hi, I am Vapi how can I assist you today?",
       };
 
+      const buttonConfig = {
+        position: "bottom-right",
+        offset: "40px",
+        width: "50px",
+        height: "50px",
+        idle: {
+          color: `rgb(93, 254, 202)`,
+          type: "pill",
+          title: "Have a quick question?",
+          subtitle: "Talk with our AI assistant",
+          icon: `https://unpkg.com/lucide-static@0.321.0/icons/phone.svg`,
+        },
+        loading: {
+          color: `rgb(93, 124, 202)`,
+          type: "pill",
+          title: "Connecting...",
+          subtitle: "Please wait",
+          icon: `https://unpkg.com/lucide-static@0.321.0/icons/loader-2.svg`,
+        },
+        active: {
+          color: `rgb(255, 0, 0)`,
+          type: "pill",
+          title: "Call is in progress...",
+          subtitle: "End the call.",
+          icon: `https://unpkg.com/lucide-static@0.321.0/icons/phone-off.svg`,
+        },
+      };
+
       (function (d, t) {
         var g = document.createElement(t),
           s = d.getElementsByTagName(t)[0];
 
         g.src = "dist/assets/index.js";
         // g.src =
-        //   // "public/assets/index.js";
         //   "https://cdn.jsdelivr.net/gh/VapiAI/vapi-support-sdk/dist/assets/index.js";
         g.defer = true;
         g.async = true;
@@ -39,35 +66,7 @@
           const vapi = window.vapiSDK.run({
             apiKey: "",
             assistant: assistant,
-            position: "bottom",
-            buttonConfig: {
-              position: "bottom-right",
-              offset: "40px",
-              width: "50px",
-              height: "50px",
-              idle: {
-                color: `rgb(93, 254, 202)`,
-                type: "pill",
-                title: "Have a quick question?",
-                subtitle: "Talk with our AI assistant",
-                icon: `https://unpkg.com/lucide-static@0.321.0/icons/phone.svg`,
-              },
-              loading: {
-                color: `rgb(93, 124, 202)`,
-                type: "pill",
-                title: "Connecting...",
-                subtitle: "Please wait",
-                icon: `https://unpkg.com/lucide-static@0.321.0/icons/loader-2.svg`,
-              },
-              active: {
-                color: `rgb(255, 0, 0)`,
-                type: "pill",
-                title: "Call is in progress...",
-                subtitle: "End the call.",
-                icon: `https://unpkg.com/lucide-static@0.321.0/icons/phone-off.svg`,
-              },
-            },
-            // color: `rgb(93, 254, 202)`,
+            config: buttonConfig,
           });
         };
       })(document, "script");

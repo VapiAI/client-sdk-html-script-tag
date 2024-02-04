@@ -7,7 +7,7 @@ const runSDK = ({
   apiKey = "",
   assistant = defaultAssistant(),
 
-  buttonConfig = {
+  config = {
     position: "bottom",
     offset: "40px",
     width: "50px",
@@ -38,14 +38,20 @@ const runSDK = ({
   // color = `rgb(93, 254, 202)`,
   // offset = "40px",
 }) => {
-  const vapi = new Vapi(apiKey);
-  const button = createButtonElement(buttonConfig);
+  if (apiKey && assistant) {
+    const vapi = new Vapi(apiKey);
+    const buttonElement = createButtonElement(config);
 
-  const buttonStateHandler = createButtonStateHandler(buttonConfig);
-  document.body.appendChild(button);
+    const buttonStateHandler = createButtonStateHandler(config);
+    document.body.appendChild(buttonElement);
 
-  buttonStateHandler(button, "idle");
-  defaultListeners(vapi, button, assistant, buttonStateHandler);
+    buttonStateHandler(buttonElement, "idle");
+    defaultListeners(vapi, buttonElement, assistant, buttonStateHandler);
+  } else {
+    console.error(
+      "API Key and Assistant Configurations are required. are required"
+    );
+  }
 };
 
 window.vapiSDK = {
