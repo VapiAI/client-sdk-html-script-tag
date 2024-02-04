@@ -1,11 +1,7 @@
 export function defaultListeners(vapi, button, assistant, buttonStateHandler) {
   let isActiveCall = false;
-  let isLoading = false;
-
-  console.log("buttonStateHanlder", buttonStateHandler);
 
   const toggleCall = () => {
-    isLoading = true;
     buttonStateHandler(button, "loading");
     if (isActiveCall) {
       vapi.stop();

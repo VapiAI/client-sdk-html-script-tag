@@ -139,7 +139,7 @@ const insertStyleSheet = ({
   for (let i = 0; i <= 10; i++) {
     styleSheet.innerText += `
       .vapi-btn-volume-${i} {
-        box-shadow: 1px 1px ${10 + i * 4}px ${i * 3}px ${
+        box-shadow: 1px 1px ${5 + i * 2}px ${i * 2}px ${
       active.color
     }, inset 0px 0px 10px 0px rgba(0,0,0,0.1);
       }
@@ -174,9 +174,7 @@ const defaultIconUrl =
 
 // Function to create the updater function based on the config
 const createButtonStateHandler = (config) => {
-  console.log("config btn state creator", config);
   return (button, state) => {
-    console.log("config btn state handler", button, state);
     const stateConfig = config[state];
     if (!stateConfig) return; // If no config for the state, do nothing
 

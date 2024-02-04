@@ -30,23 +30,17 @@
         height: "50px",
         idle: {
           color: `rgb(93, 254, 202)`,
-          type: "pill",
-          title: "Have a quick question?",
-          subtitle: "Talk with our AI assistant",
+          type: "round",
           icon: `https://unpkg.com/lucide-static@0.321.0/icons/phone.svg`,
         },
         loading: {
           color: `rgb(93, 124, 202)`,
-          type: "pill",
-          title: "Connecting...",
-          subtitle: "Please wait",
+          type: "round",
           icon: `https://unpkg.com/lucide-static@0.321.0/icons/loader-2.svg`,
         },
         active: {
           color: `rgb(255, 0, 0)`,
-          type: "pill",
-          title: "Call is in progress...",
-          subtitle: "End the call.",
+          type: "round",
           icon: `https://unpkg.com/lucide-static@0.321.0/icons/phone-off.svg`,
         },
       };
@@ -66,7 +60,7 @@
           const vapi = window.vapiSDK.run({
             apiKey: "",
             assistant: assistant,
-            config: buttonConfig,
+            // config: buttonConfig,
           });
         };
       })(document, "script");

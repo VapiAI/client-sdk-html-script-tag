@@ -7,7 +7,31 @@ const runSDK = ({
   apiKey = "",
   assistant = defaultAssistant(),
 
-  config = {
+  config = {},
+  // position = "bottom",
+  // color = `rgb(93, 254, 202)`,
+  // offset = "40px",
+}) => {
+  function deepMerge(defaultConfig, userConfig) {
+    const mergedConfig = { ...defaultConfig };
+    Object.keys(userConfig).forEach((key) => {
+      if (
+        typeof userConfig[key] === "object" &&
+        userConfig[key] !== null &&
+        !Array.isArray(userConfig[key])
+      ) {
+        mergedConfig[key] = deepMerge(
+          defaultConfig[key] || {},
+          userConfig[key]
+        );
+      } else {
+        mergedConfig[key] = userConfig[key];
+      }
+    });
+    return mergedConfig;
+  }
+
+  const defaultConfig = {
     position: "bottom",
     offset: "40px",
     width: "50px",
@@ -33,16 +57,13 @@ const runSDK = ({
       subtitle: "End the call.",
       icon: `https://unpkg.com/lucide-static@0.321.0/icons/phone-off.svg`,
     },
-  },
-  // position = "bottom",
-  // color = `rgb(93, 254, 202)`,
-  // offset = "40px",
-}) => {
+  };
+  const buttonConfig = deepMerge(defaultConfig, config);
   if (apiKey && assistant) {
     const vapi = new Vapi(apiKey);
-    const buttonElement = createButtonElement(config);
+    const buttonElement = createButtonElement(buttonConfig);
 
-    const buttonStateHandler = createButtonStateHandler(config);
+    const buttonStateHandler = createButtonStateHandler(buttonConfig);
     document.body.appendChild(buttonElement);
 
     buttonStateHandler(buttonElement, "idle");
