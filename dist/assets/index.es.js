@@ -122,10 +122,10 @@ function bt(e, t) {
     throw new TypeError("Derived constructors may only return object or undefined");
   return ce(e);
 }
-function K(e) {
-  return K = Object.setPrototypeOf ? Object.getPrototypeOf.bind() : function(t) {
+function H(e) {
+  return H = Object.setPrototypeOf ? Object.getPrototypeOf.bind() : function(t) {
     return t.__proto__ || Object.getPrototypeOf(t);
-  }, K(e);
+  }, H(e);
 }
 function ge(e, t, r) {
   return (t = si(t)) in e ? Object.defineProperty(e, t, { value: r, enumerable: !0, configurable: !0, writable: !0 }) : e[t] = r, e;
@@ -404,12 +404,12 @@ var ho = typeof Map == "function", po = typeof Set == "function", fo = typeof We
       return c || u ? c && u : (qr(n, s), qr(a, s), r(n, a, s));
     };
   };
-}, Hr = function(e) {
+}, Kr = function(e) {
   var t = [];
   return e.forEach(function(r, n) {
     return t.push([n, r]);
   }), t;
-}, Kr = function(e) {
+}, Hr = function(e) {
   var t = [];
   return e.forEach(function(r) {
     return t.push(r);
@@ -434,11 +434,11 @@ var ho = typeof Map == "function", po = typeof Set == "function", fo = typeof We
       return Qr(n, a, t, s);
     var u = Zr(n), d = Zr(a);
     if (u || d)
-      return u === d && function(U, H, ee, te) {
-        if (U.length !== H.length)
+      return u === d && function(U, K, ee, te) {
+        if (U.length !== K.length)
           return !1;
         for (var q = 0; q < U.length; q++)
-          if (!ee(U[q], H[q], te))
+          if (!ee(U[q], K[q], te))
             return !1;
         return !0;
       }(n, a, t, s);
@@ -453,10 +453,10 @@ var ho = typeof Map == "function", po = typeof Set == "function", fo = typeof We
     if (ho) {
       var I = n instanceof Map, O = a instanceof Map;
       if (I || O)
-        return I === O && function(U, H, ee, te) {
-          if (U.size !== H.size)
+        return I === O && function(U, K, ee, te) {
+          if (U.size !== K.size)
             return !1;
-          for (var q = Hr(U), de = Hr(H), $ = 0; $ < q.length; $++)
+          for (var q = Kr(U), de = Kr(K), $ = 0; $ < q.length; $++)
             if (!Jr(de, q[$], ee, te) || !Jr(q, de[$], ee, te))
               return !1;
           return !0;
@@ -465,10 +465,10 @@ var ho = typeof Map == "function", po = typeof Set == "function", fo = typeof We
     if (po) {
       var Y = n instanceof Set, x = a instanceof Set;
       if (Y || x)
-        return Y === x && function(U, H, ee, te) {
-          if (U.size !== H.size)
+        return Y === x && function(U, K, ee, te) {
+          if (U.size !== K.size)
             return !1;
-          for (var q = Kr(U), de = Kr(H), $ = 0; $ < q.length; $++)
+          for (var q = Hr(U), de = Hr(K), $ = 0; $ < q.length; $++)
             if (!Yt(de, q[$], ee, te) || !Yt(q, de[$], ee, te))
               return !1;
           return !0;
@@ -1012,7 +1012,7 @@ function hi(e) {
 function pi() {
   return window._dailyConfig && window._dailyConfig.callObjectBundleUrlOverride ? window._dailyConfig.callObjectBundleUrlOverride : hi("https://c.daily.co/call-machine/versioned/".concat("0.53.0", "/static/call-machine-object-bundle.js"));
 }
-function He(e) {
+function Ke(e) {
   try {
     new URL(e);
   } catch {
@@ -1020,7 +1020,7 @@ function He(e) {
   }
   return !0;
 }
-var qt = "new", en = "loading", tn = "loaded", Te = "joining-meeting", z = "joined-meeting", ve = "left-meeting", me = "error", wo = "blocked", ko = "off", So = "sendable", Co = "loading", Mo = "interrupted", To = "playable", ot = "unknown", fi = "full", Ao = "lobby", Eo = "none", vi = "base", mi = "*", Oo = "ejected", Lo = "nbf-room", Po = "nbf-token", Io = "exp-room", jo = "exp-token", Do = "meeting-full", No = "end-of-life", Ro = "not-allowed", Fo = "connection-error", xo = "cam-in-use", Vo = "mic-in-use", Bo = "cam-mic-in-use", Uo = "permissions", Yo = "undefined-mediadevices", qo = "not-found", Jo = "constraints", Wo = "unknown", gi = "iframe-ready-for-launch-config", yi = "iframe-launch-config", Jt = "theme-updated", Wt = "loading", zt = "load-attempt-failed", st = "loaded", bi = "started-camera", _i = "camera-error", $t = "joining-meeting", wi = "joined-meeting", ki = "left-meeting", rn = "available-devices-updated", Si = "participant-joined", Ci = "participant-updated", Mi = "participant-left", Ti = "participant-counts-updated", Ai = "access-state-updated", Ei = "meeting-session-updated", Oi = "meeting-session-state-updated", zo = "meeting-session-data-error", Li = "waiting-participant-added", Pi = "waiting-participant-updated", Ii = "waiting-participant-removed", Gt = "track-started", Ht = "track-stopped", ji = "transcription-started", Di = "transcription-stopped", Ni = "transcription-error", ct = "recording-started", lt = "recording-stopped", Ri = "recording-stats", Fi = "recording-error", xi = "recording-upload-completed", Vi = "recording-data", Bi = "app-message", Ui = "remote-media-player-started", Yi = "remote-media-player-updated", qi = "remote-media-player-stopped", Ji = "local-screen-share-started", Wi = "local-screen-share-stopped", zi = "active-speaker-change", $i = "active-speaker-mode-change", Gi = "network-quality-change", Hi = "network-connection", Ki = "cpu-load-change", _e = "fullscreen", we = "exited-fullscreen", Qi = "live-streaming-started", Zi = "live-streaming-updated", Xi = "live-streaming-stopped", ea = "live-streaming-error", ta = "lang-updated", ra = "receive-settings-updated", na = "input-settings-updated", ut = "nonfatal-error", dt = "error", nn = 102400, Lt = "iframe-call-message", an = "local-screen-start", tt = "register-input-handler", on = "daily-method-update-live-streaming-endpoints", Pt = "transmit-log", qe = "daily-custom-track", ht = { NONE: "none", BGBLUR: "background-blur", BGIMAGE: "background-image" }, ia = { NONE: "none", NOISE_CANCELLATION: "noise-cancellation" }, Kt = { PLAY: "play", PAUSE: "pause" }, sn = 10, It = ["jpg", "png", "jpeg"], $o = "add-endpoints", Go = "remove-endpoints";
+var qt = "new", en = "loading", tn = "loaded", Te = "joining-meeting", z = "joined-meeting", ve = "left-meeting", me = "error", wo = "blocked", ko = "off", So = "sendable", Co = "loading", Mo = "interrupted", To = "playable", ot = "unknown", fi = "full", Ao = "lobby", Eo = "none", vi = "base", mi = "*", Oo = "ejected", Lo = "nbf-room", Po = "nbf-token", Io = "exp-room", jo = "exp-token", Do = "meeting-full", No = "end-of-life", Ro = "not-allowed", Fo = "connection-error", xo = "cam-in-use", Vo = "mic-in-use", Bo = "cam-mic-in-use", Uo = "permissions", Yo = "undefined-mediadevices", qo = "not-found", Jo = "constraints", Wo = "unknown", gi = "iframe-ready-for-launch-config", yi = "iframe-launch-config", Jt = "theme-updated", Wt = "loading", zt = "load-attempt-failed", st = "loaded", bi = "started-camera", _i = "camera-error", $t = "joining-meeting", wi = "joined-meeting", ki = "left-meeting", rn = "available-devices-updated", Si = "participant-joined", Ci = "participant-updated", Mi = "participant-left", Ti = "participant-counts-updated", Ai = "access-state-updated", Ei = "meeting-session-updated", Oi = "meeting-session-state-updated", zo = "meeting-session-data-error", Li = "waiting-participant-added", Pi = "waiting-participant-updated", Ii = "waiting-participant-removed", Gt = "track-started", Kt = "track-stopped", ji = "transcription-started", Di = "transcription-stopped", Ni = "transcription-error", ct = "recording-started", lt = "recording-stopped", Ri = "recording-stats", Fi = "recording-error", xi = "recording-upload-completed", Vi = "recording-data", Bi = "app-message", Ui = "remote-media-player-started", Yi = "remote-media-player-updated", qi = "remote-media-player-stopped", Ji = "local-screen-share-started", Wi = "local-screen-share-stopped", zi = "active-speaker-change", $i = "active-speaker-mode-change", Gi = "network-quality-change", Ki = "network-connection", Hi = "cpu-load-change", _e = "fullscreen", we = "exited-fullscreen", Qi = "live-streaming-started", Zi = "live-streaming-updated", Xi = "live-streaming-stopped", ea = "live-streaming-error", ta = "lang-updated", ra = "receive-settings-updated", na = "input-settings-updated", ut = "nonfatal-error", dt = "error", nn = 102400, Lt = "iframe-call-message", an = "local-screen-start", tt = "register-input-handler", on = "daily-method-update-live-streaming-endpoints", Pt = "transmit-log", qe = "daily-custom-track", ht = { NONE: "none", BGBLUR: "background-blur", BGIMAGE: "background-image" }, ia = { NONE: "none", NOISE_CANCELLATION: "noise-cancellation" }, Ht = { PLAY: "play", PAUSE: "pause" }, sn = 10, It = ["jpg", "png", "jpeg"], $o = "add-endpoints", Go = "remove-endpoints";
 function oe() {
   return !N() && typeof window < "u" && window.navigator && window.navigator.userAgent ? window.navigator.userAgent : "";
 }
@@ -1030,7 +1030,7 @@ function N() {
 function aa() {
   return navigator && navigator.mediaDevices && navigator.mediaDevices.getUserMedia;
 }
-function Ho() {
+function Ko() {
   return !!(navigator && navigator.mediaDevices && navigator.mediaDevices.getDisplayMedia) && (function(e, t) {
     if (!e || !t)
       return !0;
@@ -1073,9 +1073,9 @@ function cn() {
   var e = document.createElement("iframe");
   return !!e.requestFullscreen || !!e.webkitRequestFullscreen;
 }
-var Ko = ["Chrome", "Firefox"];
+var Ho = ["Chrome", "Firefox"];
 function oa() {
-  return !N() && !ca() && Ko.includes(Re());
+  return !N() && !ca() && Ho.includes(Re());
 }
 var Qo = ["Chrome", "Firefox"];
 function sa() {
@@ -1200,9 +1200,9 @@ function Zo(e) {
     }
   }();
   return function() {
-    var r, n = K(e);
+    var r, n = H(e);
     if (t) {
-      var a = K(this).constructor;
+      var a = H(this).constructor;
       r = Reflect.construct(n, arguments, a);
     } else
       r = n.apply(this, arguments);
@@ -1280,9 +1280,9 @@ function es(e) {
     }
   }();
   return function() {
-    var r, n = K(e);
+    var r, n = H(e);
     if (t) {
-      var a = K(this).constructor;
+      var a = H(this).constructor;
       r = Reflect.construct(n, arguments, a);
     } else
       r = n.apply(this, arguments);
@@ -1455,7 +1455,7 @@ function er(e) {
       t.set(r, a);
     }
     function a() {
-      return Xt(r, arguments, K(this).constructor);
+      return Xt(r, arguments, H(this).constructor);
     }
     return a.prototype = Object.create(r.prototype, { constructor: { value: a, enumerable: !1, writable: !0, configurable: !0 } }), $e(a, r);
   }, er(e);
@@ -1474,9 +1474,9 @@ function ns(e) {
     }
   }();
   return function() {
-    var r, n = K(e);
+    var r, n = H(e);
     if (t) {
-      var a = K(this).constructor;
+      var a = H(this).constructor;
       r = Reflect.construct(n, arguments, a);
     } else
       r = n.apply(this, arguments);
@@ -1659,11 +1659,11 @@ var is = function() {
   return n && (t ? e[Ue] = r : delete e[Ue]), a;
 }, vs = Object.prototype.toString, ms = fs, gs = function(e) {
   return vs.call(e);
-}, mn = Ce ? Ce.toStringTag : void 0, Ke = function(e) {
+}, mn = Ce ? Ce.toStringTag : void 0, He = function(e) {
   return e == null ? e === void 0 ? "[object Undefined]" : "[object Null]" : mn && mn in Object(e) ? ms(e) : gs(e);
 }, Qe = function(e) {
   return e != null && typeof e == "object";
-}, ys = Ke, bs = Qe, gn = function(e) {
+}, ys = He, bs = Qe, gn = function(e) {
   return bs(e) && ys(e) == "[object Arguments]";
 }, _s = Qe, ga = Object.prototype, ws = ga.hasOwnProperty, ks = ga.propertyIsEnumerable, ya = gn(/* @__PURE__ */ function() {
   return arguments;
@@ -1685,7 +1685,7 @@ var Cs = /^(?:0|[1-9]\d*)$/, ba = function(e, t) {
   return !!(t = t ?? 9007199254740991) && (r == "number" || r != "symbol" && Cs.test(e)) && e > -1 && e % 1 == 0 && e < t;
 }, lr = function(e) {
   return typeof e == "number" && e > -1 && e % 1 == 0 && e <= 9007199254740991;
-}, Ms = Ke, Ts = lr, As = Qe, D = {};
+}, Ms = He, Ts = lr, As = Qe, D = {};
 D["[object Float32Array]"] = D["[object Float64Array]"] = D["[object Int8Array]"] = D["[object Int16Array]"] = D["[object Int32Array]"] = D["[object Uint8Array]"] = D["[object Uint8ClampedArray]"] = D["[object Uint16Array]"] = D["[object Uint32Array]"] = !0, D["[object Arguments]"] = D["[object Array]"] = D["[object ArrayBuffer]"] = D["[object Boolean]"] = D["[object DataView]"] = D["[object Date]"] = D["[object Error]"] = D["[object Function]"] = D["[object Map]"] = D["[object Number]"] = D["[object Object]"] = D["[object RegExp]"] = D["[object Set]"] = D["[object String]"] = D["[object WeakMap]"] = !1;
 var Es = function(e) {
   return As(e) && Ts(e.length) && !!D[Ms(e)];
@@ -1723,14 +1723,14 @@ var Os = Es, Ls = _a, yn = We && We.isTypedArray, wa = yn ? Ls(yn) : Os, Ps = ls
 }(Object.keys, Object), Ys = Bs, qs = Us, Js = Object.prototype.hasOwnProperty, ur = function(e) {
   var t = typeof e;
   return e != null && (t == "object" || t == "function");
-}, Ws = Ke, zs = ur, ka = function(e) {
+}, Ws = He, zs = ur, ka = function(e) {
   if (!zs(e))
     return !1;
   var t = Ws(e);
   return t == "[object Function]" || t == "[object GeneratorFunction]" || t == "[object AsyncFunction]" || t == "[object Proxy]";
 }, $s = ka, Gs = lr, dr = function(e) {
   return e != null && Gs(e.length) && !$s(e);
-}, Hs = xs, Ks = function(e) {
+}, Ks = xs, Hs = function(e) {
   if (!Ys(e))
     return qs(e);
   var t = [];
@@ -1738,7 +1738,7 @@ var Os = Es, Ls = _a, yn = We && We.isTypedArray, wa = yn ? Ls(yn) : Os, Ps = ls
     Js.call(e, r) && r != "constructor" && t.push(r);
   return t;
 }, Qs = dr, hr = function(e) {
-  return Qs(e) ? Hs(e) : Ks(e);
+  return Qs(e) ? Ks(e) : Hs(e);
 }, Zs = cs, Xs = hr, ec = dr, Sa = /* @__PURE__ */ function(e, t) {
   return function(r, n) {
     if (r == null)
@@ -1842,16 +1842,16 @@ function Ee(e) {
   }
 }
 Ee.prototype.clear = Yc, Ee.prototype.delete = qc, Ee.prototype.get = Jc, Ee.prototype.has = Wc, Ee.prototype.set = zc;
-var kn = Ee, $c = kt, Gc = pr, Hc = function(e) {
+var kn = Ee, $c = kt, Gc = pr, Kc = function(e) {
   var t = typeof e;
   return t == "string" || t == "number" || t == "symbol" || t == "boolean" ? e !== "__proto__" : e === null;
 }, Ct = function(e, t) {
   var r = e.__data__;
-  return Hc(t) ? r[typeof t == "string" ? "string" : "hash"] : r.map;
-}, Kc = Ct, Qc = Ct, Zc = Ct, Xc = Ct, el = function() {
+  return Kc(t) ? r[typeof t == "string" ? "string" : "hash"] : r.map;
+}, Hc = Ct, Qc = Ct, Zc = Ct, Xc = Ct, el = function() {
   this.size = 0, this.__data__ = { hash: new kn(), map: new (Gc || $c)(), string: new kn() };
 }, tl = function(e) {
-  var t = Kc(this, e).delete(e);
+  var t = Hc(this, e).delete(e);
   return this.size -= t ? 1 : 0, t;
 }, rl = function(e) {
   return Qc(this, e).get(e);
@@ -2022,7 +2022,7 @@ var gl = pt, yl = function(e, t) {
     x == U || !("constructor" in e) || !("constructor" in t) || typeof x == "function" && x instanceof x && typeof U == "function" && U instanceof U || (R = !1);
   }
   return s.delete(e), s.delete(t), R;
-}, tr = Fe(ue, "DataView"), rr = pr, nr = Fe(ue, "Promise"), ir = Fe(ue, "Set"), ar = Fe(ue, "WeakMap"), Ea = Ke, xe = Ma, An = "[object Map]", En = "[object Promise]", On = "[object Set]", Ln = "[object WeakMap]", Pn = "[object DataView]", Rl = xe(tr), Fl = xe(rr), xl = xe(nr), Vl = xe(ir), Bl = xe(ar), ke = Ea;
+}, tr = Fe(ue, "DataView"), rr = pr, nr = Fe(ue, "Promise"), ir = Fe(ue, "Set"), ar = Fe(ue, "WeakMap"), Ea = He, xe = Ma, An = "[object Map]", En = "[object Promise]", On = "[object Set]", Ln = "[object WeakMap]", Pn = "[object DataView]", Rl = xe(tr), Fl = xe(rr), xl = xe(nr), Vl = xe(ir), Bl = xe(ar), ke = Ea;
 (tr && ke(new tr(new ArrayBuffer(1))) != Pn || rr && ke(new rr()) != An || nr && ke(nr.resolve()) != En || ir && ke(new ir()) != On || ar && ke(new ar()) != Ln) && (ke = function(e) {
   var t = Ea(e), r = t == "[object Object]" ? e.constructor : void 0, n = r ? xe(r) : "";
   if (n)
@@ -2061,7 +2061,7 @@ var Ft = Ta, Ul = Aa, Yl = Cl, ql = Nl, In = ke, jn = X, Dn = Je, Jl = wa, Nn = 
   return t === r || (t == null || r == null || !xn(t) && !xn(r) ? t != t && r != r : Wl(t, r, n, a, e, s));
 }, zl = Ta, $l = Oa, Gl = ur, La = function(e) {
   return e == e && !Gl(e);
-}, Hl = La, Kl = hr, Pa = function(e, t) {
+}, Kl = La, Hl = hr, Pa = function(e, t) {
   return function(r) {
     return r != null && r[e] === t && (t !== void 0 || e in Object(r));
   };
@@ -2089,9 +2089,9 @@ var Ft = Ta, Ul = Aa, Yl = Cl, ql = Nl, In = ke, jn = X, Dn = Je, Jl = wa, Nn = 
   }
   return !0;
 }, Zl = function(e) {
-  for (var t = Kl(e), r = t.length; r--; ) {
+  for (var t = Hl(e), r = t.length; r--; ) {
     var n = t[r], a = e[n];
-    t[r] = [n, a, Hl(a)];
+    t[r] = [n, a, Kl(a)];
   }
   return t;
 }, Xl = Pa, eu = function(e) {
@@ -2099,7 +2099,7 @@ var Ft = Ta, Ul = Aa, Yl = Cl, ql = Nl, In = ke, jn = X, Dn = Je, Jl = wa, Nn = 
   return t.length == 1 && t[0][2] ? Xl(t[0][0], t[0][1]) : function(r) {
     return r === e || Ql(r, e, t);
   };
-}, tu = Ke, ru = Qe, Mt = function(e) {
+}, tu = He, ru = Qe, Mt = function(e) {
   return typeof e == "symbol" || ru(e) && tu(e) == "[object Symbol]";
 }, nu = X, iu = Mt, au = /\.|\[(?:[^[\]]*|(["'])(?:(?!\1)[^\\]|\\.)*?\1)\]/, ou = /^\w*$/, vr = function(e, t) {
   if (nu(e))
@@ -2190,8 +2190,8 @@ var su = mr, cu = /[^.[\]]+|\[(?:(-?\d+(?:\.\d+)?)|(["'])((?:(?!\2)[^\\]|\\.)*?)
   return Yu(e) ? Bu(qu(e)) : Uu(e);
 }, Ra = function(e) {
   return typeof e == "function" ? e : e == null ? zu : typeof e == "object" ? $u(e) ? Wu(e[0], e[1]) : Ju(e) : Gu(e);
-}, Hu = fa, Ku = rc, Qu = Ra, Zu = X, Xu = function(e, t) {
-  return (Zu(e) ? Hu : Ku)(e, Qu(t));
+}, Ku = fa, Hu = rc, Qu = Ra, Zu = X, Xu = function(e, t) {
+  return (Zu(e) ? Ku : Hu)(e, Qu(t));
 }, ed = Sa, td = dr, Un = Mt, rd = function(e, t) {
   if (e !== t) {
     var r = e !== void 0, n = e === null, a = e == e, s = Un(e), c = t !== void 0, u = t === null, d = t == t, f = Un(t);
@@ -2543,27 +2543,27 @@ function Td(e) {
     }
   }();
   return function() {
-    var r, n = K(e);
+    var r, n = H(e);
     if (t) {
-      var a = K(this).constructor;
+      var a = H(this).constructor;
       r = Reflect.construct(n, arguments, a);
     } else
       r = n.apply(this, arguments);
     return bt(this, r);
   };
 }
-function Hn(e, t) {
+function Kn(e, t) {
   var r = typeof Symbol < "u" && e[Symbol.iterator] || e["@@iterator"];
   if (!r) {
     if (Array.isArray(e) || (r = function(d, f) {
       if (d) {
         if (typeof d == "string")
-          return Kn(d, f);
+          return Hn(d, f);
         var m = Object.prototype.toString.call(d).slice(8, -1);
         if (m === "Object" && d.constructor && (m = d.constructor.name), m === "Map" || m === "Set")
           return Array.from(d);
         if (m === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(m))
-          return Kn(d, f);
+          return Hn(d, f);
       }
     }(e)) || t && e && typeof e.length == "number") {
       r && (e = r);
@@ -2595,7 +2595,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
     }
   } };
 }
-function Kn(e, t) {
+function Hn(e, t) {
   (t == null || t > e.length) && (t = e.length);
   for (var r = 0, n = new Array(t); r < t; r++)
     n[r] = e[r];
@@ -2722,7 +2722,7 @@ var Qn = "video", Ad = "voice", Zn = N() ? { data: {} } : { data: {}, topology: 
         break;
       case "canSend":
         if (s instanceof Set || s instanceof Array) {
-          var c, u = ["video", "audio", "screenVideo", "screenAudio", "customVideo", "customAudio"], d = Hn(s);
+          var c, u = ["video", "audio", "screenVideo", "screenAudio", "customVideo", "customAudio"], d = Kn(s);
           try {
             for (d.s(); !(c = d.n()).done; ) {
               var f = c.value;
@@ -2740,7 +2740,7 @@ var Qn = "video", Ad = "voice", Zn = N() ? { data: {} } : { data: {}, topology: 
         break;
       case "canAdmin":
         if (s instanceof Set || s instanceof Array) {
-          var m, y = ["participants", "streaming", "transcription"], _ = Hn(s);
+          var m, y = ["participants", "streaming", "transcription"], _ = Kn(s);
           try {
             for (_.s(); !(m = _.n()).done; ) {
               var R = m.value;
@@ -2763,7 +2763,7 @@ var Qn = "video", Ad = "voice", Zn = N() ? { data: {} } : { data: {}, topology: 
   return !0;
 }, help: "updatePermissions can take hasPresence, canSend, and canAdmin permissions. hasPresence must be a boolean. canSend can be a boolean or an Array or Set of media types (video, audio, screenVideo, screenAudio, customVideo, customAudio). canAdmin can be a boolean or an Array or Set of admin types (participants, streaming, transcription)." } }, Ed = function(e) {
   yt(re, le);
-  var t, r, n, a, s, c, u, d, f, m, y, _, R, M, I, O, Y, x, U, H, ee, te, q, de, $, br, _r, wr, kr, Sr, Cr, Mr, Tr, Ar, no = Td(re);
+  var t, r, n, a, s, c, u, d, f, m, y, _, R, M, I, O, Y, x, U, K, ee, te, q, de, $, br, _r, wr, kr, Sr, Cr, Mr, Tr, Ar, no = Td(re);
   function re(i) {
     var o, l, h = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : {};
     if (Q(this, re), ge(ce(o = no.call(this)), "startListeningForDeviceChanges", function() {
@@ -3160,7 +3160,7 @@ var Qn = "video", Ad = "voice", Zn = N() ? { data: {} } : { data: {}, topology: 
   }) }, { key: "setOutputDevice", value: function(i) {
     var o = i.outputDeviceId;
     return console.warn("setOutputDevice() is deprecated: instead use setOutputDeviceAsync(), which returns a Promise"), this.setOutputDeviceAsync({ outputDeviceId: o }), this;
-  } }, { key: "setOutputDeviceAsync", value: (H = b(function* (i) {
+  } }, { key: "setOutputDeviceAsync", value: (K = b(function* (i) {
     var o = this, l = i.outputDeviceId;
     return C(), l && (this._preloadCache.outputDeviceId = l), this._callObjectMode && this.needsLoad() ? { camera: { deviceId: this._preloadCache.videoDeviceId }, mic: { deviceId: this._preloadCache.audioDeviceId }, speaker: { deviceId: this._preloadCache.outputDeviceId } } : new Promise(function(h) {
       o.sendMessageToCallMachine({ action: "set-output-device", outputDeviceId: l }, function(p) {
@@ -3168,7 +3168,7 @@ var Qn = "video", Ad = "voice", Zn = N() ? { data: {} } : { data: {}, topology: 
       });
     });
   }), function(i) {
-    return H.apply(this, arguments);
+    return K.apply(this, arguments);
   }) }, { key: "getInputDevices", value: (U = b(function* () {
     var i = this;
     return this._callObjectMode && this.needsLoad() ? { camera: { deviceId: this._preloadCache.videoDeviceId }, mic: { deviceId: this._preloadCache.audioDeviceId }, speaker: { deviceId: this._preloadCache.outputDeviceId } } : new Promise(function(o) {
@@ -3356,7 +3356,7 @@ var Qn = "video", Ad = "voice", Zn = N() ? { data: {} } : { data: {}, topology: 
       }
     }
   } }, { key: "startRemoteMediaPlayer", value: (R = b(function* (i) {
-    var o = this, l = i.url, h = i.settings, p = h === void 0 ? { state: Kt.PLAY } : h;
+    var o = this, l = i.url, h = i.settings, p = h === void 0 ? { state: Ht.PLAY } : h;
     try {
       (function(g) {
         if (typeof g != "string")
@@ -3881,7 +3881,7 @@ var Qn = "video", Ad = "voice", Zn = N() ? { data: {} } : { data: {}, topology: 
           }
         }
         break;
-      case Ki:
+      case Hi:
         if (i && i.cpuLoadState)
           try {
             this.emit(i.action, i);
@@ -4001,7 +4001,7 @@ var Qn = "video", Ad = "voice", Zn = N() ? { data: {} } : { data: {}, topology: 
       case Bi:
       case Ji:
       case Wi:
-      case Hi:
+      case Ki:
       case Vi:
       case Qi:
       case Zi:
@@ -4040,7 +4040,7 @@ var Qn = "video", Ad = "voice", Zn = N() ? { data: {} } : { data: {}, topology: 
   } }, { key: "maybeEventTrackStopped", value: function(i, o, l, h) {
     if (i && (i.readyState === "ended" || !o || i.id !== o.id))
       try {
-        this.emit(Ht, { action: Ht, track: i, participant: l, type: h });
+        this.emit(Kt, { action: Kt, track: i, participant: l, type: h });
       } catch (p) {
         console.log("maybeEventTrackStopped: could not emit", p);
       }
@@ -4139,7 +4139,7 @@ var Qn = "video", Ad = "voice", Zn = N() ? { data: {} } : { data: {}, topology: 
     if (N())
       return { supported: !0, mobile: !0, name: "React Native", version: null, supportsScreenShare: !1, supportsSfu: !0, supportsVideoProcessing: !1, supportsAudioProcessing: !1 };
     var i = _o.getParser(oe());
-    return { supported: !!ln(), mobile: i.getPlatformType() === "mobile", name: i.getBrowserName(), version: i.getBrowserVersion(), supportsFullscreen: !!cn(), supportsScreenShare: !!Ho(), supportsSfu: !!ln(), supportsVideoProcessing: oa(), supportsAudioProcessing: sa() };
+    return { supported: !!ln(), mobile: i.getPlatformType() === "mobile", name: i.getBrowserName(), version: i.getBrowserVersion(), supportsFullscreen: !!cn(), supportsScreenShare: !!Ko(), supportsSfu: !!ln(), supportsVideoProcessing: oa(), supportsAudioProcessing: sa() };
   } }, { key: "version", value: function() {
     return "0.53.0";
   } }, { key: "createCallObject", value: function() {
@@ -4262,7 +4262,7 @@ function sr(e) {
           return !(u.source !== void 0 && !function(m) {
             if (m.source === "default")
               return m.type = "default", !0;
-            if (He(m.source))
+            if (Ke(m.source))
               return m.type = "url", !!function(R) {
                 var M = new URL(R), I = M.pathname;
                 if (M.protocol === "data:")
@@ -4315,7 +4315,7 @@ function Ja(e) {
     for (var t = 0, r = Object.entries(e); t < r.length; t++)
       for (var n = Se(r[t], 1)[0], a = 0, s = Object.entries(e[n]); a < s.length; a++) {
         var c = Se(s[a], 2), u = c[0], d = c[1];
-        if (u === "iconPath" && !He(d) || u === "iconPathDarkMode" && !He(d))
+        if (u === "iconPath" && !Ke(d) || u === "iconPathDarkMode" && !Ke(d))
           return console.error("customTrayButton ".concat(u, " should be a url.")), !1;
         var f = gt.id[u];
         if (!f)
@@ -4352,13 +4352,13 @@ function Wa(e) {
             return r(s, t(f)), !1;
           break;
         case "iconURL":
-          if (!He(m))
+          if (!Ke(m))
             return r(s, "".concat(f, " should be a url")), !1;
           break;
         case "src":
           if ("srcdoc" in e[s])
             return r(s, "cannot have both src and srcdoc"), !1;
-          if (!He(m))
+          if (!Ke(m))
             return r(s, 'src "'.concat(m, '" is not a valid URL')), !1;
           break;
         case "srcdoc":
@@ -4411,8 +4411,8 @@ function za(e, t) {
 function ri(e) {
   if (j(e) !== "object")
     throw new Error('RemoteMediaPlayerSettings: must be "object" type');
-  if (e.state && !Object.values(Kt).includes(e.state))
-    throw new Error("Invalid value for RemoteMediaPlayerSettings.state, valid values are: " + JSON.stringify(Kt));
+  if (e.state && !Object.values(Ht).includes(e.state))
+    throw new Error("Invalid value for RemoteMediaPlayerSettings.state, valid values are: " + JSON.stringify(Ht));
   if (e.volume) {
     if (typeof e.volume != "number")
       throw new Error('RemoteMediaPlayerSettings.volume: must be "number" type');
@@ -4445,7 +4445,7 @@ const Od = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   DAILY_EVENT_ACTIVE_SPEAKER_MODE_CHANGE: $i,
   DAILY_EVENT_APP_MSG: Bi,
   DAILY_EVENT_CAMERA_ERROR: _i,
-  DAILY_EVENT_CPU_LOAD_CHANGE: Ki,
+  DAILY_EVENT_CPU_LOAD_CHANGE: Hi,
   DAILY_EVENT_ERROR: dt,
   DAILY_EVENT_EXIT_FULLSCREEN: we,
   DAILY_EVENT_FULLSCREEN: _e,
@@ -4468,7 +4468,7 @@ const Od = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   DAILY_EVENT_MEETING_SESSION_DATA_ERROR: zo,
   DAILY_EVENT_MEETING_SESSION_STATE_UPDATED: Oi,
   DAILY_EVENT_MEETING_SESSION_UPDATED: Ei,
-  DAILY_EVENT_NETWORK_CONNECTION: Hi,
+  DAILY_EVENT_NETWORK_CONNECTION: Ki,
   DAILY_EVENT_NETWORK_QUALITY_CHANGE: Gi,
   DAILY_EVENT_NONFATAL_ERROR: ut,
   DAILY_EVENT_PARTICIPANT_COUNTS_UPDATED: Ti,
@@ -4488,7 +4488,7 @@ const Od = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   DAILY_EVENT_STARTED_CAMERA: bi,
   DAILY_EVENT_THEME_UPDATED: Jt,
   DAILY_EVENT_TRACK_STARTED: Gt,
-  DAILY_EVENT_TRACK_STOPPED: Ht,
+  DAILY_EVENT_TRACK_STOPPED: Kt,
   DAILY_EVENT_TRANSCRIPTION_ERROR: Ni,
   DAILY_EVENT_TRANSCRIPTION_STARTED: ji,
   DAILY_EVENT_TRANSCRIPTION_STOPPED: Di,
@@ -4597,7 +4597,7 @@ E.prototype.emit = function(t) {
       ii(m[n], this, r);
   return !0;
 };
-function Ha(e, t, r, n) {
+function Ka(e, t, r, n) {
   var a, s, c;
   if (At(r), s = e._events, s === void 0 ? (s = e._events = /* @__PURE__ */ Object.create(null), e._eventsCount = 0) : (s.newListener !== void 0 && (e.emit(
     "newListener",
@@ -4613,25 +4613,25 @@ function Ha(e, t, r, n) {
   return e;
 }
 E.prototype.addListener = function(t, r) {
-  return Ha(this, t, r, !1);
+  return Ka(this, t, r, !1);
 };
 E.prototype.on = E.prototype.addListener;
 E.prototype.prependListener = function(t, r) {
-  return Ha(this, t, r, !0);
+  return Ka(this, t, r, !0);
 };
 function Id() {
   if (!this.fired)
     return this.target.removeListener(this.type, this.wrapFn), this.fired = !0, arguments.length === 0 ? this.listener.call(this.target) : this.listener.apply(this.target, arguments);
 }
-function Ka(e, t, r) {
+function Ha(e, t, r) {
   var n = { fired: !1, wrapFn: void 0, target: e, type: t, listener: r }, a = Id.bind(n);
   return a.listener = r, n.wrapFn = a, a;
 }
 E.prototype.once = function(t, r) {
-  return At(r), this.on(t, Ka(this, t, r)), this;
+  return At(r), this.on(t, Ha(this, t, r)), this;
 };
 E.prototype.prependOnceListener = function(t, r) {
-  return At(r), this.prependListener(t, Ka(this, t, r)), this;
+  return At(r), this.prependListener(t, Ha(this, t, r)), this;
 };
 E.prototype.removeListener = function(t, r) {
   var n, a, s, c, u;
@@ -5343,8 +5343,8 @@ class Gd extends $d {
     (n = this.call) == null || n.sendAppMessage(JSON.stringify(r));
   }
 }
-var Hd = oi.default = Gd;
-const Kd = () => ({
+var Kd = oi.default = Gd;
+const Hd = () => ({
   name: "Mary",
   model: {
     provider: "openai",
@@ -5502,26 +5502,26 @@ const Kd = () => ({
   return d.id = u, d.className = "vapi-btn vapi-btn-is-idle", d.onclick = () => {
   }, d;
 };
-function Xd(e, t, r, n) {
-  let a = !1;
-  function s() {
-    t.classList.add("vapi-btn-is-loading"), a ? (e.stop(), a = !1) : (e.start(n), a = !0, t.style.boxShadow = `1px 1px 80px 20px ${r}`);
+function Xd(e, t, r, n, a) {
+  let s = !1;
+  function c() {
+    a(t, "loading"), s ? (e.stop(), s = !1) : (e.start(n), s = !0, t.style.boxShadow = `1px 1px 80px 20px ${r}`);
   }
   e.on("call-start", () => {
-    t.classList.remove("vapi-btn-is-loading"), t.classList.add("vapi-btn-is-active");
+    a(t, "active");
   }), e.on("call-end", () => {
-    t.classList.remove("vapi-btn-is-loading"), t.classList.remove("vapi-btn-is-active"), t.style.boxShadow = `1px 1px 10px ${r}`;
+    t.style.boxShadow = `1px 1px 10px ${r}`, a(t, "idle");
   }), e.on("speech-start", () => {
     t.classList.add("vapi-btn-is-speaking");
   }), e.on("speech-end", () => {
     t.classList.remove("vapi-btn-is-speaking");
-  }), t.addEventListener("click", s), e.on("volume-level", (c) => {
-    t.style.boxShadow = `1px 1px ${10 + c * 40}px ${c * 30}px ${r}, inset 0px 0px 10px 0px rgba(0,0,0,0.1)`;
+  }), t.addEventListener("click", c), e.on("volume-level", (u) => {
+    t.style.boxShadow = `1px 1px ${10 + u * 40}px ${u * 30}px ${r}, inset 0px 0px 10px 0px rgba(0,0,0,0.1)`;
   });
 }
 const eh = ({
   apiKey: e = "",
-  assistant: t = Kd(),
+  assistant: t = Hd(),
   buttonConfig: r = {
     position: "bottom",
     offset: "40px",
@@ -5553,8 +5553,8 @@ const eh = ({
   // color = `rgb(93, 254, 202)`,
   // offset = "40px",
 }) => {
-  const n = new Hd(e), a = Zd(r);
-  Xd(n, a, color, t), document.body.appendChild(a);
+  const n = new Kd(e), a = Zd(r), s = createStateUpdater(defaultButtonConfig);
+  Xd(n, a, color, t, s), document.body.appendChild(a);
 };
 window.vapiSDK = {
   run: eh
