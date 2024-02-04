@@ -5563,7 +5563,7 @@ const Qd = () => ({
 }, oi = "https://unpkg.com/lucide-static@0.321.0/icons/phone.svg", eh = (e) => (t, r) => {
   const n = e[r];
   if (n) {
-    if (t.className = `vapi-btn vapi-btn-is-${r} ${n.type === "pill" ? "vapi-btn-pill" : n.type === "round" ? "vapi-btn-round" : ""}`, t.innerHTML = "", n.type === "pill") {
+    if (t.className = `vapi-btn vapi-btn-is-${r} ${n.type === "pill" ? "vapi-btn-pill" : n.type === "round" ? "vapi-btn-round" : ""}`, t.innerHTML = "", t.title = n.title ?? "", n.type === "pill") {
       const a = document.createElement("div");
       a.id = "vapi-icon-container";
       const s = document.createElement("img");

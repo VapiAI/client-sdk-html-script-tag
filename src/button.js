@@ -190,6 +190,8 @@ const createButtonStateHandler = (config) => {
     // Clear existing content
     button.innerHTML = "";
 
+    button.title = stateConfig.title ?? "";
+
     // If the type is 'pill', add the structured content
     if (stateConfig.type === "pill") {
       const iconContainer = document.createElement("div");
