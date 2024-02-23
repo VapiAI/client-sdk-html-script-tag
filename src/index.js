@@ -68,10 +68,13 @@ const runSDK = ({
 
     buttonStateHandler(buttonElement, "idle");
     defaultListeners(vapi, buttonElement, assistant, buttonStateHandler);
+
+    return vapi;
   } else {
     console.error(
       "API Key and Assistant Configurations are required. are required"
     );
+    return null;
   }
 };
 

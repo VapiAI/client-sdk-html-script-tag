@@ -20,17 +20,22 @@ To add Vapi to your website, include the following javascript snippet in your HT
     var g = document.createElement(t),
       s = d.getElementsByTagName(t)[0];
     g.src =
-      "https://cdn.jsdelivr.net/gh/VapiAI/vapi-support-sdk/dist/assets/index.js";
+      "https://cdn.jsdelivr.net/gh/VapiAI/html-script-tag/dist/assets/index.js";
     g.defer = true;
     g.async = true;
     s.parentNode.insertBefore(g, s);
 
     g.onload = function () {
-      window.vapiSDK.run({
+      const vapi = window.vapiSDK.run({
         apiKey: "", // required
         assistant: assistant, // required
         config: buttonConfig // optional
       });
+
+      if(vapi) {
+        // Extend more using vapi
+
+      }
     };
   })(document, "script");
 </script>
@@ -57,59 +62,34 @@ const assistant = {
 You can also customise the look and feel of your Vapi Support Button using the following configurations.
 The button will have 3 states, `idle`, `loading` and `active`.
 
-Button Configuration for a pill
-
 ```js
 const buttonConfig = {
-  position: "bottom-right",
-  offset: "40px",
-  width: "50px",
-  height: "50px",
+  position: "bottom-right", // "bottom" | "top" | "left" | "right" | "top-right" | "top-left" | "bottom-left" | "bottom-right"
+  offset: "40px", // decide how far the button should be from the edge
+  width: "50px", // min-width of the button
+  height: "50px", // height of the button
   idle: {
+    // button state when the call is not active.
     color: `rgb(93, 254, 202)`,
-    type: "pill",
-    title: "Have a quick question?",
-    subtitle: "Talk with our AI assistant",
+    type: "pill", // or "round"
+    title: "Have a quick question?", // only required in case of Pill
+    subtitle: "Talk with our AI assistant", // only required in case of pill
     icon: `https://unpkg.com/lucide-static@0.321.0/icons/phone.svg`,
   },
   loading: {
+    // button state when the call is connecting
     color: `rgb(93, 124, 202)`,
-    type: "pill",
-    title: "Connecting...",
-    subtitle: "Please wait",
+    type: "pill", // or "round"
+    title: "Connecting...", // only required in case of Pill
+    subtitle: "Please wait", // only required in case of pill
     icon: `https://unpkg.com/lucide-static@0.321.0/icons/loader-2.svg`,
   },
   active: {
+    // button state when the call is in progress or active.
     color: `rgb(255, 0, 0)`,
-    type: "pill",
-    title: "Call is in progress...",
-    subtitle: "End the call.",
-    icon: `https://unpkg.com/lucide-static@0.321.0/icons/phone-off.svg`,
-  },
-};
-```
-
-You can also have a round button. Here is the corresponding configuration.
-
-```js
-const buttonConfig = {
-  position: "bottom-right",
-  offset: "40px",
-  width: "50px",
-  height: "50px",
-  idle: {
-    color: `rgb(93, 254, 202)`,
-    type: "round",
-    icon: `https://unpkg.com/lucide-static@0.321.0/icons/phone.svg`,
-  },
-  loading: {
-    color: `rgb(93, 124, 202)`,
-    type: "round",
-    icon: `https://unpkg.com/lucide-static@0.321.0/icons/loader-2.svg`,
-  },
-  active: {
-    color: `rgb(255, 0, 0)`,
-    type: "round",
+    type: "pill", // or "round"
+    title: "Call is in progress...", // only required in case of Pill
+    subtitle: "End the call.", // only required in case of pill
     icon: `https://unpkg.com/lucide-static@0.321.0/icons/phone-off.svg`,
   },
 };
