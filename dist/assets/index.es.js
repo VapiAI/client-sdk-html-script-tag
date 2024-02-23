@@ -5648,11 +5648,11 @@ const rh = ({
   }, r);
   if (e && t) {
     const c = new Kd(e), l = Xd(s), d = eh(s);
-    document.body.appendChild(l), d(l, "idle"), th(c, l, t, d), window.vapiSDK.vapi = c;
+    return document.body.appendChild(l), d(l, "idle"), th(c, l, t, d), window.vapiSDK.vapi = c, c;
   } else
-    console.error(
+    return console.error(
       "API Key and Assistant Configurations are required. are required"
-    );
+    ), null;
 };
 window.vapiSDK = {
   run: rh

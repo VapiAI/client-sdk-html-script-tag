@@ -69,6 +69,7 @@ const runSDK = ({
     buttonStateHandler(buttonElement, "idle");
     defaultListeners(vapi, buttonElement, assistant, buttonStateHandler);
 
+    window.vapiSDK.vapi = vapi;
     return vapi;
   } else {
     console.error(
