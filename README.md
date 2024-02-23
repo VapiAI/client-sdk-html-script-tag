@@ -15,28 +15,33 @@ This project integrates the Vapi client into any website, providing a voice assi
 To add Vapi to your website, include the following javascript snippet in your HTML file inside a script tag:
 
 ```js
-(function (d, t) {
-  var g = document.createElement(t),
-    s = d.getElementsByTagName(t)[0];
-  g.src =
-    "https://cdn.jsdelivr.net/gh/VapiAI/vapi-support-sdk/dist/assets/index.js";
-  g.defer = true;
-  g.async = true;
-  s.parentNode.insertBefore(g, s);
+<script>
+  (function (d, t) {
+    var g = document.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    g.src =
+      "https://cdn.jsdelivr.net/gh/VapiAI/html-script-tag/dist/assets/index.js";
+    g.defer = true;
+    g.async = true;
+    s.parentNode.insertBefore(g, s);
 
-  g.onload = function () {
-    window.vapiSDK.run({
-      apiKey: "",
-      assistant: assistant,
-      position: "bottom",
-      color: `rgb(93, 254, 202)`,
-      offset: "40px",
-    });
-  };
-})(document, "script");
+    g.onload = function () {
+      const vapi = window.vapiSDK.run({
+        apiKey: "", // required
+        assistant: assistant, // required
+        config: buttonConfig // optional
+      });
+
+      if(vapi) {
+        // Extend more using vapi
+
+      }
+    };
+  })(document, "script");
+</script>
 ```
 
-Sample assistant config is
+Where value of assistant can be your assistant ID (Dashboard > Assistants > Select your assistant > Copy the id) or assistant config like below example.
 
 ```js
 const assistant = {
@@ -54,6 +59,42 @@ const assistant = {
 };
 ```
 
+You can also customise the look and feel of your Vapi Support Button using the following configurations.
+The button will have 3 states, `idle`, `loading` and `active`.
+
+```js
+const buttonConfig = {
+  position: "bottom-right", // "bottom" | "top" | "left" | "right" | "top-right" | "top-left" | "bottom-left" | "bottom-right"
+  offset: "40px", // decide how far the button should be from the edge
+  width: "50px", // min-width of the button
+  height: "50px", // height of the button
+  idle: {
+    // button state when the call is not active.
+    color: `rgb(93, 254, 202)`,
+    type: "pill", // or "round"
+    title: "Have a quick question?", // only required in case of Pill
+    subtitle: "Talk with our AI assistant", // only required in case of pill
+    icon: `https://unpkg.com/lucide-static@0.321.0/icons/phone.svg`,
+  },
+  loading: {
+    // button state when the call is connecting
+    color: `rgb(93, 124, 202)`,
+    type: "pill", // or "round"
+    title: "Connecting...", // only required in case of Pill
+    subtitle: "Please wait", // only required in case of pill
+    icon: `https://unpkg.com/lucide-static@0.321.0/icons/loader-2.svg`,
+  },
+  active: {
+    // button state when the call is in progress or active.
+    color: `rgb(255, 0, 0)`,
+    type: "pill", // or "round"
+    title: "Call is in progress...", // only required in case of Pill
+    subtitle: "End the call.", // only required in case of pill
+    icon: `https://unpkg.com/lucide-static@0.321.0/icons/phone-off.svg`,
+  },
+};
+```
+
 ## Configuration
 
 You can customize the assistant by modifying the `assistant` object. The `apiKey` should be replaced with your unique key provided by Vapi.
@@ -63,9 +104,12 @@ You can customize the assistant by modifying the `assistant` object. The `apiKey
 The SDK exposes several CSS classes that can be targeted for custom styling. Here is a list of the classes you can customize:
 
 - `.vapi-btn`: The main class for the Vapi button.
+- `.vapi-btn-is-idle`: The class for the Vapi button when the call is disconnected.
 - `.vapi-btn-is-active`: The class for the Vapi button when the call is active.
 - `.vapi-btn-is-loading`: The class for the Vapi button when the call is connecting.
 - `.vapi-btn-is-speaking`: The class for the Vapi button when the bot is speaking.
+- `.vapi-btn-pill`: The class for Vapi button to set pill variant.
+- `.vapi-btn-round`: The class for Vapi button to set round variant.
 
 You can add custom styles to these classes to match the look and feel of your website. These are exposed in case u need some more customisations besides the `position`, `color` and `offset` config available currently.
 

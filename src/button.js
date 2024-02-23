@@ -39,50 +39,112 @@ const insertStyleSheet = ({
         transform: translateY(0%);
       }
     }
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
 
     .vapi-btn {
       border-radius: 50%;
-      width: ${width};
+      min-width: ${width};
       height: ${height};
       color: white;
       border: none;
       cursor: pointer;
       transition: all 0.3s ease-in-out;
       display: flex;
-      justify-content: center;
+      text-align: left;
       align-items: center;
       position: absolute;
+      padding: 0;
       animation: bounce 2s ease-in-out infinite;
       ${positionStyles[position]}
     }
+    .vapi-btn-round {
+      justify-content: center;
+    }
     .vapi-btn-pill {
-      border-radius: 20px;
+      border-radius: 8px;
+      color: black;
+      background: white;
+      justify-content: flex-start;
+      padding: 0px 10px;
     }
     .vapi-btn:hover {
       animation: none;
       transform: translateY(-5px);
     }
+    #vapi-icon-container {
+      padding: 5px;
+      margin: 5px;
+      border-radius: 5px;
+    }
+
+    #vapi-title-container {
+      padding: 5px 10px;
+    }
+    #vapi-title {
+      font-size: 1.1em;
+    }
+    #vapi-subtitle {
+      font-size: 0.9em;
+    }
+
+    .vapi-btn-is-loading > #vapi-icon-container > img {
+      animation: spin 1s linear infinite;
+    }
 
     .vapi-btn-is-active {
-      background: radial-gradient(circle, rgba(255,255,255,0.2) -40%, ${active.color} 100%);
-      box-shadow: 1px 1px 10px 0px ${active.color};
+      background: ${active.color};
+      box-shadow: 1px 1px 80px 20px ${active.color};
     }
+    .vapi-btn-pill.vapi-btn-is-active {
+      background: white;
+    }
+    .vapi-btn-pill.vapi-btn-is-active > #vapi-icon-container {
+      background: ${active.color};
+    }
+
+
+    .vapi-btn-is-idle {
+      background: ${idle.color};
+      box-shadow: 1px 1px 10px ${idle.color};
+    }
+    .vapi-btn-pill.vapi-btn-is-idle {
+      background: white;
+    }
+    .vapi-btn-pill.vapi-btn-is-idle > #vapi-icon-container {
+      background: ${idle.color};
+    }
+
     .vapi-btn-is-loading {
-      background: radial-gradient(circle, rgba(255,255,255,0.2) -40%, ${loading.color} 100%);
-      box-shadow: 1px 1px 10px 0px ${loading.color};
+      background: ${loading.color};
+      box-shadow: 1px 1px 80px 20px ${loading.color};
+    }
+    .vapi-btn-pill.vapi-btn-is-loading {
+      background: white;
+    }
+    .vapi-btn-pill.vapi-btn-is-loading > #vapi-icon-container {
+      background: ${loading.color};
     }
     .vapi-btn-is-speaking {
       // Add speaking styles if different from active/loading/idle
-    }
-    .vapi-btn-is-idle {
-      background: radial-gradient(circle, rgba(255,255,255,0.2) -40%, ${idle.color} 100%);
-      box-shadow: 1px 1px 10px 0px ${idle.color};
     }
     @font-face {
       font-family: 'LucideIcons';
       src: url(https://unpkg.com/lucide-static@latest/font/Lucide.ttf) format('truetype');
     }
   `;
+
+  for (let i = 0; i <= 10; i++) {
+    styleSheet.innerText += `
+      .vapi-btn-volume-${i} {
+        box-shadow: 1px 1px ${5 + i * 2}px ${i * 2}px ${
+      active.color
+    }, inset 0px 0px 10px 0px rgba(0,0,0,0.1);
+      }
+    `;
+  }
   document.head.appendChild(styleSheet);
 };
 
@@ -101,7 +163,7 @@ const createButtonElement = (
   insertStyleSheet({ idle, loading, active, width, height, position, offset });
   const button = document.createElement("button");
   button.id = id;
-  button.className = "vapi-btn vapi-btn-is-idle";
+  button.className = "vapi-btn vapi-btn-round vapi-btn-is-idle";
   button.onclick = () => {};
 
   return button;
@@ -111,41 +173,58 @@ const defaultIconUrl =
   "https://unpkg.com/lucide-static@0.321.0/icons/phone.svg";
 
 // Function to create the updater function based on the config
-const createStateUpdater = (config) => {
+const createButtonStateHandler = (config) => {
   return (button, state) => {
     const stateConfig = config[state];
     if (!stateConfig) return; // If no config for the state, do nothing
 
     // Update the button's appearance based on the state
     button.className = `vapi-btn vapi-btn-is-${state} ${
-      stateConfig.type === "pill" ? "vapi-btn-pill" : ""
+      stateConfig.type === "pill"
+        ? "vapi-btn-pill"
+        : stateConfig.type === "round"
+        ? "vapi-btn-round"
+        : ""
     }`;
 
     // Clear existing content
     button.innerHTML = "";
+
+    button.title = stateConfig.title ?? "";
 
     // If the type is 'pill', add the structured content
     if (stateConfig.type === "pill") {
       const iconContainer = document.createElement("div");
       iconContainer.id = "vapi-icon-container";
       const icon = document.createElement("img");
-      // Use the icon URL from the config if provided, otherwise use the default icon URL
       icon.src = stateConfig.icon || defaultIconUrl;
-      icon.alt = "Icon"; // Provide an alt text for the icon
+      icon.alt = "Icon";
       iconContainer.appendChild(icon);
 
       const titleContainer = document.createElement("div");
-      const title = document.createElement("h2");
-      title.textContent = stateConfig.title; // Use the title from the config
-      const subtitle = document.createElement("h4");
-      subtitle.textContent = stateConfig.subtitle; // Use the subtitle from the config
+      titleContainer.id = "vapi-title-container"; // Added id for titleContainer
+      const title = document.createElement("div");
+      title.id = "vapi-title"; // Added id for title
+      title.textContent = stateConfig.title;
+      const subtitle = document.createElement("div");
+      subtitle.id = "vapi-subtitle"; // Added id for subtitle
+      subtitle.textContent = stateConfig.subtitle;
       titleContainer.appendChild(title);
       titleContainer.appendChild(subtitle);
 
       button.appendChild(iconContainer);
       button.appendChild(titleContainer);
+    } else if (stateConfig.type === "round") {
+      const iconContainer = document.createElement("div");
+      iconContainer.id = "vapi-icon-container";
+      const icon = document.createElement("img");
+      icon.src = stateConfig.icon || defaultIconUrl;
+      icon.alt = "Icon";
+      iconContainer.appendChild(icon);
+
+      button.appendChild(iconContainer);
     }
   };
 };
 
-export { createButtonElement, createStateUpdater };
+export { createButtonElement, createButtonStateHandler };
