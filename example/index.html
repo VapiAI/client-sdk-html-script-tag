@@ -19,8 +19,8 @@
     <button id="log-action" onClick="logUserAction()">Log Action</button>
 
     <script>
-      const assistant = "61250299-108c-490f-984c-c7c0ebdfd5ee"; // Replace with your assistant ID
-      const apiKey = "%VITE_APP_VAPI_API_TOKEN%"; // Replace with your API key
+      const assistant = ""; // Replace with your assistant ID
+      const apiKey = ""; // Replace with your API key
 
       var vapiInstance = null;
 
@@ -34,24 +34,24 @@
           // button state when the call is not active.
           color: `rgb(76, 173, 47)`,
           type: "pill", // or "round"
-          // title: "¿Tienes una pregunta rápida?", // only required in case of Pill
-          // subtitle: "Habla con nuestro asistente de IA", // only required in case of pill
+          title: "Have a quick question?", // only required in case of Pill
+          subtitle: "Talk with our AI voicebot", // only required in case of pill
           icon: `https://unpkg.com/lucide-static@0.321.0/icons/phone.svg`,
         },
         loading: {
           // button state when the call is connecting
           color: `rgb(93, 124, 202)`,
           type: "pill", // or "round"
-          // title: "Conectando...", // only required in case of Pill
-          // subtitle: "Por favor, espera", // only required in case of pill
+          title: "Connecting...", // only required in case of Pill
+          subtitle: "Please wait.", // only required in case of pill
           icon: `https://unpkg.com/lucide-static@0.321.0/icons/loader-2.svg`,
         },
         active: {
           // button state when the call is in progress or active.
           color: `rgb(255, 0, 0)`,
           type: "pill", // or "round"
-          // title: "Llamada en curso...", // only required in case of Pill
-          // subtitle: "Fin de la llamada", // only required in case of pill
+          title: "Call is in progress...", // only required in case of Pill
+          subtitle: "End the call.", // only required in case of pill
           icon: `https://unpkg.com/lucide-static@0.321.0/icons/phone-off.svg`,
         },
       };
