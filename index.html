@@ -19,10 +19,14 @@
     <button id="log-action" onClick="logUserAction()">Log Action</button>
 
     <script>
-      const assistant = "61250299-108c-490f-984c-c7c0ebdfd5ee"; // Replace with your assistant ID
+      const assistant = "6e5de015-6983-4bf5-ac44-d18c19076ae2"; // Replace with your assistant ID
       const apiKey = "%VITE_APP_VAPI_API_TOKEN%"; // Replace with your API key
 
       var vapiInstance = null;
+
+      const assistantOverrides = {
+        "firstMessage": "How may I assist you?"
+      } // Assistant Overrides Let u override some of the assistant Configurations. This can be used alongside assistantId
 
       const buttonConfig = {
         position: "bottom-right", // "bottom" | "top" | "left" | "right" | "top-right" | "top-left" | "bottom-left" | "bottom-right"
@@ -69,6 +73,7 @@
           const vapi = window.vapiSDK.run({
             apiKey: apiKey, // required
             assistant: assistant, // required
+            assistantOverrides: assistantOverrides, // optional
             config: buttonConfig, // optional
           });
 
