@@ -6,6 +6,7 @@ import { defaultListeners } from "./listeners";
 const runSDK = ({
   apiKey = "",
   assistant = defaultAssistant(),
+  assistantOverrides = {},
 
   config = {},
   // position = "bottom",
@@ -67,7 +68,7 @@ const runSDK = ({
     document.body.appendChild(buttonElement);
 
     buttonStateHandler(buttonElement, "idle");
-    defaultListeners(vapi, buttonElement, assistant, buttonStateHandler);
+    defaultListeners(vapi, buttonElement, assistant, assistantOverrides, buttonStateHandler);
 
     window.vapiSDK.vapi = vapi;
     return vapi;

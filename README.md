@@ -29,6 +29,7 @@ To add Vapi to your website, include the following javascript snippet in your HT
       const vapi = window.vapiSDK.run({
         apiKey: "", // required Use your Public Key
         assistant: assistant, // required
+        assistantOverrides: {}, // optional (This lets you override the assistant configuration and can be used alongside assistantId.)
         config: buttonConfig // optional
       });
 
