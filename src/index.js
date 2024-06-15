@@ -7,11 +7,9 @@ const runSDK = ({
   apiKey = "",
   assistant = defaultAssistant(),
   assistantOverrides = {},
-
+  squad,
   config = {},
-  // position = "bottom",
-  // color = `rgb(93, 254, 202)`,
-  // offset = "40px",
+  ...restOptions 
 }) => {
   function deepMerge(defaultConfig, userConfig) {
     const mergedConfig = { ...defaultConfig };
@@ -68,7 +66,7 @@ const runSDK = ({
     document.body.appendChild(buttonElement);
 
     buttonStateHandler(buttonElement, "idle");
-    defaultListeners(vapi, buttonElement, assistant, assistantOverrides, buttonStateHandler);
+    defaultListeners(vapi, buttonElement, assistant, assistantOverrides, squad, buttonStateHandler);
 
     window.vapiSDK.vapi = vapi;
     return vapi;
