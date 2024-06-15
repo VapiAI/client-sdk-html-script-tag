@@ -32,10 +32,10 @@ var Il = Xa((Rl, Ja) => {
     var t, r, i = function(s, l) {
       if (s == null)
         return {};
-      var u, h, p = {}, m = Object.keys(s);
-      for (h = 0; h < m.length; h++)
-        u = m[h], l.indexOf(u) >= 0 || (p[u] = s[u]);
-      return p;
+      var u, p, h = {}, m = Object.keys(s);
+      for (p = 0; p < m.length; p++)
+        u = m[p], l.indexOf(u) >= 0 || (h[u] = s[u]);
+      return h;
     }(n, e);
     if (Object.getOwnPropertySymbols) {
       var a = Object.getOwnPropertySymbols(n);
@@ -47,8 +47,8 @@ var Il = Xa((Rl, Ja) => {
   function kr(n, e, t, r, i, a, s) {
     try {
       var l = n[a](s), u = l.value;
-    } catch (h) {
-      return void t(h);
+    } catch (p) {
+      return void t(p);
     }
     l.done ? e(u) : Promise.resolve(u).then(r, i);
   }
@@ -145,27 +145,27 @@ var Il = Xa((Rl, Ja) => {
     }(n) || function(t, r) {
       var i = t == null ? null : typeof Symbol < "u" && t[Symbol.iterator] || t["@@iterator"];
       if (i != null) {
-        var a, s, l, u, h = [], p = !0, m = !1;
+        var a, s, l, u, p = [], h = !0, m = !1;
         try {
           if (l = (i = i.call(t)).next, r === 0) {
             if (Object(i) !== i)
               return;
-            p = !1;
+            h = !1;
           } else
-            for (; !(p = (a = l.call(i)).done) && (h.push(a.value), h.length !== r); p = !0)
+            for (; !(h = (a = l.call(i)).done) && (p.push(a.value), p.length !== r); h = !0)
               ;
         } catch (y) {
           m = !0, s = y;
         } finally {
           try {
-            if (!p && i.return != null && (u = i.return(), Object(u) !== u))
+            if (!h && i.return != null && (u = i.return(), Object(u) !== u))
               return;
           } finally {
             if (m)
               throw s;
           }
         }
-        return h;
+        return p;
       }
     }(n, e) || function(t, r) {
       if (t) {
@@ -310,9 +310,9 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
     if (typeof l == "function")
       Mr(l, this, e);
     else {
-      var u = l.length, h = Zi(l, u);
+      var u = l.length, p = Zi(l, u);
       for (t = 0; t < u; ++t)
-        Mr(h[t], this, e);
+        Mr(p[t], this, e);
     }
     return !0;
   }, I.prototype.addListener = function(n, e) {
@@ -513,8 +513,8 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
     static compareVersions(e, t, r = !1) {
       const i = v.getVersionPrecision(e), a = v.getVersionPrecision(t);
       let s = Math.max(i, a), l = 0;
-      const u = v.map([e, t], (h) => {
-        const p = s - v.getVersionPrecision(h), m = h + new Array(p + 1).join(".0");
+      const u = v.map([e, t], (p) => {
+        const h = s - v.getVersionPrecision(p), m = p + new Array(h + 1).join(".0");
         return v.map(m.split("."), (y) => new Array(20 - y.length).join("0") + y).reverse();
       });
       for (r && (l = s - Math.min(i, a)), s -= 1; s >= l; ) {
@@ -875,17 +875,17 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
         const l = e[s];
         typeof l == "string" ? (i[s] = l, a += 1) : typeof l == "object" && (t[s] = l, r += 1);
       }), r > 0) {
-        const s = Object.keys(t), l = v.find(s, (h) => this.isOS(h));
+        const s = Object.keys(t), l = v.find(s, (p) => this.isOS(p));
         if (l) {
-          const h = this.satisfies(t[l]);
-          if (h !== void 0)
-            return h;
+          const p = this.satisfies(t[l]);
+          if (p !== void 0)
+            return p;
         }
-        const u = v.find(s, (h) => this.isPlatform(h));
+        const u = v.find(s, (p) => this.isPlatform(p));
         if (u) {
-          const h = this.satisfies(t[u]);
-          if (h !== void 0)
-            return h;
+          const p = this.satisfies(t[u]);
+          if (p !== void 0)
+            return p;
         }
       }
       if (a > 0) {
@@ -1039,8 +1039,8 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
     if (!(a.exception && a.exception.values && s && Ve(s.originalException, Error)))
       return;
     const l = a.exception.values.length > 0 ? a.exception.values[a.exception.values.length - 1] : void 0;
-    var u, h;
-    l && (a.exception.values = (u = wn(n, e, i, s.originalException, r, a.exception.values, l, 0), h = t, u.map((p) => (p.value && (p.value = ze(p.value, h)), p))));
+    var u, p;
+    l && (a.exception.values = (u = wn(n, e, i, s.originalException, r, a.exception.values, l, 0), p = t, u.map((h) => (h.value && (h.value = ze(h.value, p)), h))));
   }
   function wn(n, e, t, r, i, a, s, l) {
     if (a.length >= t + 1)
@@ -1048,14 +1048,14 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
     let u = [...a];
     if (Ve(r[i], Error)) {
       Ur(s, l);
-      const h = n(e, r[i]), p = u.length;
-      Vr(h, i, p, l), u = wn(n, e, t, r[i], i, [h, ...u], h, p);
+      const p = n(e, r[i]), h = u.length;
+      Vr(p, i, h, l), u = wn(n, e, t, r[i], i, [p, ...u], p, h);
     }
-    return Array.isArray(r.errors) && r.errors.forEach((h, p) => {
-      if (Ve(h, Error)) {
+    return Array.isArray(r.errors) && r.errors.forEach((p, h) => {
+      if (Ve(p, Error)) {
         Ur(s, l);
-        const m = n(e, h), y = u.length;
-        Vr(m, `errors[${p}]`, y, l), u = wn(n, e, t, h, i, [m, ...u], m, y);
+        const m = n(e, p), y = u.length;
+        Vr(m, `errors[${h}]`, y, l), u = wn(n, e, t, p, i, [m, ...u], m, y);
       }
     }), u;
   }
@@ -1085,10 +1085,10 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
       const r = 5, i = [];
       let a = 0, s = 0;
       const l = " > ", u = l.length;
-      let h;
-      const p = Array.isArray(e) ? e : e.keyAttrs, m = !Array.isArray(e) && e.maxStringLength || ds;
-      for (; t && a++ < r && (h = hs(t, p), !(h === "html" || a > 1 && s + i.length * u + h.length >= m)); )
-        i.push(h), s += h.length, t = t.parentNode;
+      let p;
+      const h = Array.isArray(e) ? e : e.keyAttrs, m = !Array.isArray(e) && e.maxStringLength || ds;
+      for (; t && a++ < r && (p = hs(t, h), !(p === "html" || a > 1 && s + i.length * u + p.length >= m)); )
+        i.push(p), s += p.length, t = t.parentNode;
       return i.reverse().join(l);
     } catch {
       return "<unknown>";
@@ -1100,17 +1100,17 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
     if (!t || !t.tagName)
       return "";
     r.push(t.tagName.toLowerCase());
-    const h = e && e.length ? e.filter((m) => t.getAttribute(m)).map((m) => [m, t.getAttribute(m)]) : null;
-    if (h && h.length)
-      h.forEach((m) => {
+    const p = e && e.length ? e.filter((m) => t.getAttribute(m)).map((m) => [m, t.getAttribute(m)]) : null;
+    if (p && p.length)
+      p.forEach((m) => {
         r.push(`[${m[0]}="${m[1]}"]`);
       });
     else if (t.id && r.push(`#${t.id}`), i = t.className, i && Ue(i))
       for (a = i.split(/\s+/), u = 0; u < a.length; u++)
         r.push(`.${a[u]}`);
-    const p = ["aria-label", "type", "name", "title", "alt"];
-    for (u = 0; u < p.length; u++)
-      s = p[u], l = t.getAttribute(s), l && r.push(`[${s}="${l}"]`);
+    const h = ["aria-label", "type", "name", "title", "alt"];
+    for (u = 0; u < h.length; u++)
+      s = h[u], l = t.getAttribute(s), l && r.push(`[${s}="${l}"]`);
     return r.join("");
   }
   const qt = ["debug", "info", "warn", "error", "log", "assert", "trace"];
@@ -1163,14 +1163,14 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
       const r = ps.exec(t);
       if (!r)
         return void console.error(`Invalid Sentry Dsn: ${t}`);
-      const [i, a, s = "", l, u = "", h] = r.slice(1);
-      let p = "", m = h;
+      const [i, a, s = "", l, u = "", p] = r.slice(1);
+      let h = "", m = p;
       const y = m.split("/");
-      if (y.length > 1 && (p = y.slice(0, -1).join("/"), m = y.pop()), m) {
+      if (y.length > 1 && (h = y.slice(0, -1).join("/"), m = y.pop()), m) {
         const S = m.match(/^\d+/);
         S && (m = S[0]);
       }
-      return $r({ host: l, pass: s, path: p, projectId: m, port: u, protocol: i, publicKey: a });
+      return $r({ host: l, pass: s, path: h, projectId: m, port: u, protocol: i, publicKey: a });
     }(n) : $r(n);
     if (e && function(t) {
       if (typeof __SENTRY_DEBUG__ < "u" && !__SENTRY_DEBUG__)
@@ -1321,7 +1321,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
                 return function(s, l, u) {
                   if (s === "click" || s == "keypress")
                     try {
-                      const h = this, p = h.__sentry_instrumentation_handlers__ = h.__sentry_instrumentation_handlers__ || {}, m = p[s] = p[s] || { refCount: 0 };
+                      const p = this, h = p.__sentry_instrumentation_handlers__ = p.__sentry_instrumentation_handlers__ || {}, m = h[s] = h[s] || { refCount: 0 };
                       if (!m.handler) {
                         const y = Hr(e);
                         m.handler = y, a.call(this, s, y, u);
@@ -1335,8 +1335,8 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
                 return function(s, l, u) {
                   if (s === "click" || s == "keypress")
                     try {
-                      const h = this, p = h.__sentry_instrumentation_handlers__ || {}, m = p[s];
-                      m && (m.refCount--, m.refCount <= 0 && (a.call(this, s, m.handler, u), m.handler = void 0, delete p[s]), Object.keys(p).length === 0 && delete h.__sentry_instrumentation_handlers__);
+                      const p = this, h = p.__sentry_instrumentation_handlers__ || {}, m = h[s];
+                      m && (m.refCount--, m.refCount <= 0 && (a.call(this, s, m.handler, u), m.handler = void 0, delete h[s]), Object.keys(h).length === 0 && delete p.__sentry_instrumentation_handlers__);
                     } catch {
                     }
                   return a.call(this, s, l, u);
@@ -1370,8 +1370,8 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
                   };
                 }) : this.addEventListener("readystatechange", s), W(this, "setRequestHeader", function(l) {
                   return function(...u) {
-                    const [h, p] = u, m = this[ut];
-                    return m && (m.request_headers[h.toLowerCase()] = p), l.apply(this, u);
+                    const [p, h] = u, m = this[ut];
+                    return m && (m.request_headers[p.toLowerCase()] = h), l.apply(this, u);
                   };
                 }), t.apply(this, r);
               };
@@ -1391,8 +1391,8 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
                   if (s.length === 0)
                     return { method: "GET", url: "" };
                   if (s.length === 2) {
-                    const [u, h] = s;
-                    return { url: zr(u), method: Tn(h, "method") ? String(h.method).toUpperCase() : "GET" };
+                    const [u, p] = s;
+                    return { url: zr(u), method: Tn(p, "method") ? String(p.method).toUpperCase() : "GET" };
                   }
                   const l = s[0];
                   return { url: zr(l), method: Tn(l, "method") ? String(l.method).toUpperCase() : "GET" };
@@ -1617,15 +1617,15 @@ Error:`, r);
       return u;
     if (e.__sentry_skip_normalization__)
       return e;
-    const h = typeof e.__sentry_override_normalization_depth__ == "number" ? e.__sentry_override_normalization_depth__ : t;
-    if (h === 0)
+    const p = typeof e.__sentry_override_normalization_depth__ == "number" ? e.__sentry_override_normalization_depth__ : t;
+    if (p === 0)
       return u.replace("object ", "");
     if (a(e))
       return "[Circular ~]";
-    const p = e;
-    if (p && typeof p.toJSON == "function")
+    const h = e;
+    if (h && typeof h.toJSON == "function")
       try {
-        return Mn("", p.toJSON(), h - 1, r, i);
+        return Mn("", h.toJSON(), p - 1, r, i);
       } catch {
       }
     const m = Array.isArray(e) ? [] : {};
@@ -1639,7 +1639,7 @@ Error:`, r);
         break;
       }
       const w = S[b];
-      m[b] = Mn(b, w, h - 1, r, i), y++;
+      m[b] = Mn(b, w, p - 1, r, i), y++;
     }
     return s(e), m;
   }
@@ -1814,20 +1814,20 @@ ${JSON.stringify(l)}
 `), typeof u == "string" || u instanceof Uint8Array)
         a(u);
       else {
-        let h;
+        let p;
         try {
-          h = JSON.stringify(u);
+          p = JSON.stringify(u);
         } catch {
-          h = JSON.stringify(Ce(u));
+          p = JSON.stringify(Ce(u));
         }
-        a(h);
+        a(p);
       }
     }
     return typeof i == "string" ? i : function(s) {
-      const l = s.reduce((p, m) => p + m.length, 0), u = new Uint8Array(l);
-      let h = 0;
-      for (const p of s)
-        u.set(p, h), h += p.length;
+      const l = s.reduce((h, m) => h + m.length, 0), u = new Uint8Array(l);
+      let p = 0;
+      for (const h of s)
+        u.set(h, p), p += h.length;
       return u;
     }(i);
   }
@@ -1857,20 +1857,20 @@ ${JSON.stringify(l)}
     const i = { ...n }, a = t && t["x-sentry-rate-limits"], s = t && t["retry-after"];
     if (a)
       for (const l of a.trim().split(",")) {
-        const [u, h] = l.split(":", 2), p = parseInt(u, 10), m = 1e3 * (isNaN(p) ? 60 : p);
-        if (h)
-          for (const y of h.split(";"))
+        const [u, p] = l.split(":", 2), h = parseInt(u, 10), m = 1e3 * (isNaN(h) ? 60 : h);
+        if (p)
+          for (const y of p.split(";"))
             i[y] = r + m;
         else
           i.all = r + m;
       }
     else
       s ? i.all = r + function(l, u = Date.now()) {
-        const h = parseInt(`${l}`, 10);
-        if (!isNaN(h))
-          return 1e3 * h;
-        const p = Date.parse(`${l}`);
-        return isNaN(p) ? ks : p - u;
+        const p = parseInt(`${l}`, 10);
+        if (!isNaN(p))
+          return 1e3 * p;
+        const h = Date.parse(`${l}`);
+        return isNaN(h) ? ks : h - u;
       }(s, r) : e === 429 && (i.all = r + 6e4);
     return i;
   }
@@ -2020,7 +2020,7 @@ ${JSON.stringify(l)}
           a(t);
         else {
           const u = l({ ...t }, r);
-          (typeof __SENTRY_DEBUG__ > "u" || __SENTRY_DEBUG__) && l.id && u === null && L.log(`Event processor "${l.id}" dropped event`), Kn(u) ? u.then((h) => this._notifyEventProcessors(e, h, r, i + 1).then(a)).then(null, s) : this._notifyEventProcessors(e, u, r, i + 1).then(a).then(null, s);
+          (typeof __SENTRY_DEBUG__ > "u" || __SENTRY_DEBUG__) && l.id && u === null && L.log(`Event processor "${l.id}" dropped event`), Kn(u) ? u.then((p) => this._notifyEventProcessors(e, p, r, i + 1).then(a)).then(null, s) : this._notifyEventProcessors(e, u, r, i + 1).then(a).then(null, s);
         }
       });
     }
@@ -2233,9 +2233,9 @@ Sentry.init({...});
     (function(l, u) {
       u && (l.sdk = l.sdk || {}, l.sdk.name = l.sdk.name || u.name, l.sdk.version = l.sdk.version || u.version, l.sdk.integrations = [...l.sdk.integrations || [], ...u.integrations || []], l.sdk.packages = [...l.sdk.packages || [], ...u.packages || []]);
     })(n, t && t.sdk);
-    const s = function(l, u, h, p) {
+    const s = function(l, u, p, h) {
       const m = l.sdkProcessingMetadata && l.sdkProcessingMetadata.dynamicSamplingContext;
-      return { event_id: l.event_id, sent_at: (/* @__PURE__ */ new Date()).toISOString(), ...u && { sdk: u }, ...!!h && { dsn: Jt(p) }, ...m && { trace: tn({ ...m }) } };
+      return { event_id: l.event_id, sent_at: (/* @__PURE__ */ new Date()).toISOString(), ...u && { sdk: u }, ...!!p && { dsn: Jt(h) }, ...m && { trace: tn({ ...m }) } };
     }(n, i, r, e);
     return delete n.sdkProcessingMetadata, vt(s, [[{ type: a }, n]]);
   }
@@ -2244,17 +2244,17 @@ Sentry.init({...});
     e[n.name] = n, ni.indexOf(n.name) === -1 && (n.setupOnce(mo, te), ni.push(n.name), (typeof __SENTRY_DEBUG__ > "u" || __SENTRY_DEBUG__) && L.log(`Integration installed: ${n.name}`));
   }
   function Ps(n, e, t, r) {
-    const { normalizeDepth: i = 3, normalizeMaxBreadth: a = 1e3 } = n, s = { ...e, event_id: e.event_id || t.event_id || Me(), timestamp: e.timestamp || nn() }, l = t.integrations || n.integrations.map((p) => p.name);
-    (function(p, m) {
+    const { normalizeDepth: i = 3, normalizeMaxBreadth: a = 1e3 } = n, s = { ...e, event_id: e.event_id || t.event_id || Me(), timestamp: e.timestamp || nn() }, l = t.integrations || n.integrations.map((h) => h.name);
+    (function(h, m) {
       const { environment: y, release: S, dist: b, maxValueLength: w = 250 } = m;
-      "environment" in p || (p.environment = "environment" in m ? y : er), p.release === void 0 && S !== void 0 && (p.release = S), p.dist === void 0 && b !== void 0 && (p.dist = b), p.message && (p.message = ze(p.message, w));
-      const T = p.exception && p.exception.values && p.exception.values[0];
+      "environment" in h || (h.environment = "environment" in m ? y : er), h.release === void 0 && S !== void 0 && (h.release = S), h.dist === void 0 && b !== void 0 && (h.dist = b), h.message && (h.message = ze(h.message, w));
+      const T = h.exception && h.exception.values && h.exception.values[0];
       T && T.value && (T.value = ze(T.value, w));
-      const O = p.request;
+      const O = h.request;
       O && O.url && (O.url = ze(O.url, w));
-    })(s, n), function(p, m) {
-      m.length > 0 && (p.sdk = p.sdk || {}, p.sdk.integrations = [...p.sdk.integrations || [], ...m]);
-    }(s, l), e.type === void 0 && function(p, m) {
+    })(s, n), function(h, m) {
+      m.length > 0 && (h.sdk = h.sdk || {}, h.sdk.integrations = [...h.sdk.integrations || [], ...m]);
+    }(s, l), e.type === void 0 && function(h, m) {
       const y = ie._sentryDebugIds;
       if (!y)
         return;
@@ -2275,7 +2275,7 @@ Sentry.init({...});
         return T;
       }, {});
       try {
-        p.exception.values.forEach((T) => {
+        h.exception.values.forEach((T) => {
           T.stacktrace.frames.forEach((O) => {
             O.filename && (O.debug_id = w[O.filename]);
           });
@@ -2285,15 +2285,15 @@ Sentry.init({...});
     }(s, n.stackParser);
     let u = r;
     t.captureContext && (u = Fe.clone(u).update(t.captureContext));
-    let h = Ye(s);
+    let p = Ye(s);
     if (u) {
       if (u.getAttachments) {
-        const p = [...t.attachments || [], ...u.getAttachments()];
-        p.length && (t.attachments = p);
+        const h = [...t.attachments || [], ...u.getAttachments()];
+        h.length && (t.attachments = h);
       }
-      h = u.applyToEvent(s, t);
+      p = u.applyToEvent(s, t);
     }
-    return h.then((p) => (p && function(m) {
+    return p.then((h) => (h && function(m) {
       const y = {};
       try {
         m.exception.values.forEach((b) => {
@@ -2310,12 +2310,12 @@ Sentry.init({...});
       Object.keys(y).forEach((b) => {
         S.push({ type: "sourcemap", code_file: b, debug_id: y[b] });
       });
-    }(p), typeof i == "number" && i > 0 ? function(m, y, S) {
+    }(h), typeof i == "number" && i > 0 ? function(m, y, S) {
       if (!m)
         return null;
       const b = { ...m, ...m.breadcrumbs && { breadcrumbs: m.breadcrumbs.map((w) => ({ ...w, ...w.data && { data: Ce(w.data, y, S) } })) }, ...m.user && { user: Ce(m.user, y, S) }, ...m.contexts && { contexts: Ce(m.contexts, y, S) }, ...m.extra && { extra: Ce(m.extra, y, S) } };
       return m.contexts && m.contexts.trace && b.contexts && (b.contexts.trace = m.contexts.trace, m.contexts.trace.data && (b.contexts.trace.data = Ce(m.contexts.trace.data, y, S))), m.spans && (b.spans = m.spans.map((w) => (w.data && (w.data = Ce(w.data, y, S)), w))), b;
-    }(p, i, a) : p));
+    }(h, i, a) : h));
   }
   const ii = /* @__PURE__ */ new WeakMap(), oi = "Not capturing exception because it's already been captured.";
   class xe {
@@ -2340,8 +2340,8 @@ Sentry.init({...});
           const a = typeof i == "string" ? i : i.tunnel, s = typeof i != "string" && i._metadata ? i._metadata.sdk : void 0;
           return a || `${function(l) {
             return `${function(u) {
-              const h = u.protocol ? `${u.protocol}:` : "", p = u.port ? `:${u.port}` : "";
-              return `${h}//${u.host}${p}${u.path ? `/${u.path}` : ""}/api/`;
+              const p = u.protocol ? `${u.protocol}:` : "", h = u.port ? `:${u.port}` : "";
+              return `${p}//${u.host}${h}${u.path ? `/${u.path}` : ""}/api/`;
             }(l)}${l.projectId}/envelope/`;
           }(r)}?${Os(r, s)}`;
         }(this._dsn, e);
@@ -2478,8 +2478,8 @@ Sentry.init({...});
           return s;
         const { propagationContext: l } = s.sdkProcessingMetadata || {};
         if (!(s.contexts && s.contexts.trace) && l) {
-          const { traceId: u, spanId: h, parentSpanId: p, dsc: m } = l;
-          s.contexts = { trace: { trace_id: u, span_id: h, parent_span_id: p }, ...s.contexts };
+          const { traceId: u, spanId: p, parentSpanId: h, dsc: m } = l;
+          s.contexts = { trace: { trace_id: u, span_id: p, parent_span_id: h }, ...s.contexts };
           const y = m || function(S, b, w) {
             const T = b.getOptions(), { publicKey: O } = b.getDsn() || {}, { segment: Y } = w && w.getUser() || {}, Se = tn({ environment: T.environment || er, release: T.release, user_segment: Y, public_key: O, trace_id: S });
             return b.emit && b.emit("createDsc", Se), Se;
@@ -2501,13 +2501,13 @@ Sentry.init({...});
       const i = this.getOptions(), { sampleRate: a } = i;
       if (!this._isEnabled())
         return Wt(new ae("SDK not enabled, will not capture event.", "log"));
-      const s = si(e), l = ai(e), u = e.type || "error", h = `before send for type \`${u}\``;
+      const s = si(e), l = ai(e), u = e.type || "error", p = `before send for type \`${u}\``;
       if (l && typeof a == "number" && Math.random() > a)
         return this.recordDroppedEvent("sample_rate", "error", e), Wt(new ae(`Discarding event because it's not included in the random sample (sampling rate = ${a})`, "log"));
-      const p = u === "replay_event" ? "replay" : u;
+      const h = u === "replay_event" ? "replay" : u;
       return this._prepareEvent(e, t, r).then((m) => {
         if (m === null)
-          throw this.recordDroppedEvent("event_processor", p, e), new ae("An event processor returned `null`, will not send event.", "log");
+          throw this.recordDroppedEvent("event_processor", h, e), new ae("An event processor returned `null`, will not send event.", "log");
         if (t.data && t.data.__sentry__ === !0)
           return m;
         const y = function(S, b, w) {
@@ -2527,10 +2527,10 @@ Sentry.init({...});
           if (!tt(S) && S !== null)
             throw new ae(w);
           return S;
-        }(y, h);
+        }(y, p);
       }).then((m) => {
         if (m === null)
-          throw this.recordDroppedEvent("before_send", p, e), new ae(`${h} returned \`null\`, will not send event.`, "log");
+          throw this.recordDroppedEvent("before_send", h, e), new ae(`${p} returned \`null\`, will not send event.`, "log");
         const y = r && r.getSession();
         !s && y && this._updateSessionFromEvent(y, m);
         const S = m.transaction_info;
@@ -2573,31 +2573,31 @@ Reason: ${m}`));
     let r = {};
     function i(a) {
       const s = [];
-      if (Xr(a, (h, p) => {
-        const m = Zr(p);
+      if (Xr(a, (p, h) => {
+        const m = Zr(h);
         if (function(y, S, b = Date.now()) {
           return function(w, T) {
             return w[T] || w.all || 0;
           }(y, S) > b;
         }(r, m)) {
-          const y = ci(h, p);
+          const y = ci(p, h);
           n.recordDroppedEvent("ratelimit_backoff", m, y);
         } else
-          s.push(h);
+          s.push(p);
       }), s.length === 0)
         return Ye();
-      const l = vt(a[0], s), u = (h) => {
-        Xr(l, (p, m) => {
-          const y = ci(p, m);
-          n.recordDroppedEvent(h, Zr(m), y);
+      const l = vt(a[0], s), u = (p) => {
+        Xr(l, (h, m) => {
+          const y = ci(h, m);
+          n.recordDroppedEvent(p, Zr(m), y);
         });
       };
-      return t.add(() => e({ body: ws(l, n.textEncoder) }).then((h) => (h.statusCode !== void 0 && (h.statusCode < 200 || h.statusCode >= 300) && (typeof __SENTRY_DEBUG__ > "u" || __SENTRY_DEBUG__) && L.warn(`Sentry responded with status code ${h.statusCode} to sent event.`), r = Ts(r, h), h), (h) => {
-        throw u("network_error"), h;
-      })).then((h) => h, (h) => {
-        if (h instanceof ae)
+      return t.add(() => e({ body: ws(l, n.textEncoder) }).then((p) => (p.statusCode !== void 0 && (p.statusCode < 200 || p.statusCode >= 300) && (typeof __SENTRY_DEBUG__ > "u" || __SENTRY_DEBUG__) && L.warn(`Sentry responded with status code ${p.statusCode} to sent event.`), r = Ts(r, p), p), (p) => {
+        throw u("network_error"), p;
+      })).then((p) => p, (p) => {
+        if (p instanceof ae)
           return (typeof __SENTRY_DEBUG__ > "u" || __SENTRY_DEBUG__) && L.error("Skipped sending event because buffer is full."), u("queue_overflow"), Ye();
-        throw h;
+        throw p;
       });
     }
     return i.__sentry__baseTransport__ = !0, { send: i, flush: (a) => t.drain(a) };
@@ -2647,18 +2647,18 @@ Reason: ${m}`));
         if (a) {
           const s = a.getIntegration(He);
           if (s) {
-            const l = a.getClient(), u = l ? l.getOptions() : {}, h = function(p = {}, m = {}) {
-              return { allowUrls: [...p.allowUrls || [], ...m.allowUrls || []], denyUrls: [...p.denyUrls || [], ...m.denyUrls || []], ignoreErrors: [...p.ignoreErrors || [], ...m.ignoreErrors || [], ...p.disableErrorDefaults ? [] : Ns], ignoreTransactions: [...p.ignoreTransactions || [], ...m.ignoreTransactions || [], ...p.disableTransactionDefaults ? [] : Rs], ignoreInternal: p.ignoreInternal === void 0 || p.ignoreInternal };
+            const l = a.getClient(), u = l ? l.getOptions() : {}, p = function(h = {}, m = {}) {
+              return { allowUrls: [...h.allowUrls || [], ...m.allowUrls || []], denyUrls: [...h.denyUrls || [], ...m.denyUrls || []], ignoreErrors: [...h.ignoreErrors || [], ...m.ignoreErrors || [], ...h.disableErrorDefaults ? [] : Ns], ignoreTransactions: [...h.ignoreTransactions || [], ...m.ignoreTransactions || [], ...h.disableTransactionDefaults ? [] : Rs], ignoreInternal: h.ignoreInternal === void 0 || h.ignoreInternal };
             }(s._options, u);
-            return function(p, m) {
+            return function(h, m) {
               return m.ignoreInternal && function(y) {
                 try {
                   return y.exception.values[0].type === "SentryError";
                 } catch {
                 }
                 return !1;
-              }(p) ? ((typeof __SENTRY_DEBUG__ > "u" || __SENTRY_DEBUG__) && L.warn(`Event dropped due to being internal Sentry Error.
-Event: ${Te(p)}`), !0) : function(y, S) {
+              }(h) ? ((typeof __SENTRY_DEBUG__ > "u" || __SENTRY_DEBUG__) && L.warn(`Event dropped due to being internal Sentry Error.
+Event: ${Te(h)}`), !0) : function(y, S) {
                 return y.type || !S || !S.length ? !1 : function(b) {
                   if (b.message)
                     return [b.message];
@@ -2673,29 +2673,29 @@ Event: ${Te(p)}`), !0) : function(y, S) {
                   }
                   return [];
                 }(y).some((b) => St(b, S));
-              }(p, m.ignoreErrors) ? ((typeof __SENTRY_DEBUG__ > "u" || __SENTRY_DEBUG__) && L.warn(`Event dropped due to being matched by \`ignoreErrors\` option.
-Event: ${Te(p)}`), !0) : function(y, S) {
+              }(h, m.ignoreErrors) ? ((typeof __SENTRY_DEBUG__ > "u" || __SENTRY_DEBUG__) && L.warn(`Event dropped due to being matched by \`ignoreErrors\` option.
+Event: ${Te(h)}`), !0) : function(y, S) {
                 if (y.type !== "transaction" || !S || !S.length)
                   return !1;
                 const b = y.transaction;
                 return !!b && St(b, S);
-              }(p, m.ignoreTransactions) ? ((typeof __SENTRY_DEBUG__ > "u" || __SENTRY_DEBUG__) && L.warn(`Event dropped due to being matched by \`ignoreTransactions\` option.
-Event: ${Te(p)}`), !0) : function(y, S) {
+              }(h, m.ignoreTransactions) ? ((typeof __SENTRY_DEBUG__ > "u" || __SENTRY_DEBUG__) && L.warn(`Event dropped due to being matched by \`ignoreTransactions\` option.
+Event: ${Te(h)}`), !0) : function(y, S) {
                 if (!S || !S.length)
                   return !1;
                 const b = Ot(y);
                 return !!b && St(b, S);
-              }(p, m.denyUrls) ? ((typeof __SENTRY_DEBUG__ > "u" || __SENTRY_DEBUG__) && L.warn(`Event dropped due to being matched by \`denyUrls\` option.
-Event: ${Te(p)}.
-Url: ${Ot(p)}`), !0) : function(y, S) {
+              }(h, m.denyUrls) ? ((typeof __SENTRY_DEBUG__ > "u" || __SENTRY_DEBUG__) && L.warn(`Event dropped due to being matched by \`denyUrls\` option.
+Event: ${Te(h)}.
+Url: ${Ot(h)}`), !0) : function(y, S) {
                 if (!S || !S.length)
                   return !0;
                 const b = Ot(y);
                 return !b || St(b, S);
-              }(p, m.allowUrls) ? !1 : ((typeof __SENTRY_DEBUG__ > "u" || __SENTRY_DEBUG__) && L.warn(`Event dropped due to not being matched by \`allowUrls\` option.
-Event: ${Te(p)}.
-Url: ${Ot(p)}`), !0);
-            }(i, h) ? null : i;
+              }(h, m.allowUrls) ? !1 : ((typeof __SENTRY_DEBUG__ > "u" || __SENTRY_DEBUG__) && L.warn(`Event dropped due to not being matched by \`allowUrls\` option.
+Event: ${Te(h)}.
+Url: ${Ot(h)}`), !0);
+            }(i, p) ? null : i;
           }
         }
         return i;
@@ -2751,8 +2751,8 @@ Url: ${Ot(p)}`), !0);
         throw Pn++, setTimeout(() => {
           Pn--;
         }), a = (l) => {
-          var u, h;
-          l.addEventProcessor((p) => (e.mechanism && (Cn(p, void 0, void 0), gt(p, e.mechanism)), p.extra = { ...p.extra, arguments: i }, p)), u = s, te().captureException(u, { captureContext: h });
+          var u, p;
+          l.addEventProcessor((h) => (e.mechanism && (Cn(h, void 0, void 0), gt(h, e.mechanism)), h.extra = { ...h.extra, arguments: i }, h)), u = s, te().captureException(u, { captureContext: p });
         }, te().withScope(a), s;
       }
       var a;
@@ -2811,8 +2811,8 @@ Url: ${Ot(p)}`), !0);
       }
       return "code" in s && (a.tags = { ...a.tags, "DOMException.code": `${s.code}` }), a;
     }
-    return ro(e) ? hn(n, e) : tt(e) || Gt(e) ? (a = function(s, l, u, h) {
-      const p = te().getClient(), m = p && p.getOptions().normalizeDepth, y = { exception: { values: [{ type: Gt(l) ? l.constructor.name : h ? "UnhandledRejection" : "Error", value: Bs(l, { isUnhandledRejection: h }) }] }, extra: { __serialized__: lo(l, m) } };
+    return ro(e) ? hn(n, e) : tt(e) || Gt(e) ? (a = function(s, l, u, p) {
+      const h = te().getClient(), m = h && h.getOptions().normalizeDepth, y = { exception: { values: [{ type: Gt(l) ? l.constructor.name : p ? "UnhandledRejection" : "Error", value: Bs(l, { isUnhandledRejection: p }) }] }, extra: { __serialized__: lo(l, m) } };
       if (u) {
         const S = nr(s, u);
         S.length && (y.exception.values[0].stacktrace = { frames: S });
@@ -2902,8 +2902,8 @@ Url: ${Ot(p)}`), !0);
     const { startTimestamp: e, endTimestamp: t } = n, r = n.xhr[ut];
     if (!e || !t || !r)
       return;
-    const { method: i, url: a, status_code: s, body: l } = r, u = { method: i, url: a, status_code: s }, h = { xhr: n.xhr, input: l, startTimestamp: e, endTimestamp: t };
-    te().addBreadcrumb({ category: "xhr", data: u, type: "http" }, h);
+    const { method: i, url: a, status_code: s, body: l } = r, u = { method: i, url: a, status_code: s }, p = { xhr: n.xhr, input: l, startTimestamp: e, endTimestamp: t };
+    te().addBreadcrumb({ category: "xhr", data: u, type: "http" }, p);
   }
   function Ys(n) {
     const { startTimestamp: e, endTimestamp: t } = n;
@@ -2939,8 +2939,8 @@ Url: ${Ot(p)}`), !0);
     }
     eventFromMessage(e, t = "info", r) {
       return function(i, a, s = "info", l, u) {
-        const h = Dn(i, a, l && l.syntheticException || void 0, u);
-        return h.level = s, l && l.event_id && (h.event_id = l.event_id), Ye(h);
+        const p = Dn(i, a, l && l.syntheticException || void 0, u);
+        return p.level = s, l && l.event_id && (p.event_id = l.event_id), Ye(p);
       }(this._options.stackParser, e, t, r, this._options.attachStacktrace);
     }
     sendEvent(e, t) {
@@ -2952,8 +2952,8 @@ Url: ${Ot(p)}`), !0);
         return void ((typeof __SENTRY_DEBUG__ > "u" || __SENTRY_DEBUG__) && L.warn("SDK not enabled, will not capture user feedback."));
       const t = function(r, { metadata: i, tunnel: a, dsn: s }) {
         const l = { event_id: r.event_id, sent_at: (/* @__PURE__ */ new Date()).toISOString(), ...i && i.sdk && { sdk: { name: i.sdk.name, version: i.sdk.version } }, ...!!a && !!s && { dsn: Jt(s) } };
-        return vt(l, [/* @__PURE__ */ function(h) {
-          return [{ type: "user_report" }, h];
+        return vt(l, [/* @__PURE__ */ function(p) {
+          return [{ type: "user_report" }, p];
         }(r)]);
       }(e, { metadata: this.getSdkMetadata(), dsn: this.getDsn(), tunnel: this.getOptions().tunnel });
       this._sendEnvelope(t);
@@ -3035,13 +3035,13 @@ Url: ${Ot(p)}`), !0);
       const { msg: i, url: a, line: s, column: l, error: u } = n;
       if (_o() || u && u.__sentry_own_request__)
         return;
-      const h = u === void 0 && Ue(i) ? function(p, m, y, S) {
+      const p = u === void 0 && Ue(i) ? function(h, m, y, S) {
         const b = /^(?:[Uu]ncaught (?:exception: )?)?(?:((?:Eval|Internal|Range|Reference|Syntax|Type|URI|)Error): )?(.*)$/i;
-        let w = Hn(p) ? p.message : p, T = "Error";
+        let w = Hn(h) ? h.message : h, T = "Error";
         const O = w.match(b);
         return O && (T = O[1], w = O[2]), hi({ exception: { values: [{ type: T, value: w }] } }, m, y, S);
       }(i, a, s, l) : hi(rr(t, u || i, void 0, r, !1), a, s, l);
-      h.level = "error", wo(e, u, h, "onerror");
+      p.level = "error", wo(e, u, p, "onerror");
     });
   }
   function Ws() {
@@ -3061,14 +3061,14 @@ Url: ${Ot(p)}`), !0);
     });
   }
   function hi(n, e, t, r) {
-    const i = n.exception = n.exception || {}, a = i.values = i.values || [], s = a[0] = a[0] || {}, l = s.stacktrace = s.stacktrace || {}, u = l.frames = l.frames || [], h = isNaN(parseInt(r, 10)) ? void 0 : r, p = isNaN(parseInt(t, 10)) ? void 0 : t, m = Ue(e) && e.length > 0 ? e : function() {
+    const i = n.exception = n.exception || {}, a = i.values = i.values || [], s = a[0] = a[0] || {}, l = s.stacktrace = s.stacktrace || {}, u = l.frames = l.frames || [], p = isNaN(parseInt(r, 10)) ? void 0 : r, h = isNaN(parseInt(t, 10)) ? void 0 : t, m = Ue(e) && e.length > 0 ? e : function() {
       try {
         return us.document.location.href;
       } catch {
         return "";
       }
     }();
-    return u.length === 0 && u.push({ colno: h, filename: m, function: "?", in_app: !0, lineno: p }), n;
+    return u.length === 0 && u.push({ colno: p, filename: m, function: "?", in_app: !0, lineno: h }), n;
   }
   function wo(n, e, t, r) {
     gt(t, { handled: !1, type: r }), n.captureEvent(t, { originalException: e });
@@ -3202,12 +3202,12 @@ Url: ${Ot(p)}`), !0);
         if (a) {
           try {
             if (function(s, l) {
-              return l ? !!(function(u, h) {
-                const p = u.message, m = h.message;
-                return !(!p && !m || p && !m || !p && m || p !== m || !mi(u, h) || !fi(u, h));
-              }(s, l) || function(u, h) {
-                const p = gi(h), m = gi(u);
-                return !(!p || !m || p.type !== m.type || p.value !== m.value || !mi(u, h) || !fi(u, h));
+              return l ? !!(function(u, p) {
+                const h = u.message, m = p.message;
+                return !(!h && !m || h && !m || !h && m || h !== m || !mi(u, p) || !fi(u, p));
+              }(s, l) || function(u, p) {
+                const h = gi(p), m = gi(u);
+                return !(!h || !m || h.type !== m.type || h.value !== m.value || !mi(u, p) || !fi(u, p));
               }(s, l)) : !1;
             }(i, a._previousEvent))
               return (typeof __SENTRY_DEBUG__ > "u" || __SENTRY_DEBUG__) && L.warn("Event dropped due to being a duplicate of previously captured event."), null;
@@ -3478,12 +3478,12 @@ Url: ${Ot(p)}`), !0);
     return le(t, [{ key: "addListenerForMessagesFromCallMachine", value: function(r, i, a) {
       var s = this, l = function(u) {
         if (u.data && u.data.what === "iframe-call-message" && (!u.data.callFrameId || u.data.callFrameId === i) && (!u.data.from || u.data.from !== "module")) {
-          var h = mn({}, u.data);
-          if (delete h.from, h.callbackStamp && s._messageCallbacks[h.callbackStamp]) {
-            var p = h.callbackStamp;
-            s._messageCallbacks[p].call(a, h), delete s._messageCallbacks[p];
+          var p = mn({}, u.data);
+          if (delete p.from, p.callbackStamp && s._messageCallbacks[p.callbackStamp]) {
+            var h = p.callbackStamp;
+            s._messageCallbacks[h].call(a, p), delete s._messageCallbacks[h];
           }
-          delete h.what, delete h.callbackStamp, r.call(a, h);
+          delete p.what, delete p.callbackStamp, r.call(a, p);
         }
       };
       this._wrappedListeners[r] = l, window.addEventListener("message", l);
@@ -3503,8 +3503,8 @@ Url: ${Ot(p)}`), !0);
         var u = en();
         this._messageCallbacks[u] = i, l.callbackStamp = u;
       }
-      var h = a ? a.contentWindow : window, p = this._callMachineTargetOrigin(a);
-      p && h.postMessage(l, p);
+      var p = a ? a.contentWindow : window, h = this._callMachineTargetOrigin(a);
+      h && p.postMessage(l, h);
     } }, { key: "sendMessageToDailyJs", value: function(r, i) {
       r.what = pn, r.callFrameId = i, r.from = "embedded", window.postMessage(r, this._targetOriginFromWindowLocation());
     } }, { key: "removeListener", value: function(r) {
@@ -3574,12 +3574,12 @@ Url: ${Ot(p)}`), !0);
       var i = this._wrappedListeners[r];
       i && (global.callMachineToDailyJsEmitter.removeListener("message", i), global.dailyJsToCallMachineEmitter.removeListener("message", i), delete this._wrappedListeners[r]);
     } }, { key: "_addListener", value: function(r, i, a, s) {
-      var l = this, u = function(h) {
-        if (h.callbackStamp && l._messageCallbacks[h.callbackStamp]) {
-          var p = h.callbackStamp;
-          l._messageCallbacks[p].call(a, h), delete l._messageCallbacks[p];
+      var l = this, u = function(p) {
+        if (p.callbackStamp && l._messageCallbacks[p.callbackStamp]) {
+          var h = p.callbackStamp;
+          l._messageCallbacks[h].call(a, p), delete l._messageCallbacks[h];
         }
-        r.call(a, h);
+        r.call(a, p);
       };
       this._wrappedListeners[r] = u, i.addListener("message", u);
     } }, { key: "_sendMessage", value: function(r, i, a, s) {
@@ -3779,14 +3779,14 @@ Url: ${Ot(p)}`), !0);
         var l = this._refetchHeaders ? { headers: this._refetchHeaders } : {}, u = yield fetch(a, l);
         if (clearTimeout(this._networkTimeout), this.cancelled || this._networkTimedOut)
           throw new gn();
-        var h = yield this._getBundleCodeFromResponse(a, u);
+        var p = yield this._getBundleCodeFromResponse(a, u);
         if (this.cancelled)
           throw new gn();
-        Function('"use strict";' + h)(), this._iosCache && this._iosCache.set(a, h, u.headers), this.succeeded = !0, this._successCallback();
-      } catch (p) {
-        if (clearTimeout(this._networkTimeout), p instanceof gn || this.cancelled || this._networkTimedOut)
+        Function('"use strict";' + p)(), this._iosCache && this._iosCache.set(a, p, u.headers), this.succeeded = !0, this._successCallback();
+      } catch (h) {
+        if (clearTimeout(this._networkTimeout), h instanceof gn || this.cancelled || this._networkTimedOut)
           return;
-        this._failureCallback("Failed to load call object bundle ".concat(a, ": ").concat(p));
+        this._failureCallback("Failed to load call object bundle ".concat(a, ": ").concat(h));
       }
     }), function(a) {
       return t.apply(this, arguments);
@@ -3871,10 +3871,10 @@ Url: ${Ot(p)}`), !0);
   function Li(n) {
     for (var e = store.getState(), t = 0, r = ["cam", "screen"]; t < r.length; t++)
       for (var i = r[t], a = 0, s = ["video", "audio"]; a < s.length; a++) {
-        var l = s[a], u = i === "cam" ? l : "screen".concat(l.charAt(0).toUpperCase() + l.slice(1)), h = n.tracks[u];
-        if (h) {
-          var p = n.local ? Vc(e, i, l) : Je(e, n.session_id, i, l);
-          h.state === "playable" && (h.track = p), h.persistentTrack = p;
+        var l = s[a], u = i === "cam" ? l : "screen".concat(l.charAt(0).toUpperCase() + l.slice(1)), p = n.tracks[u];
+        if (p) {
+          var h = n.local ? Vc(e, i, l) : Je(e, n.session_id, i, l);
+          p.state === "playable" && (p.track = h), p.persistentTrack = h;
         }
       }
   }
@@ -3923,8 +3923,8 @@ Url: ${Ot(p)}`), !0);
       try {
         var i = t.participants[n.session_id];
         i && i.public && i.public.rtcType && i.public.rtcType.impl === "peer-to-peer" && i.private && !["connected", "completed"].includes(i.private.peeringState) && (r = !1);
-      } catch (h) {
-        console.error(h);
+      } catch (p) {
+        console.error(p);
       }
       if (!r)
         return n.audio = !1, n.audioTrack = !1, n.video = !1, n.videoTrack = !1, n.screen = !1, void (n.screenTrack = !1);
@@ -3946,23 +3946,23 @@ Url: ${Ot(p)}`), !0);
           u && (e && e.screenVideoTrack && e.screenVideoTrack.id === u.id ? n.screenVideoTrack = u : u.muted || (n.screenVideoTrack = u));
         }
         n.screenVideoTrack || n.screenAudioTrack || (n.screen = !1);
-      } catch (h) {
-        console.error("unexpected error matching up tracks", h);
+      } catch (p) {
+        console.error("unexpected error matching up tracks", p);
       }
     }
   }
   function Jc(n, e) {
     var t = typeof Symbol < "u" && n[Symbol.iterator] || n["@@iterator"];
     if (!t) {
-      if (Array.isArray(n) || (t = function(u, h) {
+      if (Array.isArray(n) || (t = function(u, p) {
         if (u) {
           if (typeof u == "string")
-            return Ii(u, h);
-          var p = Object.prototype.toString.call(u).slice(8, -1);
-          if (p === "Object" && u.constructor && (p = u.constructor.name), p === "Map" || p === "Set")
+            return Ii(u, p);
+          var h = Object.prototype.toString.call(u).slice(8, -1);
+          if (h === "Object" && u.constructor && (h = u.constructor.name), h === "Map" || h === "Set")
             return Array.from(u);
-          if (p === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(p))
-            return Ii(u, h);
+          if (h === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(h))
+            return Ii(u, p);
         }
       }(n)) || e && n && typeof n.length == "number") {
         t && (n = t);
@@ -4004,15 +4004,15 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
   function Wc(n, e) {
     var t = typeof Symbol < "u" && n[Symbol.iterator] || n["@@iterator"];
     if (!t) {
-      if (Array.isArray(n) || (t = function(u, h) {
+      if (Array.isArray(n) || (t = function(u, p) {
         if (u) {
           if (typeof u == "string")
-            return Ni(u, h);
-          var p = Object.prototype.toString.call(u).slice(8, -1);
-          if (p === "Object" && u.constructor && (p = u.constructor.name), p === "Map" || p === "Set")
+            return Ni(u, p);
+          var h = Object.prototype.toString.call(u).slice(8, -1);
+          if (h === "Object" && u.constructor && (h = u.constructor.name), h === "Map" || h === "Set")
             return Array.from(u);
-          if (p === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(p))
-            return Ni(u, h);
+          if (h === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(h))
+            return Ni(u, p);
         }
       }(n)) || e && n && typeof n.length == "number") {
         t && (n = t);
@@ -4062,8 +4062,8 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
                 var l = i.value, u = JSON.stringify(a);
                 u !== pe.get(l).lastDevicesString && (pe.get(l).lastDevicesString = u, l(a));
               }
-            } catch (h) {
-              s.e(h);
+            } catch (p) {
+              s.e(p);
             } finally {
               s.f();
             }
@@ -4156,15 +4156,15 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
   function xi(n, e) {
     var t = typeof Symbol < "u" && n[Symbol.iterator] || n["@@iterator"];
     if (!t) {
-      if (Array.isArray(n) || (t = function(u, h) {
+      if (Array.isArray(n) || (t = function(u, p) {
         if (u) {
           if (typeof u == "string")
-            return ji(u, h);
-          var p = Object.prototype.toString.call(u).slice(8, -1);
-          if (p === "Object" && u.constructor && (p = u.constructor.name), p === "Map" || p === "Set")
+            return ji(u, p);
+          var h = Object.prototype.toString.call(u).slice(8, -1);
+          if (h === "Object" && u.constructor && (h = u.constructor.name), h === "Map" || h === "Set")
             return Array.from(u);
-          if (p === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(p))
-            return ji(u, h);
+          if (h === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(h))
+            return ji(u, p);
         }
       }(n)) || e && n && typeof n.length == "number") {
         t && (n = t);
@@ -4305,8 +4305,8 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
           if (!t.includes(a[l]) && !i(a[l], !0))
             return !1;
         } else {
-          var u = !s && !r.includes(l), h = !t.includes(a[l]);
-          if (u || h)
+          var u = !s && !r.includes(l), p = !t.includes(a[l]);
+          if (u || p)
             return !1;
         }
       return !0;
@@ -4326,8 +4326,8 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
             var s, l = ["video", "audio", "screenVideo", "screenAudio", "customVideo", "customAudio"], u = xi(a);
             try {
               for (u.s(); !(s = u.n()).done; ) {
-                var h = s.value;
-                if (!l.includes(h))
+                var p = s.value;
+                if (!l.includes(p))
                   return !1;
               }
             } catch (b) {
@@ -4341,10 +4341,10 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
           break;
         case "canAdmin":
           if (a instanceof Set || a instanceof Array) {
-            var p, m = ["participants", "streaming", "transcription"], y = xi(a);
+            var h, m = ["participants", "streaming", "transcription"], y = xi(a);
             try {
-              for (y.s(); !(p = y.n()).done; ) {
-                var S = p.value;
+              for (y.s(); !(h = y.n()).done; ) {
+                var S = h.value;
                 if (!m.includes(S))
                   return !1;
               }
@@ -4364,7 +4364,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
     return !0;
   }, help: "updatePermissions can take hasPresence, canSend, and canAdmin permissions. hasPresence must be a boolean. canSend can be a boolean or an Array or Set of media types (video, audio, screenVideo, screenAudio, customVideo, customAudio). canAdmin can be a boolean or an Array or Set of admin types (participants, streaming, transcription)." } }, il = function(n) {
     Xt(ne, we);
-    var e, t, r, i, a, s, l, u, h, p, m, y, S, b, w, T, O, Y, Se, $e, ot, ar, sr, cr, lr, ur, dr, hr, pr, fr, mr, gr, vr, _r, yr, br, wr, Sr, Wa = nl(ne);
+    var e, t, r, i, a, s, l, u, p, h, m, y, S, b, w, T, O, Y, Se, $e, ot, ar, sr, cr, lr, ur, dr, hr, pr, fr, mr, gr, vr, _r, yr, br, wr, Sr, Wa = nl(ne);
     function ne(o) {
       var c, d, f = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : {};
       if (ce(this, ne), ke(ve(c = Wa.call(this)), "startListeningForDeviceChanges", function() {
@@ -5144,13 +5144,13 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
       return m.apply(this, arguments);
     }) }, { key: "stopTestCallQuality", value: function() {
       this.sendMessageToCallMachine({ action: "stop-test-call-quality" });
-    } }, { key: "testConnectionQuality", value: (p = C(function* (o) {
+    } }, { key: "testConnectionQuality", value: (h = C(function* (o) {
       console.warn("testConnectionQuality() is deprecated: use testPeerToPeerCallQuality() instead");
       var c = yield this.testPeerToPeerCallQuality(o), d = { result: c.result, secondsElapsed: c.secondsElapsed };
       return c.data && (d.data = { maxRTT: c.data.maxRoundTripTime, packetLoss: c.data.avgRecvPacketLoss }), d;
     }), function(o) {
-      return p.apply(this, arguments);
-    }) }, { key: "testPeerToPeerCallQuality", value: (h = C(function* (o) {
+      return h.apply(this, arguments);
+    }) }, { key: "testPeerToPeerCallQuality", value: (p = C(function* (o) {
       var c = this;
       if (De(this._testCallInProgress, "testConnectionQuality()"), this.needsLoad())
         try {
@@ -5167,7 +5167,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
         });
       });
     }), function(o) {
-      return h.apply(this, arguments);
+      return p.apply(this, arguments);
     }) }, { key: "stopTestConnectionQuality", value: function() {
       console.warn("stopTestConnectionQuality() is deprecated: use stopTestPeerToPeerCallQuality() instead"), this.stopTestPeerToPeerCallQuality();
     } }, { key: "stopTestPeerToPeerCallQuality", value: function() {
@@ -5990,8 +5990,8 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
     }, a = function(m) {
       return !!m && !(m.video && !i(m.video)) && !(m.screenVideo && !i(m.screenVideo));
     }, s = 0, l = Object.entries(n); s < l.length; s++) {
-      var u = Be(l[s], 2), h = u[0], p = u[1];
-      if (!r(h) || !a(p))
+      var u = Be(l[s], 2), p = u[0], h = u[1];
+      if (!r(p) || !a(h))
         return !1;
     }
     return !0;
@@ -6005,18 +6005,18 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
         var u = Object.keys(l);
         if (u.length === 0)
           return !0;
-        var h = "invalid object in inputSettings -> video -> processor -> config";
+        var p = "invalid object in inputSettings -> video -> processor -> config";
         switch (s) {
           case Ut.BGBLUR:
-            return u.length > 1 || u[0] !== "strength" ? (console.error(h), !1) : !(typeof l.strength != "number" || l.strength <= 0 || l.strength > 1 || isNaN(l.strength)) || (console.error("".concat(h, "; expected: {0 < strength <= 1}, got: ").concat(l.strength)), !1);
+            return u.length > 1 || u[0] !== "strength" ? (console.error(p), !1) : !(typeof l.strength != "number" || l.strength <= 0 || l.strength > 1 || isNaN(l.strength)) || (console.error("".concat(p, "; expected: {0 < strength <= 1}, got: ").concat(l.strength)), !1);
           case Ut.BGIMAGE:
-            return !(l.source !== void 0 && !function(p) {
-              if (p.source === "default")
-                return p.type = "default", !0;
-              if (p.source instanceof ArrayBuffer)
+            return !(l.source !== void 0 && !function(h) {
+              if (h.source === "default")
+                return h.type = "default", !0;
+              if (h.source instanceof ArrayBuffer)
                 return !0;
-              if (mt(p.source))
-                return p.type = "url", !!function(S) {
+              if (mt(h.source))
+                return h.type = "url", !!function(S) {
                   var b = new URL(S), w = b.pathname;
                   if (b.protocol === "data:")
                     try {
@@ -6027,8 +6027,8 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
                     }
                   var O = w.split(".").at(-1).toLowerCase().trim();
                   return fn.includes(O);
-                }(p.source) || (console.error("invalid image type; supported types: [".concat(fn.join(", "), "]")), !1);
-              return m = p.source, y = Number(m), isNaN(y) || !Number.isInteger(y) || y <= 0 || y > ki ? (console.error("invalid image selection; must be an int, > 0, <= ".concat(ki)), !1) : (p.type = "daily-preselect", !0);
+                }(h.source) || (console.error("invalid image type; supported types: [".concat(fn.join(", "), "]")), !1);
+              return m = h.source, y = Number(m), isNaN(y) || !Number.isInteger(y) || y <= 0 || y > ki ? (console.error("invalid image selection; must be an int, > 0, <= ".concat(ki)), !1) : (h.type = "daily-preselect", !0);
               var m, y;
             }(l));
           default:
@@ -6070,11 +6070,11 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
           var s = Be(a[i], 2), l = s[0], u = s[1];
           if (l === "iconPath" && !mt(u) || l === "iconPathDarkMode" && !mt(u))
             return console.error("customTrayButton ".concat(l, " should be a url.")), !1;
-          var h = Qt.id[l];
-          if (!h)
+          var p = Qt.id[l];
+          if (!p)
             return console.error("customTrayButton does not support key ".concat(l)), !1;
-          if (F(u) !== h)
-            return console.error("customTrayButton ".concat(l, " should be a ").concat(h, ".")), !1;
+          if (F(u) !== p)
+            return console.error("customTrayButton ".concat(l, " should be a ").concat(p, ".")), !1;
         }
     return !0;
   }
@@ -6094,51 +6094,51 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
       if (!("src" in n[a]) && !("srcdoc" in n[a]))
         return t(a, "src or srcdoc is required"), !1;
       for (var s = 0, l = Object.entries(n[a]); s < l.length; s++) {
-        var u = Be(l[s], 2), h = u[0], p = u[1];
-        switch (h) {
+        var u = Be(l[s], 2), p = u[0], h = u[1];
+        switch (p) {
           case "allow":
           case "csp":
           case "name":
           case "referrerPolicy":
           case "sandbox":
-            if (typeof p != "string")
-              return t(a, e(h)), !1;
+            if (typeof h != "string")
+              return t(a, e(p)), !1;
             break;
           case "iconURL":
-            if (!mt(p))
-              return t(a, "".concat(h, " should be a url")), !1;
+            if (!mt(h))
+              return t(a, "".concat(p, " should be a url")), !1;
             break;
           case "src":
             if ("srcdoc" in n[a])
               return t(a, "cannot have both src and srcdoc"), !1;
-            if (!mt(p))
-              return t(a, 'src "'.concat(p, '" is not a valid URL')), !1;
+            if (!mt(h))
+              return t(a, 'src "'.concat(h, '" is not a valid URL')), !1;
             break;
           case "srcdoc":
             if ("src" in n[a])
               return t(a, "cannot have both src and srcdoc"), !1;
-            if (typeof p != "string")
-              return t(a, e(h)), !1;
+            if (typeof h != "string")
+              return t(a, e(p)), !1;
             break;
           case "location":
-            if (!["main", "sidebar"].includes(p))
-              return t(a, e(h)), !1;
+            if (!["main", "sidebar"].includes(h))
+              return t(a, e(p)), !1;
             break;
           case "controlledBy":
-            if (p !== "*" && p !== "owners" && (!Array.isArray(p) || p.some(function(m) {
+            if (h !== "*" && h !== "owners" && (!Array.isArray(h) || h.some(function(m) {
               return typeof m != "string";
             })))
-              return t(a, e(h)), !1;
+              return t(a, e(p)), !1;
             break;
           case "shared":
-            if ((!Array.isArray(p) || p.some(function(m) {
+            if ((!Array.isArray(h) || h.some(function(m) {
               return typeof m != "string";
-            })) && p !== "owners" && typeof p != "boolean")
-              return t(a, e(h)), !1;
+            })) && h !== "owners" && typeof h != "boolean")
+              return t(a, e(p)), !1;
             break;
           default:
-            if (!Jn.id[h])
-              return console.error("customIntegration does not support key ".concat(h)), !1;
+            if (!Jn.id[p])
+              return console.error("customIntegration does not support key ".concat(p)), !1;
         }
       }
     }
@@ -6349,8 +6349,8 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
     if (typeof u == "function")
       Ji(u, this, t);
     else
-      for (var h = u.length, p = Ya(u, h), r = 0; r < h; ++r)
-        Ji(p[r], this, t);
+      for (var p = u.length, h = Ya(u, p), r = 0; r < p; ++r)
+        Ji(h[r], this, t);
     return !0;
   };
   function Fa(n, e, t, r) {
@@ -6568,8 +6568,8 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
         const t = this.abortControllers.get(e);
         t && (t.abort(), this.abortControllers.delete(e));
       });
-      D(this, "request", async ({ body: e, secure: t, path: r, type: i, query: a, format: s, baseUrl: l, cancelToken: u, ...h }) => {
-        const p = (typeof t == "boolean" ? t : this.baseApiParams.secure) && this.securityWorker && await this.securityWorker(this.securityData) || {}, m = this.mergeRequestParams(h, p), y = a && this.toQueryString(a), S = this.contentFormatters[i || G.Json], b = s || m.format;
+      D(this, "request", async ({ body: e, secure: t, path: r, type: i, query: a, format: s, baseUrl: l, cancelToken: u, ...p }) => {
+        const h = (typeof t == "boolean" ? t : this.baseApiParams.secure) && this.securityWorker && await this.securityWorker(this.securityData) || {}, m = this.mergeRequestParams(p, h), y = a && this.toQueryString(a), S = this.contentFormatters[i || G.Json], b = s || m.format;
         return this.customFetch(`${l || this.baseUrl || ""}${r}${y ? `?${y}` : ""}`, {
           ...m,
           headers: {
@@ -7178,8 +7178,8 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
         }), this.call.on("camera-error", (s) => {
           this.emit("error", s);
         }), this.call.on("track-started", async (s) => {
-          var l, u, h;
-          !s || !s.participant || (l = s.participant) != null && l.local || s.track.kind === "audio" && (await Sl(s.track, s.participant.session_id), ((u = s == null ? void 0 : s.participant) == null ? void 0 : u.user_name) === "Vapi Speaker" && ((h = this.call) == null || h.sendAppMessage("playable")));
+          var l, u, p;
+          !s || !s.participant || (l = s.participant) != null && l.local || s.track.kind === "audio" && (await Sl(s.track, s.participant.session_id), ((u = s == null ? void 0 : s.participant) == null ? void 0 : u.user_name) === "Vapi Speaker" && ((p = this.call) == null || p.sendAppMessage("playable")));
         }), this.call.on("participant-joined", (s) => {
           !s || !this.call || El(s, this.call);
         }), await this.call.join({
@@ -7324,7 +7324,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
     position: a,
     offset: s
   }) => {
-    const l = parseInt(r) / 2, u = parseInt(i) / 2, h = {
+    const l = parseInt(r) / 2, u = parseInt(i) / 2, p = {
       "bottom-right": `bottom: ${s}; right: ${s};`,
       "bottom-left": `bottom: ${s}; left: ${s};`,
       "top-right": `top: ${s}; right: ${s};`,
@@ -7333,8 +7333,8 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
       right: `top: 50%; right: ${s}; margin-top: -${u}px;`,
       left: `top: 50%; left: ${s}; margin-top: -${u}px;`,
       top: `top: ${s}; left: 50%; margin-left: -${l}px;`
-    }, p = document.createElement("style");
-    p.innerText = `
+    }, h = document.createElement("style");
+    h.innerText = `
     @keyframes bounce {
       30% {
         transform: translateY(0%);
@@ -7371,7 +7371,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
       position: absolute;
       padding: 0;
       animation: bounce 2s ease-in-out infinite;
-      ${h[a]}
+      ${p[a]}
     }
     .vapi-btn-round {
       justify-content: center;
@@ -7449,12 +7449,12 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
     }
   `;
     for (let m = 0; m <= 10; m++)
-      p.innerText += `
+      h.innerText += `
       .vapi-btn-volume-${m} {
         box-shadow: 1px 1px ${5 + m * 2}px ${m * 2}px ${t.color}, inset 0px 0px 10px 0px rgba(0,0,0,0.1);
       }
     `;
-    document.head.appendChild(p);
+    document.head.appendChild(h);
   }, Ol = ({
     position: n = "bottom",
     offset: e = "40px",
@@ -7490,45 +7490,44 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
       }
     }
   };
-  function Pl(n, e, t, r = {}, i) {
-    let a = !1;
-    const s = () => {
-      i(e, "loading"), a ? (n.stop(), a = !1) : (n.start(t, r), a = !0);
+  function Pl(n, e, t, r = {}, i, a) {
+    let s = !1;
+    const l = () => {
+      a(e, "loading"), s ? (n.stop(), s = !1) : (n.start(t, r, i), s = !0);
     };
     n.on("call-start", () => {
-      i(e, "active");
+      a(e, "active");
     }), n.on("call-end", () => {
-      i(e, "idle");
+      a(e, "idle");
     }), n.on("speech-start", () => {
       e.classList.add("vapi-btn-is-speaking");
     }), n.on("speech-end", () => {
       e.classList.remove("vapi-btn-is-speaking");
-    }), e.addEventListener("click", s), n.on("volume-level", (l) => {
-      const u = Math.floor(l * 10);
+    }), e.addEventListener("click", l), n.on("volume-level", (u) => {
+      const p = Math.floor(u * 10);
       for (let h = 0; h <= 10; h++)
         e.classList.remove(`vapi-btn-volume-${h}`);
-      e.classList.add(`vapi-btn-volume-${u}`);
+      e.classList.add(`vapi-btn-volume-${p}`);
     });
   }
   const Dl = ({
     apiKey: n = "",
     assistant: e = Ml(),
     assistantOverrides: t = {},
-    config: r = {}
-    // position = "bottom",
-    // color = `rgb(93, 254, 202)`,
-    // offset = "40px",
+    squad: r,
+    config: i = {},
+    ...a
   }) => {
-    function i(l, u) {
-      const h = { ...l };
-      return Object.keys(u).forEach((p) => {
-        typeof u[p] == "object" && u[p] !== null && !Array.isArray(u[p]) ? h[p] = i(
-          l[p] || {},
-          u[p]
-        ) : h[p] = u[p];
-      }), h;
+    function s(p, h) {
+      const m = { ...p };
+      return Object.keys(h).forEach((y) => {
+        typeof h[y] == "object" && h[y] !== null && !Array.isArray(h[y]) ? m[y] = s(
+          p[y] || {},
+          h[y]
+        ) : m[y] = h[y];
+      }), m;
     }
-    const s = i({
+    const u = s({
       position: "bottom",
       offset: "40px",
       width: "50px",
@@ -7554,10 +7553,10 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
         subtitle: "End the call.",
         icon: "https://unpkg.com/lucide-static@0.321.0/icons/phone-off.svg"
       }
-    }, r);
+    }, i);
     if (n && e) {
-      const l = new Cl(n), u = Ol(s), h = Ll(s);
-      return document.body.appendChild(u), h(u, "idle"), Pl(l, u, e, t, h), window.vapiSDK.vapi = l, l;
+      const p = new Cl(n), h = Ol(u), m = Ll(u);
+      return document.body.appendChild(h), m(h, "idle"), Pl(p, h, e, t, r, m), window.vapiSDK.vapi = p, p;
     } else
       return console.error(
         "API Key and Assistant Configurations are required. are required"

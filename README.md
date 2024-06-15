@@ -60,6 +60,59 @@ const assistant = {
 };
 ```
 
+You can also create squad using the assistant to handle complex workflows and tasks. For example. 
+
+```js
+
+const squad = {
+  "squad": {
+    "members": [
+      {
+        "assistantId": "information-gathering-assistant-id",
+        "assistantDestinations": [{
+          "type": "assistant",
+          "assistantName": "Appointment Booking",
+          "message": "Please hold on while I transfer you to our appointment booking assistant.",
+          "description": "Transfer the user to the appointment booking assistant after they say their name."
+        }],
+      },
+      {
+        "assistant": {
+          "name": "Appointment Booking",
+        },
+      }
+    ]
+  }
+}
+
+(function (d, t) {
+    var g = document.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    g.src =
+      "https://cdn.jsdelivr.net/gh/VapiAI/html-script-tag@latest/dist/assets/index.js";
+    g.defer = true;
+    g.async = true;
+    s.parentNode.insertBefore(g, s);
+
+    g.onload = function () {
+      const vapi = window.vapiSDK.run({
+        apiKey: "", // required Use your Public Key
+        squad: squad, // You can pass in squad as an option to create squad.
+        config: buttonConfig // optional
+      });
+
+      if(vapi) {
+        // Extend more using vapi
+
+      }
+    };
+  })(document, "script");
+
+
+
+```
+
+
 You can also customise the look and feel of your Vapi Support Button using the following configurations.
 The button will have 3 states, `idle`, `loading` and `active`.
 
