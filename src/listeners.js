@@ -1,6 +1,7 @@
 export function defaultListeners(vapi, button, assistant, assistantOverrides, squad, buttonStateHandler) {
   let isActiveCall = false;
 
+
   const toggleCall = () => {
     buttonStateHandler(button, "loading");
     if (isActiveCall) {

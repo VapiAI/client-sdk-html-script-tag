@@ -6,8 +6,8 @@ settings:
 
 dependencies:
   '@vapi-ai/web':
-    specifier: 1.1.7
-    version: 1.1.7
+    specifier: 1.4.2
+    version: 1.4.2
 
 devDependencies:
   vite:
@@ -23,8 +23,8 @@ packages:
       regenerator-runtime: 0.14.1
     dev: false
 
-  /@daily-co/daily-js@0.58.0:
-    resolution: {integrity: sha512-gKY6fFmF6zxadRq5mXREekKViODiq9aqxfyWJ/SxIDLDp26tV/LLMAMsfv5Y5PqMmtOy5NEf9G1I6/lUWq1XtA==}
+  /@daily-co/daily-js@0.66.0:
+    resolution: {integrity: sha512-TkfOEs99nLOqWCuF3XgdZ+xrsP+lUXjINAfENjsly98x3o7gmMzQ+bWVx6pkozUkDqu3yhXI0oIHHB0CwX/RsA==}
     engines: {node: '>=10.0.0'}
     dependencies:
       '@babel/runtime': 7.23.9
@@ -431,10 +431,10 @@ packages:
     resolution: {integrity: sha512-/kYRxGDLWzHOB7q+wtSUQlFrtcdUccpfy+X+9iMBpHK8QLLhx2wIPYuS5DYtR9Wa/YlZAbIovy7qVdB1Aq6Lyw==}
     dev: true
 
-  /@vapi-ai/web@1.1.7:
-    resolution: {integrity: sha512-fP9S6uVPLCr0lvK+18DBQYDCTcQFUxm79fZ785sh8FfQRT3j2iFgQJILf38I476OWXDcC+heWmTKaGvuseiI4A==}
+  /@vapi-ai/web@1.4.2:
+    resolution: {integrity: sha512-HRwN5j0br7FMBOyIfZHC4JOj0XDc/jXy2VWvinU5OZTeUJocnmQcVLgUjWwYEWt8XQSw94gIJ2U/qPOm5def8w==}
     dependencies:
-      '@daily-co/daily-js': 0.58.0
+      '@daily-co/daily-js': 0.66.0
       events: 3.3.0
     dev: false
 

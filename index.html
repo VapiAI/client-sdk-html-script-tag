@@ -63,8 +63,10 @@
       (function (d, t) {
         var g = document.createElement(t),
           s = d.getElementsByTagName(t)[0];
-        g.src =
-          "https://cdn.jsdelivr.net/gh/VapiAI/html-script-tag@latest/dist/assets/index.js";
+        g.src = 
+          "https://cdn.jsdelivr.net/gh/VapiAI/html-script-tag@1.1.6/dist/assets/index.js";
+        // g.src = './src/index.js'
+        // g.type = "module";
         g.defer = true;
         g.async = true;
         s.parentNode.insertBefore(g, s);
@@ -72,6 +74,7 @@
         g.onload = function () {
           const vapi = window.vapiSDK.run({
             apiKey: apiKey, // required
+            // squad: 'e49a15d9-f6dc-4010-a05a-611adbfb3aaa', 
             assistant: assistant, // required
             assistantOverrides: assistantOverrides, // optional
             config: buttonConfig, // optional
