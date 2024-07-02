@@ -1,12 +1,11 @@
 import Vapi from "@vapi-ai/web";
-import defaultAssistant from "./assistant";
 import { createButtonElement, createButtonStateHandler } from "./button";
 import { defaultListeners } from "./listeners";
 
 const runSDK = ({
   apiKey = "",
-  assistant = defaultAssistant(),
-  assistantOverrides = {},
+  assistant,  
+  assistantOverrides,
   squad,
   config = {},
   ...restOptions 
@@ -58,7 +57,7 @@ const runSDK = ({
     },
   };
   const buttonConfig = deepMerge(defaultConfig, config);
-  if (apiKey && assistant) {
+  if (apiKey && (assistant || squad)) {
     const vapi = new Vapi(apiKey);
     const buttonElement = createButtonElement(buttonConfig);
 
