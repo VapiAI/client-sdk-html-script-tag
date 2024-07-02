@@ -7697,7 +7697,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
   function Al(n, e, t, r, i, s) {
     let c = !1;
     const l = () => {
-      s(e, "loading"), c ? (n.stop(), c = !1) : (n.start(t, r, i), c = !0);
+      s(e, "loading"), c ? (n.stop(), c = !1) : (t || r ? n.start(t, r) : (console.log("squad ,", i, t, r), n.start(void 0, void 0, i)), c = !0);
     };
     n.on("call-start", () => {
       s(e, "active");

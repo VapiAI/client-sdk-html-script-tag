@@ -8,7 +8,12 @@ export function defaultListeners(vapi, button, assistant, assistantOverrides, sq
       vapi.stop();
       isActiveCall = false;
     } else {
-      vapi.start(assistant, assistantOverrides, squad);
+      if(assistant || assistantOverrides) {
+        vapi.start(assistant, assistantOverrides);
+      } else {
+        console.log('squad ,', squad, assistant, assistantOverrides)
+        vapi.start(undefined, undefined, squad)
+      }
       isActiveCall = true;
     }
   };
