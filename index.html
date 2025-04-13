@@ -25,8 +25,8 @@
       var vapiInstance = null;
 
       const assistantOverrides = {
-        "firstMessage": "How may I assist you?"
-      } // Assistant Overrides Let u override some of the assistant Configurations. This can be used alongside assistantId
+        firstMessage: "How may I assist you?",
+      }; // Assistant Overrides Let u override some of the assistant Configurations. This can be used alongside assistantId
 
       const buttonConfig = {
         position: "bottom-right", // "bottom" | "top" | "left" | "right" | "top-right" | "top-left" | "bottom-left" | "bottom-right"
@@ -63,8 +63,8 @@
       (function (d, t) {
         var g = document.createElement(t),
           s = d.getElementsByTagName(t)[0];
-        g.src = 
-          "https://cdn.jsdelivr.net/gh/VapiAI/html-script-tag@1.1.6/dist/assets/index.js";
+        g.src =
+          "https://cdn.jsdelivr.net/gh/VapiAI/html-script-tag@latest/dist/assets/index.js";
         // g.src = './src/index.js'
         // g.type = "module";
         g.defer = true;
@@ -74,7 +74,7 @@
         g.onload = function () {
           const vapi = window.vapiSDK.run({
             apiKey: apiKey, // required
-            // squad: 'e49a15d9-f6dc-4010-a05a-611adbfb3aaa', 
+            // squad: 'e49a15d9-f6dc-4010-a05a-611adbfb3aaa',
             assistant: assistant, // required
             assistantOverrides: assistantOverrides, // optional
             config: buttonConfig, // optional
