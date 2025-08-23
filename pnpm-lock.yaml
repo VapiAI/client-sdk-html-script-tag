@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@vapi-ai/web':
-        specifier: 2.2.5
-        version: 2.2.5
+        specifier: 2.3.9
+        version: 2.3.9
     devDependencies:
       vite:
         specifier: ^5.0.8
@@ -22,8 +22,8 @@ packages:
     resolution: {integrity: sha512-VtPOkrdPHZsKc/clNqyi9WUA8TINkZ4cGk63UUE3u4pmB2k+ZMQRDuIOagv8UVd6j7k0T3+RRIb7beKTebNbcw==}
     engines: {node: '>=6.9.0'}
 
-  '@daily-co/daily-js@0.75.2':
-    resolution: {integrity: sha512-uqHpKQUpK7Ldx2FxT5gYFDDPvGaVANggHEEzShfaqZKOiSLL0aWMImfpsKjVOe6V0R4eNeZ1fTQ9B9owr5qo7w==}
+  '@daily-co/daily-js@0.80.0':
+    resolution: {integrity: sha512-zG2NBbKbHfm56P0lg4ddC94vBtn5AQKcgvbYrO5+ohNWPSolMqlJiYxQC9uhOHfFYRhH4ELKQ6NHqGatX9VD7A==}
     engines: {node: '>=10.0.0'}
 
   '@esbuild/aix-ppc64@0.21.5':
@@ -291,8 +291,9 @@ packages:
   '@types/estree@1.0.7':
     resolution: {integrity: sha512-w28IoSUCJpidD/TGviZwwMJckNESJZXFu7NBZ5YJ4mEUnNraUn9Pm8HSZm/jDF1pDWYKspWE7oVphigUPRakIQ==}
 
-  '@vapi-ai/web@2.2.5':
-    resolution: {integrity: sha512-KaBVPEr9m054QFj4570HWOMJYgUB86evBWR2Yc5PN63lers1x3TFlSJCKQO5Qeoif0tJ4t5AVRrfF9KlUaz3Sg==}
+  '@vapi-ai/web@2.3.9':
+    resolution: {integrity: sha512-Xx85DGuZd8dyCXsBmI09EwLXZIX+PyoYLayADOCRrnkwP+pilbY0gpEdZX4GjxlfYwo3GjqCx6zAeHq6+eUtjw==}
+    engines: {node: '>=18.0.0'}
 
   bowser@2.11.0:
     resolution: {integrity: sha512-AlcaJBi/pqqJBIQ8U9Mcpc9i8Aqxn88Skv5d+xBX006BY5u8N3mGLHa5Lgppa7L/HfwgwLgZ6NYs+Ag6uUmJRA==}
@@ -376,7 +377,7 @@ snapshots:
     dependencies:
       regenerator-runtime: 0.14.1
 
-  '@daily-co/daily-js@0.75.2':
+  '@daily-co/daily-js@0.80.0':
     dependencies:
       '@babel/runtime': 7.27.0
       '@sentry/browser': 8.55.0
@@ -543,9 +544,9 @@ snapshots:
 
   '@types/estree@1.0.7': {}
 
-  '@vapi-ai/web@2.2.5':
+  '@vapi-ai/web@2.3.9':
     dependencies:
-      '@daily-co/daily-js': 0.75.2
+      '@daily-co/daily-js': 0.80.0
       events: 3.3.0
 
   bowser@2.11.0: {}
