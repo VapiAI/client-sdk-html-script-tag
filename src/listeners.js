@@ -22,9 +22,14 @@ export function defaultListeners(vapi, button, assistant, assistantOverrides, sq
     buttonStateHandler(button, "active");
   });
 
-  vapi.on("call-end", () => {
+  const resetCall = () => {
+    isActiveCall = false;
     buttonStateHandler(button, "idle");
-  });
+  };
+
+  vapi.on("call-end", resetCall);
+  vapi.on("call-start-failed", resetCall);
+  vapi.on("error", resetCall);
 
   vapi.on("speech-start", () => {
     button.classList.add("vapi-btn-is-speaking");
